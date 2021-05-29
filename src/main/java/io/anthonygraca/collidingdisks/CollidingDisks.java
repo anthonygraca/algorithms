@@ -8,7 +8,7 @@
  * 
  ******************************************************************************/
 
-package io.anthonygraca;
+package io.anthonygraca.collidingdisks;
 
 import edu.princeton.cs.algs4.CollisionSystem;
 import edu.princeton.cs.algs4.Particle;
