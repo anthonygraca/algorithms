@@ -25,7 +25,25 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/edu.princeton.cs/algs4 -->
+    <dependency>
+        <groupId>edu.princeton.cs</groupId>
+        <artifactId>algs4</artifactId>
+        <version>1.0.4</version>
+    </dependency>
   </dependencies>
+
+  <repositories>
+      <repository>
+          <snapshots>
+              <enabled>false</enabled>
+          </snapshots>
+          <id>bintray-algs4-maven</id>
+          <name>bintray</name>
+          <url>https://dl.bintray.com/algs4/maven</url>
+      </repository>
+  </repositories>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
