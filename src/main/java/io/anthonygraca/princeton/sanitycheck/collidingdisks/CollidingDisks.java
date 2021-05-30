@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac-algs4 CollidingDisks.java
- *  Execution:    java-algs4 CollidingDisks n
+ *  Compilation:  mvn package
+ *  Execution:    java -jar colliding-disks.jar n
  *  
  *  Simulates the motion of n hard disks, subject to the laws of elastic
  *  collisions. This program is intended to test that algs4.jar is properly
@@ -8,7 +8,7 @@
  * 
  ******************************************************************************/
 
-package io.anthonygraca.collidingdisks;
+package io.anthonygraca.princeton.sanitycheck.collidingdisks;
 
 import edu.princeton.cs.algs4.CollisionSystem;
 import edu.princeton.cs.algs4.Particle;
