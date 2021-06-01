@@ -24,10 +24,10 @@ preventing Maven from easily pulling an already created algs4.jar
 ## Table of Contents
 ### Chapter 1. Fundamentals
 [Union Find](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) \
-Binary Search \
-Stacks \
-Queues \
-Bags 
+[Binary Search](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/BinarySearch.java) \
+[Stacks](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Stack.java) \
+[Queues](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Queue.java) \
+[Bags](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Bag.java)
 ### Chapter 2. Sorting
 Insertion Sort \
 Selection Sort \
@@ -68,6 +68,9 @@ LZW Compression \
 Burrows−Wheeler Transform
 ### Chapter 6. Context
 Networking: Ford-Fulkerson
+
+## Coursera Assignments
+[1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation) \
 
 ## Resources Used
 ### Java
