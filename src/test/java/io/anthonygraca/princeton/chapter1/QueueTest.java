@@ -30,4 +30,13 @@ public class QueueTest {
       assertTrue(true);
     }
   }
+
+  @Test
+  public void withinBoundConstructorTest(){
+    Queue queue1 = new Queue(1);
+    Queue queue2 = new Queue(10);
+    Queue queue3 = new Queue(100);
+    Queue queue4 = new Queue(1000);
+    Queue queue5 = new Queue(10000);
+  }
 }
