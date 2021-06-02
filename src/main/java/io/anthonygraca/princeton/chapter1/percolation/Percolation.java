@@ -6,7 +6,7 @@ public class Percolation {
   /*
    * Union-Find Data Type that keeps track of how many disjoint sets we have.
    */
-  final private WeightedQuickUnionUF unionFind;
+  private final WeightedQuickUnionUF unionFind;
 
   /*
    * Array of boolean types that keep track of which sites are open. All sites
@@ -17,17 +17,17 @@ public class Percolation {
   /*
    * virtualTopSite is a set that allows us to verify all open top sites
    */
-  final private int virtualTopSite;
+  private final int virtualTopSite;
 
   /*
    * virtualBottomSite is a set that allows us to verify all open bottom sites
    */
-  final private int virtualBottomSite;
+  private final int virtualBottomSite;
 
   /*
    * gridSize represents n on an n-by-n grid
    */
-  final private int gridSize;
+  private final int gridSize;
 
   // creates n-by-n grid, with all sites initially blocked
   public Percolation(int n) {
