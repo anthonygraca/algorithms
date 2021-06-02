@@ -10,4 +10,24 @@ public class QueueTest {
     Queue queue = new Queue();
     assertTrue( true );
   }
+  
+  @Test
+  public void lowerBoundConstructorTest(){
+    try{
+      Queue queue = new Queue(-1);
+    }
+    catch(IllegalStateException e){
+      assertTrue(true);
+    }
+  }
+
+  @Test
+  public void upperBoundConstructorTest(){
+    try{
+      Queue queue = new Queue(100000);
+    }
+    catch(IllegalStateException e){
+      assertTrue(true);
+    }
+  }
 }
