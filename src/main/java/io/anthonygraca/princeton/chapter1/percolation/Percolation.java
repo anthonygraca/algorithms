@@ -6,7 +6,7 @@ public class Percolation {
   /*
    * Union-Find Data Type that keeps track of how many disjoint sets we have.
    */
-  private WeightedQuickUnionUF union_find;
+  final private WeightedQuickUnionUF unionFind;
 
   /*
    * Array of boolean types that keep track of which sites are open. All sites
@@ -15,38 +15,38 @@ public class Percolation {
   private boolean[] sites;
 
   /*
-   * virtual_top_site is a set that allows us to verify all open top sites
+   * virtualTopSite is a set that allows us to verify all open top sites
    */
-  private int virtual_top_site = -1;
+  final private int virtualTopSite;
 
   /*
-   * virtual_bottom_site is a set that allows us to verify all open bottom sites
+   * virtualBottomSite is a set that allows us to verify all open bottom sites
    */
-  private int virtual_bottom_site = -1;
+  final private int virtualBottomSite;
 
   /*
-   * grid_size represents n on an n-by-n grid
+   * gridSize represents n on an n-by-n grid
    */
-  private int grid_size = -1;
+  final private int gridSize;
 
   // creates n-by-n grid, with all sites initially blocked
   public Percolation(int n) {
     if (n <= 0) {
       throw new IndexOutOfBoundsException("grid must be non-zero");
     }
-    grid_size = n;
+    gridSize = n;
     sites = new boolean[n*n];
     // plus two to allow for our two virtual sites as added sets
-    union_find = new WeightedQuickUnionUF(n*n+2);
+    unionFind = new WeightedQuickUnionUF(n*n+2);
     // n*n and n*n+1 are both values outside of the grid so we pick those for
     // the virtual sets
-    virtual_top_site = n*n;
-    virtual_bottom_site = n*n+1;
+    virtualTopSite = n*n;
+    virtualBottomSite = n*n+1;
   }
 
   // opens the site (row, col) if it is not open already
   public void open(int row, int col) {
-    if (row <= 0 || col <= 0 || row > grid_size || col > grid_size) {
+    if (row <= 0 || col <= 0 || row > gridSize || col > gridSize) {
       throw new IndexOutOfBoundsException("input must be greater than 0 and within given size");
     }
     checkSpecialCases(row, col);
@@ -62,13 +62,13 @@ public class Percolation {
   // If we have an open top site, union with out virtual site
   private void checkAndUnionOpenTopRowSite(int row, int col) {
     if (row == 1) {
-      union_find.union(virtual_top_site, getSiteIndex(row, col));
+      unionFind.union(virtualTopSite, getSiteIndex(row, col));
     }
   }
   // If we have an open bottom site, union with out virtual site
   private void checkAndUnionOpenBottomRowSite(int row, int col) {
-    if (row == grid_size) {
-      union_find.union(virtual_bottom_site, getSiteIndex(row, col));
+    if (row == gridSize) {
+      unionFind.union(virtualBottomSite, getSiteIndex(row, col));
     }
   }
 
@@ -76,16 +76,16 @@ public class Percolation {
   // them
   private void unionOpenNeighbors(int row, int col) {
     if (isTopNeighborOpen(row, col)) {
-      union_find.union(getSiteIndex(row - 1, col), getSiteIndex(row, col));
+      unionFind.union(getSiteIndex(row - 1, col), getSiteIndex(row, col));
     }
     if (isBottomNeighborOpen(row, col)) {
-      union_find.union(getSiteIndex(row + 1, col), getSiteIndex(row, col));
+      unionFind.union(getSiteIndex(row + 1, col), getSiteIndex(row, col));
     }
     if (isLeftNeighborOpen(row, col)) {
-      union_find.union(getSiteIndex(row, col - 1), getSiteIndex(row, col));
+      unionFind.union(getSiteIndex(row, col - 1), getSiteIndex(row, col));
     }
     if (isRightNeighborOpen(row, col)) {
-      union_find.union(getSiteIndex(row, col + 1), getSiteIndex(row, col));
+      unionFind.union(getSiteIndex(row, col + 1), getSiteIndex(row, col));
     }
   }
 
@@ -96,14 +96,14 @@ public class Percolation {
 
   // is the site (row, col) full?
   public boolean isFull(int row, int col) {
-    return union_find.find(getSiteIndex(row, col)) == union_find.find(virtual_top_site);
+    return unionFind.find(getSiteIndex(row, col)) == unionFind.find(virtualTopSite);
   }
 
   // returns the number of open sites
   public int numberOfOpenSites() {
     int count = 0;
     for (int i = 0; i < sites.length; i++) {
-      if (sites[i] == true) {
+      if (sites[i]) {
         count++;
       }
     }
@@ -112,7 +112,7 @@ public class Percolation {
 
   // does the system percolate?
   public boolean percolates() {
-    return union_find.find(virtual_top_site) == union_find.find(virtual_bottom_site);
+    return unionFind.find(virtualTopSite) == unionFind.find(virtualBottomSite);
   }
 
   // Checks if top neighbor is open
@@ -125,7 +125,7 @@ public class Percolation {
 
   // Checks if bottom neighbor is open
   protected boolean isBottomNeighborOpen(int row, int col) {
-    if (row + 1 > grid_size) {
+    if (row + 1 > gridSize) {
       return false;
     }
     return sites[getSiteIndex(row + 1, col)];
@@ -141,7 +141,7 @@ public class Percolation {
 
   // Checks if right neighbor is open
   protected boolean isRightNeighborOpen(int row, int col) {
-    if (col + 1 > grid_size) {
+    if (col + 1 > gridSize) {
       return false;
     }
     return sites[getSiteIndex(row, col + 1)];
@@ -149,6 +149,6 @@ public class Percolation {
 
   // Converts row and col to single array index representation
   private int getSiteIndex(int row, int col) {
-    return grid_size * (row - 1) + col - 1;
+    return gridSize * (row - 1) + col - 1;
   }
 }
