@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class ArrayQueueTest {
+public class QueueTest {
   /*
    * These test the functionality of the constructors
    */

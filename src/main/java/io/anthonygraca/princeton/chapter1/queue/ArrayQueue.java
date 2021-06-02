@@ -3,7 +3,7 @@ package io.anthonygraca.princeton.chapter1;
 /*
  * An array-based implementation of a queue
  */
-public class Queue<T> {
+public class ArrayQueue<T> implements Queue<T> {
   private T[] queue;
   private int front;
   private int back;
@@ -14,7 +14,7 @@ public class Queue<T> {
   /**
    * Default constructor for Queue
    */
-  public Queue(){
+  public ArrayQueue(){
     this(DEFAULT_CAPACITY);
   }
 
@@ -22,7 +22,7 @@ public class Queue<T> {
    * Constructor that creates a queue based on the given capacity
    * @param capacity  the capacity of the queue being created
    */
-  public Queue(int capacity){
+  public ArrayQueue(int capacity){
     checkCapacity(capacity);
 
     // java garbage to enable usage of generic arrays
@@ -65,7 +65,7 @@ public class Queue<T> {
    * Checks the front of the queue
    * @return the object at the front of the queue
    */
-  public T peek(){
+  public T getFront(){
     return null;
   }
 
