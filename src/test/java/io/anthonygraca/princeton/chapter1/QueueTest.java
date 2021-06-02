@@ -4,20 +4,20 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class QueueTest {
+public class ArrayQueueTest {
   /*
    * These test the functionality of the constructors
    */
   @Test
   public void defaultConstructor() {
-    Queue queue = new Queue();
+    ArrayQueue queue = new ArrayQueue();
     assertTrue( true );
   }
   
   @Test
   public void lowerBoundConstructor(){
     try{
-      Queue queue = new Queue(-1);
+      ArrayQueue queue = new ArrayQueue(-1);
     }
     catch(IllegalStateException e){
       assertTrue(true);
@@ -27,7 +27,7 @@ public class QueueTest {
   @Test
   public void upperBoundConstructor(){
     try{
-      Queue queue = new Queue(100000);
+      ArrayQueue queue = new ArrayQueue(100000);
     }
     catch(IllegalStateException e){
       assertTrue(true);
@@ -37,11 +37,11 @@ public class QueueTest {
   @Test
   public void withinBoundConstructor(){
     try{
-      Queue queue1 = new Queue(1);      // exact lower bound
-      Queue queue2 = new Queue(10);
-      Queue queue3 = new Queue(100);
-      Queue queue4 = new Queue(1000);
-      Queue queue5 = new Queue(10000);  // exact upper bound
+      ArrayQueue queue1 = new ArrayQueue(1);      // exact lower bound
+      ArrayQueue queue2 = new ArrayQueue(10);
+      ArrayQueue queue3 = new ArrayQueue(100);
+      ArrayQueue queue4 = new ArrayQueue(1000);
+      ArrayQueue queue5 = new ArrayQueue(10000);  // exact upper bound
     }
     catch(Exception e){
       assertTrue(false);
