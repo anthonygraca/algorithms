@@ -15,6 +15,7 @@ public class Deque<Item> {
   }
 
   public void addFirst(Item item) {
+    checkNotNull(item);
     mSize++;
   }
 
@@ -40,5 +41,10 @@ public class Deque<Item> {
     }
   }
 
+  private void checkNotNull(Item item) {
+    if (item == null) {
+      throw new IllegalArgumentException("Cannot add null objects");
+    }
+  }
 }
 

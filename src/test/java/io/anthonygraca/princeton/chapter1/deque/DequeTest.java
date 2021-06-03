@@ -68,6 +68,19 @@ public class DequeTest {
     deque.removeLast();
   }
 
+  @Test(expected=IllegalArgumentException.class)
+  public void addFirstWithNullIsInvalid() {
+    Deque deque = new Deque();
+    deque.addFirst(null);
+    deque.removeFirst();
+    assertTrue(deque.isEmpty());
+  }
+
+  /*
+   * Test list:
+   * see if item removed is the same
+   */
+
   public class Item {}
 }
 
