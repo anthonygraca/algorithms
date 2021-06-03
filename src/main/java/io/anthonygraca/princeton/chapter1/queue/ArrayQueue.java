@@ -55,7 +55,7 @@ public class ArrayQueue<T> implements Queue<T> {
       doubleCapacity();
     }
     else{
-      // update back index, then place object
+      // update back index, then place object at the back of the queue
       back = (back + 1) % queue.length;
       queue[back] = item;
     }
@@ -65,11 +65,12 @@ public class ArrayQueue<T> implements Queue<T> {
    * Doubles the capacity of the queue
    */
   private void doubleCapacity(){
+    // determine if the new capacity is valid
     int capacity = queue.length - OFFSET;
     checkCapacity(capacity * 2);
     capacity *= 2;
 
-    // java garbage to enable usage of generic arrays
+    // create a copy with the updated capacity
     queue = copy(queue, capacity);
     front = 0;
     back = capacity;
@@ -78,6 +79,7 @@ public class ArrayQueue<T> implements Queue<T> {
   /**
    * Copies the contents of a queue onto another
    * @param original  the queue that is being copied
+   * @return  the auxilliary queue with double the capacity and the original contents copied over
    */
   private T[] copy(T[] original, int newCapacity){
     @SuppressWarnings("unchecked")
