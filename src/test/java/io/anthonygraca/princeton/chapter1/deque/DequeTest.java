@@ -52,6 +52,22 @@ public class DequeTest {
     deque.removeFirst();
   }
 
+  @Test
+  public void removeLastItem() {
+    Deque deque = new Deque();
+    Item item = new Item();
+    deque.addLast(item);
+    deque.removeLast();
+    assertTrue(deque.isEmpty());
+  }
+
+  @Test(expected=NoSuchElementException.class)
+  public void removeLastItemWithoutAdd() {
+    Deque deque = new Deque();
+    Item item = new Item();
+    deque.removeLast();
+  }
+
   public class Item {}
 }
 

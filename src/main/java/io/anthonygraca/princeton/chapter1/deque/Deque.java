@@ -23,11 +23,21 @@ public class Deque<Item> {
   }
 
   public Item removeFirst() {
+    checkHasItems();
+    mSize--;
+    return (Item) new Object();
+  }
+
+  public Item removeLast() {
+    checkHasItems();
+    mSize--;
+    return (Item) new Object();
+  }
+
+  private void checkHasItems() {
     if (isEmpty()) {
       throw new NoSuchElementException("Deque is empty. Cannot remove");
     }
-    mSize--;
-    return (Item) new Object();
   }
 
 }
