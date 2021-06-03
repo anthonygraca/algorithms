@@ -96,7 +96,7 @@
             </execution>
             <!-- Builds Chapter1.java -->
             <execution>
-              <id>build-four</id>
+              <id>build-percolation</id>
               <phase>package</phase>
               <goals>
                  <goal>shade</goal>

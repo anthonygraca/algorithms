@@ -26,8 +26,9 @@ preventing Maven from easily pulling an already created algs4.jar
 [Binary Search](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/BinarySearch.java) \
 [Stacks](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Stack.java) \
 [Queues](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Queue.java) \
-[Bags](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Bag.java)
-[Union Find](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) \
+[Bags](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Bag.java) \
+[Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) \
+[Union Find](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java)
 ### Chapter 2. Sorting
 Insertion Sort \
 Selection Sort \
@@ -70,7 +71,8 @@ Burrows−Wheeler Transform
 Networking: Ford-Fulkerson
 
 ## Coursera Assignments
-[1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation)
+[1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation) \
+[1.2 Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java)
 
 ## Resources Used
 ### Java
