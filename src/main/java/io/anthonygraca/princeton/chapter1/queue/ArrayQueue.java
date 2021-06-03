@@ -1,4 +1,5 @@
 package io.anthonygraca.princeton.chapter1;
+import java.util.NoSuchElementException;
 
 /*
  * An array-based implementation of a queue
@@ -71,23 +72,16 @@ public class ArrayQueue<T> implements Queue<T> {
     capacity *= 2;
 
     // create a copy with the updated capacity
-    queue = copy(queue, capacity);
-    front = 0;
-    back = capacity;
-  }
-
-  /**
-   * Copies the contents of a queue onto another
-   * @param original  the queue that is being copied
-   * @return  the auxilliary queue with double the capacity and the original contents copied over
-   */
-  private T[] copy(T[] original, int newCapacity){
+    int newBackIndex = 0;
     @SuppressWarnings("unchecked")
-    T[] tempQueue = (T[])new Object[newCapacity + OFFSET];
-    for (int i = 0; i < original.length; i++){
-      tempQueue[i] = original[front + i];
+    T[] tempQueue = (T[])new Object[capacity + OFFSET];
+    for (int i = 0; !isEmpty(); i++){
+      tempQueue[i] = dequeue();
+      newBackIndex = i;
     }
-    return tempQueue;
+    queue = tempQueue;
+    front = 0;
+    back = newBackIndex;
   }
 
   /**
@@ -95,7 +89,17 @@ public class ArrayQueue<T> implements Queue<T> {
    * @return The item that was removed from the queue
    */
   public T dequeue(){
-    return null;
+    T removedItem = null;
+    if (!isEmpty()){
+      // remove item, then increment front
+      removedItem = queue[front];
+      queue[front] = null;
+      front = (front + 1) % queue.length;
+    }
+    else{
+      throw new IllegalStateException("Cannot dequeue an empty queue");
+    }
+    return removedItem;
   }
 
   /**
@@ -104,7 +108,7 @@ public class ArrayQueue<T> implements Queue<T> {
    */
   public T getFront(){
     if (isEmpty()){
-      throw new IllegalStateException("Cannot read the contents of an empty queue");
+      throw new NoSuchElementException("Cannot read the contents of an empty queue");
     }
     else{
       return queue[front];
@@ -116,7 +120,7 @@ public class ArrayQueue<T> implements Queue<T> {
    * @return True if the queue is empty, false if not
    */
   public boolean isEmpty(){
-    return false;
+    return (back + 1) % queue.length == front;
   }
 
   /**

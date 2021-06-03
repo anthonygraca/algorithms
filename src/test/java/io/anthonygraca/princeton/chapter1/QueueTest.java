@@ -1,8 +1,8 @@
 package io.anthonygraca.princeton.chapter1;
 
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+import java.util.NoSuchElementException;
 
 public class QueueTest {
   /*
@@ -77,7 +77,7 @@ public class QueueTest {
         assertTrue(false);
       }
     }
-    catch(Exception e){
+    catch(NoSuchElementException e){
       assertTrue(false);
     }
   }
@@ -120,9 +120,10 @@ public class QueueTest {
   {
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     try{
-      String front = emptyQueue.getFront();
+      emptyQueue.getFront();
+      assertTrue(false);
     }
-    catch(IllegalStateException e){
+    catch(NoSuchElementException e){
       assertTrue(true);
     }
   }
@@ -144,5 +145,70 @@ public class QueueTest {
   public void getFrontOfOverflowedQueue(){
     // requires implemented enqueue and dequeue!
     assertTrue(true);
+  }
+
+  /*
+   * These test the functionality of the dequeue method
+   */
+  @Test
+  public void dequeueToEmpty(){
+    ArrayQueue<String> filledQueue = new ArrayQueue<>(1);
+    filledQueue.enqueue("A string");
+    if (filledQueue.dequeue().equals("A string") && filledQueue.isEmpty()){
+        assertTrue(true);
+    }
+    else{
+      assertTrue(false);
+    }
+  }
+
+  @Test
+  public void dequeueFailsForEmpty(){
+    ArrayQueue<String> emptyQueue = new ArrayQueue<>();
+    try{
+      emptyQueue.dequeue();
+      assertTrue(false);
+    }
+    catch(IllegalStateException e){
+      assertTrue(true);
+    }
+  }
+  /*
+   * These test the functionality of the isEmpty and isFull methods
+   */
+  @Test
+  public void emptyWhenDeclared(){
+    ArrayQueue<String> emptyQueue = new ArrayQueue<>();
+    if (emptyQueue.isEmpty()){
+      assertTrue(true);
+    }
+    else{
+      assertTrue(false);
+    }
+  }
+
+  @Test
+  public void emptyWhenDequeued(){
+    ArrayQueue<String> queue = new ArrayQueue<>();
+    queue.enqueue("A string");
+    queue.dequeue();
+    if (queue.isEmpty()){
+      assertTrue(true);
+    }
+    else{
+      assertTrue(false);
+    }
+  }
+
+  @Test
+  public void fullWhenFilled(){
+    ArrayQueue fullQueue = new ArrayQueue<>(1);
+    fullQueue.enqueue("A string");
+    if (fullQueue.isFull()){
+      assertTrue(true);
+    }
+    else{
+      assertTrue(false);
+    }
   }
 }
