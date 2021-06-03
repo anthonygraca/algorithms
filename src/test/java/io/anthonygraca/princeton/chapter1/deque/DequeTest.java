@@ -72,9 +72,16 @@ public class DequeTest {
   public void addFirstWithNullIsInvalid() {
     Deque deque = new Deque();
     deque.addFirst(null);
-    deque.removeFirst();
     assertTrue(deque.isEmpty());
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void addLastWithNullIsInvalid() {
+    Deque deque = new Deque();
+    deque.addLast(null);
+    assertTrue(deque.isEmpty());
+  }
+
 
   /*
    * Test list:

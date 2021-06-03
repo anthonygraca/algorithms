@@ -20,6 +20,7 @@ public class Deque<Item> {
   }
 
   public void addLast(Item item) {
+    checkNotNull(item);
     mSize++;
   }
 
@@ -35,16 +36,17 @@ public class Deque<Item> {
     return (Item) new Object();
   }
 
+  private void checkNotNull(Item item) {
+    if (item == null) {
+      throw new IllegalArgumentException("Cannot add null objects");
+    }
+  }
+
   private void checkHasItems() {
     if (isEmpty()) {
       throw new NoSuchElementException("Deque is empty. Cannot remove");
     }
   }
 
-  private void checkNotNull(Item item) {
-    if (item == null) {
-      throw new IllegalArgumentException("Cannot add null objects");
-    }
-  }
 }
 
