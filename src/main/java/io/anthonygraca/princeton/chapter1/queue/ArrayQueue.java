@@ -55,6 +55,7 @@ public class ArrayQueue<T> implements Queue<T> {
       doubleCapacity();
     }
     else{
+      // update back index, then place object
       back = (back + 1) % queue.length;
       queue[back] = item;
     }
