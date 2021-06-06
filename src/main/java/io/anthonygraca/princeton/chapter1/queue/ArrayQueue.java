@@ -55,11 +55,10 @@ public class ArrayQueue<T> implements Queue<T> {
     if (isFull()){
       doubleCapacity();
     }
-    else{
-      // update back index, then place object at the back of the queue
-      back = (back + 1) % queue.length;
-      queue[back] = item;
-    }
+
+    // update back index, then place object at the back of the queue
+    back = (back + 1) % queue.length;
+    queue[back] = item;
   }
 
   /**

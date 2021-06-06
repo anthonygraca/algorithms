@@ -70,7 +70,8 @@ public class QueueTest {
     fullQueue.enqueue("A string");
     try{
       fullQueue.enqueue("Another string");
-      if (fullQueue.getFront().equals("A string")){
+      fullQueue.dequeue();
+      if (fullQueue.getFront().equals("Another string")){
         assertTrue(true);
       }
       else{
