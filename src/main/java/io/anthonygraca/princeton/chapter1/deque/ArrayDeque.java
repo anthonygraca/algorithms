@@ -6,10 +6,10 @@ public class ArrayDeque<T> {
   private T[] deque;
   private int front;
   private int back;
+  private int size;
+  private final int OFFSET = 1; // used to help track front and back indeces
   private static final int DEFAULT_CAPACITY = 25;
   private static final int MAX_CAPACITY = 10000;
-  private int size;
-  private final int OFFSET = 1;
 
   /**
    * Default constructor for deque
@@ -31,7 +31,7 @@ public class ArrayDeque<T> {
     deque = tempDeque;
     front = 0;
     back = front + 1;
-    size = capacity;
+    size = 0;
   }
 
   /**
@@ -64,11 +64,50 @@ public class ArrayDeque<T> {
   }
 
   /**
+   * Checks if the deque is full
+   * @return  true if the deque is full, false if not
+   */
+  public boolean isFull(){
+    return front == back;
+  }
+
+  /**
    * Adds an item to the front of the deque
    * @param item  the item being added
    */
   public void addFirst(T item){
-    
+    // enlarge the deque if it's full
+    if (isFull()){
+      doubleCapacity();
+    }
+
+    // add item, then move front index
+    deque[front] = item;
+    // google "how java deals with negative modulus" to see why this is ugly 
+    front = ((front - 1) % deque.length + deque.length) % deque.length;
+    size++;
+  }
+
+  /**
+   * Doubles the capacity of the deque 
+   */
+  private void doubleCapacity(){
+    // determine if the new capacity is valid
+    int capacity = deque.length - OFFSET;
+    checkCapacity(capacity * 2);
+    capacity *= 2;
+
+    // create a copy with the updated capacity
+    int newBackIndex = 0;
+    @SuppressWarnings("unchecked")
+    T[] tempDeque = (T[])new Object[capacity + OFFSET];
+    for (int i = 1; !isEmpty(); i++){
+      tempDeque[i] = removeFirst();
+      newBackIndex = i + 1;
+    }
+    deque = tempDeque;
+    front = 0;
+    back = newBackIndex;
   }
 
   /**
@@ -84,7 +123,18 @@ public class ArrayDeque<T> {
    * @return  the item that was removed
    */
   public T removeFirst(){
-    return null;
+    T removedItem = null;
+    if (!isEmpty()){
+      // increment front, them remove item
+      front = (front + 1) % deque.length;
+      removedItem = deque[front];
+      deque[front] = null;
+      size--;
+    }
+    else{
+      throw new IllegalStateException("Cannot remove from an empty deque");
+    }
+    return removedItem;
   }
 
   /**
