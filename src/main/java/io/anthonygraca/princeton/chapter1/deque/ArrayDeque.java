@@ -72,6 +72,27 @@ public class ArrayDeque<T> {
   }
 
   /**
+   * Decrements a particular index of the deque
+   * @param index the index being decremented
+   * @return  the decremented index
+   */
+  private int decrement(int index){
+    // due to java's implementation of the modulus operator, a negative operand returns a...
+    // ...negative value. therefore this code is needed so the index properly wraps around the array
+    return ((index - 1) % deque.length + deque.length) % deque.length;
+  }
+
+  /**
+   * Increments a particular index of the deque
+   * @param index the index being incremented
+   * @return the incremented index
+   */
+  private int increment(int index){
+    // this allows the index to wrap around the array
+    return (index + 1) % deque.length;
+  }
+
+  /**
    * Checks the item at the front of the deque
    * @return  the item at the front of the deque
    */
@@ -80,7 +101,7 @@ public class ArrayDeque<T> {
       throw new NoSuchElementException("Cannot read the contents of an empty queue");
     }
     else{
-      return deque[(front + 1) % deque.length];
+      return deque[increment(front)];
     }
   }
 
@@ -93,7 +114,7 @@ public class ArrayDeque<T> {
       throw new NoSuchElementException("Cannot read the contents of an empty queue");
     }
     else{
-      return deque[((back - 1) % deque.length + deque.length) % deque.length];
+      return deque[decrement(back)];
     }
   }
 
@@ -109,8 +130,7 @@ public class ArrayDeque<T> {
 
     // add item, then move front index
     deque[front] = item;
-    // google "how java deals with negative modulus" to see why this is ugly 
-    front = ((front - 1) % deque.length + deque.length) % deque.length;
+    front = decrement(front); 
     size++;
   }
 
@@ -147,7 +167,7 @@ public class ArrayDeque<T> {
 
     // add item, increment back index
     deque[back] = item;
-    back = (back + 1) % deque.length;
+    back = increment(back); 
     size++;
   }
 
@@ -159,7 +179,7 @@ public class ArrayDeque<T> {
     T removedItem = null;
     if (!isEmpty()){
       // increment front, them remove item
-      front = (front + 1) % deque.length;
+      front = increment(front); 
       removedItem = deque[front];
       deque[front] = null;
       size--;
@@ -175,6 +195,17 @@ public class ArrayDeque<T> {
    * @return  the item that was removed
    */
   public T removeLast(){
-    return null;
+    T removedItem = null;
+    if (!isEmpty()){
+      // increment front, them remove item
+      back = decrement(back); 
+      removedItem = deque[front];
+      deque[front] = null;
+      size--;
+    }
+    else{
+      throw new IllegalStateException("Cannot remove from an empty deque");
+    }
+    return removedItem;
   }
 }
