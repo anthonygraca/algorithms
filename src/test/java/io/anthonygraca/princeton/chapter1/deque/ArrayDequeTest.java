@@ -120,20 +120,27 @@ public class ArrayDequeTest {
   public void removeFirstToEmpty(){
     ArrayDeque<String> filledDeque = new ArrayDeque<>(1);
     filledDeque.addFirst("A string");
-    if (filledDeque.removeFirst().equals("A string") && filledDeque.isEmpty()){
-        assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(filledDeque.removeFirst().equals("A string") && filledDeque.isEmpty());
   }
 
   @Test(expected=IllegalStateException.class)
-  public void dequeueFailsForEmpty(){
+  public void removeFirstFailsForEmpty(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.removeFirst();
   }
 
+  @Test
+  public void removeLastToEmpty(){
+    ArrayDeque<String> filledDeque = new ArrayDeque<>(1);
+    filledDeque.addFirst("A string");
+    assertTrue(filledDeque.removeLast().equals("A string") && filledDeque.isEmpty());
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void removeLastFailsForEmpty(){
+    ArrayDeque<String> emptyDeque = new ArrayDeque<>();
+    emptyDeque.removeLast();
+  }
   /*
    * These test the functionality of the addFirst method
    */

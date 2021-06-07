@@ -197,10 +197,10 @@ public class ArrayDeque<T> {
   public T removeLast(){
     T removedItem = null;
     if (!isEmpty()){
-      // increment front, them remove item
+      // decrement back, them remove item
       back = decrement(back); 
-      removedItem = deque[front];
-      deque[front] = null;
+      removedItem = deque[back];
+      deque[back] = null;
       size--;
     }
     else{
