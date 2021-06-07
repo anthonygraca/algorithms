@@ -72,6 +72,32 @@ public class ArrayDeque<T> {
   }
 
   /**
+   * Checks the item at the front of the deque
+   * @return  the item at the front of the deque
+   */
+  public T getFirst(){
+    if (isEmpty()){
+      throw new NoSuchElementException("Cannot read the contents of an empty queue");
+    }
+    else{
+      return deque[(front + 1) % deque.length];
+    }
+  }
+
+  /**
+   * Checks the item at the back of the deque
+   * @return  the item at the back of the deque
+   */
+  public T getLast(){
+    if (isEmpty()){
+      throw new NoSuchElementException("Cannot read the contents of an empty queue");
+    }
+    else{
+      return deque[((back - 1) % deque.length + deque.length) % deque.length];
+    }
+  }
+
+  /**
    * Adds an item to the front of the deque
    * @param item  the item being added
    */
@@ -115,7 +141,14 @@ public class ArrayDeque<T> {
    * @param item  the item being added
    */
   public void addLast(T item){
+    if (isFull()){
+      doubleCapacity();
+    }
 
+    // add item, increment back index
+    deque[back] = item;
+    back = (back + 1) % deque.length;
+    size++;
   }
 
   /**

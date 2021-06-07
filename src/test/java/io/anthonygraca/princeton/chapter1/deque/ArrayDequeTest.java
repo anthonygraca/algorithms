@@ -64,6 +64,56 @@ public class ArrayDequeTest {
   }
 
   /*
+   * These test the functionality of the getFirst and getLast methods
+   */
+  @Test(expected=NoSuchElementException.class)
+  public void getFirstFailsForEmptyDeque(){
+    ArrayDeque<String> emptyDeque = new ArrayDeque<>();
+    emptyDeque.getFirst();
+  }
+
+  @Test(expected=NoSuchElementException.class)
+  public void getLastFailsForEmptyDeque(){
+    ArrayDeque<String> emptyDeque = new ArrayDeque<>();
+    emptyDeque.getLast();
+  }
+
+  @Test
+  public void getFirstSucceedsAfterAddFirst(){
+    ArrayDeque<String> deque = new ArrayDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getFirst().equals("A string"));
+  }
+
+  @Test
+  public void getFirstSucceedsAfterAddLast(){
+    ArrayDeque<String> deque = new ArrayDeque<>();
+    deque.addLast("A string");
+    assertTrue(deque.getFirst().equals("A string"));   
+  }
+
+  @Test
+  public void getLastSucceedsAfterAddFirst(){
+    ArrayDeque<String> deque = new ArrayDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getLast().equals("A string"));
+  }
+
+  @Test
+  public void getLastSucceedsAfterAddLast(){
+    ArrayDeque<String> deque = new ArrayDeque<>();
+    deque.addLast("A string");
+    assertTrue(deque.getLast().equals("A string"));
+  }
+
+  @Test
+  public void getFirstAndGetLastSucceedForOneItem(){
+    ArrayDeque<String> deque = new ArrayDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getFirst().equals("A string") && deque.getLast().equals("A string"));
+  }
+
+  /*
    * These test the functionality of the remove methods
    */
   @Test
@@ -88,58 +138,74 @@ public class ArrayDequeTest {
    * These test the functionality of the addFirst method
    */
   @Test
-  public void addToEmptyDeque(){
+  public void addFirstToEmptyDeque(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.addFirst("A string");
-    if (emptyDeque.removeFirst().equals("A string")){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(emptyDeque.getFirst().equals("A string"));
   }
 
   @Test
-  public void addToFullDeque(){
+  public void addFirstToFullDeque(){
     ArrayDeque<String> fullDeque = new ArrayDeque<>(1);
     fullDeque.addFirst("A string");
     fullDeque.addFirst("Another string");
-    if (fullDeque.removeFirst().equals("Another string")){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(fullDeque.getFirst().equals("Another string"));
   }
 
-  @Test
-  public void addToFullDequeBeyondMaxCapacity(){
+  @Test(expected=IllegalStateException.class)
+  public void addFirstToFullDequeBeyondMaxCapacity(){
     ArrayDeque<String> maxDeque = new ArrayDeque<>(10000);
     for (int i = 0; i < 10000; i++){
       maxDeque.addFirst("String number " + i);
     }
-    try{
-      maxDeque.addFirst("Another string");
-      assertTrue(false);
-    }
-    catch(IllegalStateException e){
-      assertTrue(true);
-    }
+    maxDeque.addFirst("Another string");
   }
 
   @Test
-  public void addToHalfFullDeque(){
+  public void addFirstToHalfFullDeque(){
     ArrayDeque<String> halfFullDeque = new ArrayDeque<>();
     final int HALF_DEFAULT_CAPACITY = 13;
     for (int i = 0; i < HALF_DEFAULT_CAPACITY; i++){
       halfFullDeque.addFirst("String number " + i);
     }
-    if (halfFullDeque.removeFirst().equals("String number 12")){
-      assertTrue(true);
+    assertTrue(halfFullDeque.getFirst().equals("String number 12"));
+  }
+
+  /*
+   * These test the functionality of the addLast method
+   */
+  @Test
+  public void addLastToEmptyDeque(){
+    ArrayDeque<String> emptyDeque = new ArrayDeque<>();
+    emptyDeque.addLast("A string");
+    assertTrue(emptyDeque.getFirst().equals("A string"));
+  }
+
+  @Test
+  public void addLastToFullDeque(){
+    ArrayDeque<String> fullDeque = new ArrayDeque<>(1);
+    fullDeque.addLast("A string");
+    fullDeque.addLast("Another string");
+    assertTrue(fullDeque.getLast().equals("Another string"));
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void addLastToFullDequeBeyondMaxCapacity(){
+    ArrayDeque<String> maxDeque = new ArrayDeque<>(10000);
+    for (int i = 0; i < 10000; i++){
+      maxDeque.addLast("String number " + i);
     }
-    else{
-      assertTrue(false);
+    maxDeque.addLast("Another string");
+  }
+
+  @Test
+  public void addLastToHalfFullDeque(){
+    ArrayDeque<String> halfFullDeque = new ArrayDeque<>();
+    final int HALF_DEFAULT_CAPACITY = 13;
+    for (int i = 0; i < HALF_DEFAULT_CAPACITY; i++){
+      halfFullDeque.addLast("String number " + i);
     }
+    assertTrue(halfFullDeque.getLast().equals("String number 12"));
   }
 }
 
