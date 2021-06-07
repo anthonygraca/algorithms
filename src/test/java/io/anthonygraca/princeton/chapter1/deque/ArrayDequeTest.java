@@ -113,6 +113,24 @@ public class ArrayDequeTest {
     assertTrue(deque.getFirst().equals("A string") && deque.getLast().equals("A string"));
   }
 
+  @Test
+  public void getFirstSucceedsAfterOverflow(){
+    ArrayDeque<String> deque = new ArrayDeque<>(2);
+    deque.addFirst("A string");
+    deque.addFirst("Another string");
+    deque.addLast("Another another string");
+    assertTrue(deque.getFirst().equals("Another string"));
+  }
+
+  @Test
+  public void getLastSucceedsAfterOverflow(){
+    ArrayDeque<String> deque = new ArrayDeque<>(2);
+    deque.addFirst("A string");
+    deque.addLast("Another string");
+    deque.addFirst("Another another string");
+    assertTrue(deque.getLast().equals("Another string"));
+  }
+
   /*
    * These test the functionality of the remove methods
    */
