@@ -14,24 +14,14 @@ public class QueueTest {
     assertTrue( true );
   }
   
-  @Test
+  @Test(expected=IllegalStateException.class)
   public void lowerBoundConstructor(){
-    try{
-      ArrayQueue queue = new ArrayQueue(-1);
-    }
-    catch(IllegalStateException e){
-      assertTrue(true);
-    }
+    ArrayQueue queue = new ArrayQueue(-1);
   }
 
-  @Test
+  @Test(expected=IllegalStateException.class)
   public void upperBoundConstructor(){
-    try{
-      ArrayQueue queue = new ArrayQueue(100000);
-    }
-    catch(IllegalStateException e){
-      assertTrue(true);
-    }
+    ArrayQueue queue = new ArrayQueue(100000);
   }
 
   @Test
@@ -56,46 +46,25 @@ public class QueueTest {
   public void addToEmptyQueue(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     emptyQueue.enqueue("A string");
-    if (emptyQueue.getFront().equals("A string")){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(emptyQueue.getFront().equals("A string"));
   }
 
   @Test
   public void addToFullQueue(){
     ArrayQueue<String> fullQueue = new ArrayQueue<>(1);
     fullQueue.enqueue("A string");
-    try{
-      fullQueue.enqueue("Another string");
-      fullQueue.dequeue();
-      if (fullQueue.getFront().equals("Another string")){
-        assertTrue(true);
-      }
-      else{
-        assertTrue(false);
-      }
-    }
-    catch(NoSuchElementException e){
-      assertTrue(false);
-    }
+    fullQueue.enqueue("Another string");
+    fullQueue.dequeue();
+    assertTrue(fullQueue.getFront().equals("Another string"));
   }
 
-  @Test
+  @Test(expected=IllegalStateException.class)
   public void addToFullQueueBeyondMaxCapacity(){
     ArrayQueue<String> maxQueue = new ArrayQueue<>(10000);
     for (int i = 0; i < 10000; i++){
       maxQueue.enqueue("String number " + i);
     }
-    try{
-      maxQueue.enqueue("Another string");
-      assertTrue(false);
-    }
-    catch(IllegalStateException e){
-      assertTrue(true);
-    }
+    maxQueue.enqueue("Another string");
   }
 
   @Test
@@ -105,28 +74,17 @@ public class QueueTest {
     for (int i = 0; i < HALF_DEFAULT_CAPACITY; i++){
       halfFullQueue.enqueue("String number " + i);
     }
-    if (halfFullQueue.getFront().equals("String number 0")){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(halfFullQueue.getFront().equals("String number 0"));
   }
 
   /*
    * These test the functionality of the getFront method
    */
-  @Test
+  @Test(expected=NoSuchElementException.class)
   public void getFrontOfEmptyQueue()
   {
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
-    try{
-      emptyQueue.getFront();
-      assertTrue(false);
-    }
-    catch(NoSuchElementException e){
-      assertTrue(true);
-    }
+    emptyQueue.getFront();
   }
 
   @Test
@@ -134,18 +92,17 @@ public class QueueTest {
   {
     ArrayQueue<String> queueWithOneElement = new ArrayQueue<>(1);
     queueWithOneElement.enqueue("A string");
-    if (queueWithOneElement.getFront().equals("A string")){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(queueWithOneElement.getFront().equals("A string"));
   }
 
   @Test
   public void getFrontOfOverflowedQueue(){
-    // requires implemented enqueue and dequeue!
-    assertTrue(true);
+    ArrayQueue<String> queue = new ArrayQueue<>(2);
+    queue.enqueue("A string");
+    queue.enqueue("Another string");
+    queue.enqueue("Another another string");
+    queue.dequeue();
+    assertTrue(queue.getFront().equals("Another string"));
   }
 
   /*
@@ -155,37 +112,22 @@ public class QueueTest {
   public void dequeueToEmpty(){
     ArrayQueue<String> filledQueue = new ArrayQueue<>(1);
     filledQueue.enqueue("A string");
-    if (filledQueue.dequeue().equals("A string") && filledQueue.isEmpty()){
-        assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(filledQueue.dequeue().equals("A string") && filledQueue.isEmpty());
   }
 
-  @Test
+  @Test(expected=IllegalStateException.class)
   public void dequeueFailsForEmpty(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
-    try{
-      emptyQueue.dequeue();
-      assertTrue(false);
-    }
-    catch(IllegalStateException e){
-      assertTrue(true);
-    }
+    emptyQueue.dequeue();
   }
+
   /*
    * These test the functionality of the isEmpty and isFull methods
    */
   @Test
   public void emptyWhenDeclared(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
-    if (emptyQueue.isEmpty()){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(emptyQueue.isEmpty());
   }
 
   @Test
@@ -193,23 +135,13 @@ public class QueueTest {
     ArrayQueue<String> queue = new ArrayQueue<>();
     queue.enqueue("A string");
     queue.dequeue();
-    if (queue.isEmpty()){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(queue.isEmpty());
   }
 
   @Test
   public void fullWhenFilled(){
     ArrayQueue fullQueue = new ArrayQueue<>(1);
     fullQueue.enqueue("A string");
-    if (fullQueue.isFull()){
-      assertTrue(true);
-    }
-    else{
-      assertTrue(false);
-    }
+    assertTrue(fullQueue.isFull());
   }
 }
