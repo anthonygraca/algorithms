@@ -9,9 +9,15 @@ public class QueueTest {
    * These test the functionality of the constructors
    */
   @Test
-  public void defaultConstructor() {
+  public void arrayDefaultConstructor() {
     ArrayQueue queue = new ArrayQueue();
     assertTrue( true );
+  }
+
+  @Test
+  public void linkedDefaultConstructor(){
+    LinkedQueue queue = new LinkedQueue();
+    assertTrue(true);
   }
   
   @Test(expected=IllegalStateException.class)
@@ -43,11 +49,18 @@ public class QueueTest {
    * These test the functionality of the enqueueing method
    */
   @Test
-  public void addToEmptyQueue(){
+  public void arrayAddToEmptyQueue(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     emptyQueue.enqueue("A string");
     assertTrue(emptyQueue.getFront().equals("A string"));
   }
+
+  @Test
+  public void linkedAddToEmptyQueue(){
+    LinkedQueue<String> emptyQueue = new LinkedQueue<>();
+    emptyQueue.enqueue("A string");
+    assertTrue(emptyQueue.getFront().equals("A string"));
+ }
 
   @Test
   public void addToFullQueue(){
@@ -81,14 +94,21 @@ public class QueueTest {
    * These test the functionality of the getFront method
    */
   @Test(expected=NoSuchElementException.class)
-  public void getFrontOfEmptyQueue()
+  public void arrayGetFrontOfEmptyQueue()
   {
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     emptyQueue.getFront();
   }
 
+  @Test(expected=NoSuchElementException.class)
+  public void linkedGetFrontOfEmptyQueue()
+  {
+    LinkedQueue<String> emptyQueue = new LinkedQueue<>();
+    emptyQueue.getFront();
+  }
+
   @Test
-  public void getFrontOfQueueWithOneElement()
+  public void arrayGetFrontOfQueueWithOneElement()
   {
     ArrayQueue<String> queueWithOneElement = new ArrayQueue<>(1);
     queueWithOneElement.enqueue("A string");
@@ -96,8 +116,26 @@ public class QueueTest {
   }
 
   @Test
-  public void getFrontOfOverflowedQueue(){
+  public void linkedGetFrontOfQueueWithOneElement()
+  {
+    LinkedQueue<String> queueWithOneElement = new LinkedQueue<>();
+    queueWithOneElement.enqueue("A string");
+    assertTrue(queueWithOneElement.getFront().equals("A string"));
+  }
+
+  @Test
+  public void arrayGetFrontOfOverflowedQueue(){
     ArrayQueue<String> queue = new ArrayQueue<>(2);
+    queue.enqueue("A string");
+    queue.enqueue("Another string");
+    queue.enqueue("Another another string");
+    queue.dequeue();
+    assertTrue(queue.getFront().equals("Another string"));
+  }
+
+  @Test
+  public void linkedGetFrontOfFilledQueue(){
+    LinkedQueue<String> queue = new LinkedQueue<>();
     queue.enqueue("A string");
     queue.enqueue("Another string");
     queue.enqueue("Another another string");
@@ -109,30 +147,57 @@ public class QueueTest {
    * These test the functionality of the dequeue method
    */
   @Test
-  public void dequeueToEmpty(){
+  public void arrayDequeueToEmpty(){
     ArrayQueue<String> filledQueue = new ArrayQueue<>(1);
     filledQueue.enqueue("A string");
     assertTrue(filledQueue.dequeue().equals("A string") && filledQueue.isEmpty());
   }
 
+  @Test
+  public void linkedDequeueToEmpty(){
+    LinkedQueue<String> filledQueue = new LinkedQueue<>();
+    filledQueue.enqueue("A string");
+    assertTrue(filledQueue.dequeue().equals("A string") && filledQueue.isEmpty());
+  }
+ 
   @Test(expected=IllegalStateException.class)
-  public void dequeueFailsForEmpty(){
+  public void arrayDequeueFailsForEmpty(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     emptyQueue.dequeue();
   }
 
+  @Test(expected=IllegalStateException.class)
+  public void linkedDequeueFailsForEmpty(){
+    LinkedQueue<String> emptyQueue = new LinkedQueue<>();
+    emptyQueue.dequeue();
+  }
+  
   /*
    * These test the functionality of the isEmpty and isFull methods
    */
   @Test
-  public void emptyWhenDeclared(){
+  public void arrayEmptyWhenDeclared(){
     ArrayQueue<String> emptyQueue = new ArrayQueue<>();
     assertTrue(emptyQueue.isEmpty());
   }
 
   @Test
-  public void emptyWhenDequeued(){
+  public void arrayEmptyWhenDequeued(){
     ArrayQueue<String> queue = new ArrayQueue<>();
+    queue.enqueue("A string");
+    queue.dequeue();
+    assertTrue(queue.isEmpty());
+  }
+
+  @Test
+  public void linkedEmptyWhenDeclared(){
+    LinkedQueue<String> emptyQueue = new LinkedQueue<>();
+    assertTrue(emptyQueue.isEmpty());
+  }
+
+  @Test
+  public void linkedEmptyWhenDequeued(){
+    LinkedQueue<String> queue = new LinkedQueue<>();
     queue.enqueue("A string");
     queue.dequeue();
     assertTrue(queue.isEmpty());

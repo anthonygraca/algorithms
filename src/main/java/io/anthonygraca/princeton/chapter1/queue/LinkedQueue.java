@@ -6,13 +6,15 @@ import java.util.NoSuchElementException;
  */
 public class LinkedQueue<T> implements Queue<T> {
   private Node head;
+  private Node tail;
   private int size;
 
   /**
    * Default constructor
    */
   public LinkedQueue(){
-    head = new Node();
+    head = null;
+    tail = null;
     size = 0;
   }
 
@@ -21,15 +23,38 @@ public class LinkedQueue<T> implements Queue<T> {
    * @param newEntry  the entry to be added
    */
   public void enqueue(T newEntry){
-
+    if (isEmpty()){
+      head = tail = new Node(newEntry);
+    }
+    else{
+      tail.next = new Node(newEntry);
+      tail = tail.next;
+    }
+    size++;
   }
 
   /** 
    * Removes and returns the entry at the front of the queue
-   * @return  the entry at the front of the queue ]
+   * @return  the entry at the front of the queue
    */
   public T dequeue(){
-    return null;
+    T removedItem = null;
+    // case 1: queue is empty
+    if (isEmpty()){
+      throw new IllegalStateException("Cannot dequeue an empty queue");
+    }
+    // case 2: queue has 1 item
+    else if (size == 1){
+      removedItem = head.data;
+      head = tail = null;
+    }
+    // case 3: queue has more than 1 item
+    else{
+      removedItem = head.data;
+      head = head.next;
+    }
+    size--;
+    return removedItem;
   }
 
   /** 
@@ -37,7 +62,12 @@ public class LinkedQueue<T> implements Queue<T> {
    * @return  the queue's front entry 
    */
   public T getFront(){
-    return null;
+    if (isEmpty()){
+      throw new NoSuchElementException("Cannot get the front of an empty queue");
+    }
+    else{
+      return head.data;
+    }
   }
 
   /** 
@@ -45,22 +75,24 @@ public class LinkedQueue<T> implements Queue<T> {
    * @return  true if the queue is empty, false if not 
    */
   public boolean isEmpty(){
-    return true;
+    return size == 0;
   }
 
   /** 
    * Removes all the entries of the queue
    */
   public void clear(){
-
+    head = null;
+    tail = null;
+    size = 0;
   }
   
   /*
    * the node, as a nested class
    */
   private class Node{
-    private T data;
-    private Node next;
+    public T data;
+    public Node next;
 
     public Node(){
       this(null, null);
