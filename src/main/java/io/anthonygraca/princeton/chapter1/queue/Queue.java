@@ -10,7 +10,8 @@ public interface Queue<T>
 
   /** 
    * Removes and returns the entry at the front of the queue
-   * @return  the entry at the front of the queue */
+   * @return  the entry at the front of the queue ]
+   */
   public T dequeue();
 
   /** 
@@ -21,7 +22,8 @@ public interface Queue<T>
 
   /** 
    * Checks whether the queue is empty
-   * @return  true if the queue is empty, false if not */
+   * @return  true if the queue is empty, false if not 
+   */
   public boolean isEmpty();
 
   /** 
