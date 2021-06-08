@@ -7,13 +7,19 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-public class ArrayDequeTest {
+public class MGracaDequeTest {
   /*
    * These test the functionality of the constructors
    */
   @Test
-  public void defaultConstructor(){
+  public void arrayDefaultConstructor(){
     ArrayDeque deque = new ArrayDeque();
+    assertTrue(deque.size() == 0);
+  }
+
+  @Test
+  public void linkedDefaultConstructor(){
+    LinkedDeque deque = new LinkedDeque();
     assertTrue(deque.size() == 0);
   }
 
@@ -46,7 +52,7 @@ public class ArrayDequeTest {
    * Tests the functionality of the full and empty methods
    */
   @Test
-  public void emptyWhenEmptied(){
+  public void arrayEmptyWhenEmptied(){
     ArrayDeque<String> deque = new ArrayDeque<>(2);
     deque.addFirst("A string");
     deque.addFirst("Another string");
@@ -55,6 +61,16 @@ public class ArrayDequeTest {
     assertTrue(deque.isEmpty());
   }
 
+  @Test
+  public void linkedEmptyWhenEmptied(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addFirst("A string");
+    deque.addFirst("Another string");
+    deque.removeFirst();
+    deque.removeFirst();
+    assertTrue(deque.isEmpty());
+  }
+  
   @Test
   public void fullWhenFilled(){
     ArrayDeque<String> deque = new ArrayDeque<>(2);
@@ -67,54 +83,54 @@ public class ArrayDequeTest {
    * These test the functionality of the getFirst and getLast methods
    */
   @Test(expected=NoSuchElementException.class)
-  public void getFirstFailsForEmptyDeque(){
+  public void arrayGetFirstFailsForEmptyDeque(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.getFirst();
   }
 
   @Test(expected=NoSuchElementException.class)
-  public void getLastFailsForEmptyDeque(){
+  public void arrayGetLastFailsForEmptyDeque(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.getLast();
   }
 
   @Test
-  public void getFirstSucceedsAfterAddFirst(){
+  public void arrayGetFirstSucceedsAfterAddFirst(){
     ArrayDeque<String> deque = new ArrayDeque<>();
     deque.addFirst("A string");
     assertTrue(deque.getFirst().equals("A string"));
   }
 
   @Test
-  public void getFirstSucceedsAfterAddLast(){
+  public void arrayGetFirstSucceedsAfterAddLast(){
     ArrayDeque<String> deque = new ArrayDeque<>();
     deque.addLast("A string");
     assertTrue(deque.getFirst().equals("A string"));   
   }
 
   @Test
-  public void getLastSucceedsAfterAddFirst(){
+  public void arrayGetLastSucceedsAfterAddFirst(){
     ArrayDeque<String> deque = new ArrayDeque<>();
     deque.addFirst("A string");
     assertTrue(deque.getLast().equals("A string"));
   }
 
   @Test
-  public void getLastSucceedsAfterAddLast(){
+  public void arrayGetLastSucceedsAfterAddLast(){
     ArrayDeque<String> deque = new ArrayDeque<>();
     deque.addLast("A string");
     assertTrue(deque.getLast().equals("A string"));
   }
 
   @Test
-  public void getFirstAndGetLastSucceedForOneItem(){
+  public void arrayGetFirstAndGetLastSucceedForOneItem(){
     ArrayDeque<String> deque = new ArrayDeque<>();
     deque.addFirst("A string");
     assertTrue(deque.getFirst().equals("A string") && deque.getLast().equals("A string"));
   }
 
   @Test
-  public void getFirstSucceedsAfterOverflow(){
+  public void arrayGetFirstSucceedsAfterOverflow(){
     ArrayDeque<String> deque = new ArrayDeque<>(2);
     deque.addFirst("A string");
     deque.addFirst("Another string");
@@ -123,8 +139,73 @@ public class ArrayDequeTest {
   }
 
   @Test
-  public void getLastSucceedsAfterOverflow(){
+  public void arrayGetLastSucceedsAfterOverflow(){
     ArrayDeque<String> deque = new ArrayDeque<>(2);
+    deque.addFirst("A string");
+    deque.addLast("Another string");
+    deque.addFirst("Another another string");
+    assertTrue(deque.getLast().equals("Another string"));
+  }
+
+  @Test(expected=NoSuchElementException.class)
+  public void linkedGetFirstFailsForEmptyDeque(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
+    emptyDeque.getFirst();
+  }
+
+  @Test(expected=NoSuchElementException.class)
+  public void linkedGetLastFailsForEmptyDeque(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
+    emptyDeque.getLast();
+  }
+
+  @Test
+  public void linkedGetFirstSucceedsAfterAddFirst(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getFirst().equals("A string"));
+  }
+
+  @Test
+  public void linkedGetFirstSucceedsAfterAddLast(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addLast("A string");
+    assertTrue(deque.getFirst().equals("A string"));   
+  }
+
+  @Test
+  public void linkedGetLastSucceedsAfterAddFirst(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getLast().equals("A string"));
+  }
+
+  @Test
+  public void linkedGetLastSucceedsAfterAddLast(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addLast("A string");
+    assertTrue(deque.getLast().equals("A string"));
+  }
+
+  @Test
+  public void linkedGetFirstAndGetLastSucceedForOneItem(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addFirst("A string");
+    assertTrue(deque.getFirst().equals("A string") && deque.getLast().equals("A string"));
+  }
+
+  @Test
+  public void linkedGetFirstSucceedsAfterFilled(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
+    deque.addFirst("A string");
+    deque.addFirst("Another string");
+    deque.addLast("Another another string");
+    assertTrue(deque.getFirst().equals("Another string"));
+  }
+
+  @Test
+  public void linkedGetLastSucceedsAfterFilled(){
+    LinkedDeque<String> deque = new LinkedDeque<>();
     deque.addFirst("A string");
     deque.addLast("Another string");
     deque.addFirst("Another another string");
@@ -135,36 +216,70 @@ public class ArrayDequeTest {
    * These test the functionality of the remove methods
    */
   @Test
-  public void removeFirstToEmpty(){
+  public void arrayRemoveFirstToEmpty(){
     ArrayDeque<String> filledDeque = new ArrayDeque<>(1);
     filledDeque.addFirst("A string");
     assertTrue(filledDeque.removeFirst().equals("A string") && filledDeque.isEmpty());
   }
 
   @Test(expected=IllegalStateException.class)
-  public void removeFirstFailsForEmpty(){
+  public void arrayRemoveFirstFailsForEmpty(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.removeFirst();
   }
 
   @Test
-  public void removeLastToEmpty(){
+  public void arrayRemoveLastToEmpty(){
     ArrayDeque<String> filledDeque = new ArrayDeque<>(1);
     filledDeque.addFirst("A string");
     assertTrue(filledDeque.removeLast().equals("A string") && filledDeque.isEmpty());
   }
 
   @Test(expected=IllegalStateException.class)
-  public void removeLastFailsForEmpty(){
+  public void arrayRemoveLastFailsForEmpty(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.removeLast();
   }
+
+  @Test
+  public void linkedRemoveFirstToEmpty(){
+    LinkedDeque<String> filledDeque = new LinkedDeque<>();
+    filledDeque.addFirst("A string");
+    assertTrue(filledDeque.removeFirst().equals("A string") && filledDeque.isEmpty());
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void linkedRemoveFirstFailsForEmpty(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
+    emptyDeque.removeFirst();
+  }
+
+  @Test
+  public void linkedRemoveLastToEmpty(){
+    LinkedDeque<String> filledDeque = new LinkedDeque<>();
+    filledDeque.addFirst("A string");
+    assertTrue(filledDeque.removeLast().equals("A string") && filledDeque.isEmpty());
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void linkedRemoveLastFailsForEmpty(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
+    emptyDeque.removeLast();
+  }
+
   /*
    * These test the functionality of the addFirst method
    */
   @Test
-  public void addFirstToEmptyDeque(){
+  public void arrayAddFirstToEmptyDeque(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
+    emptyDeque.addFirst("A string");
+    assertTrue(emptyDeque.getFirst().equals("A string"));
+  }
+
+  @Test
+  public void linkedAddFirstToEmptyDeque(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
     emptyDeque.addFirst("A string");
     assertTrue(emptyDeque.getFirst().equals("A string"));
   }
@@ -200,12 +315,19 @@ public class ArrayDequeTest {
    * These test the functionality of the addLast method
    */
   @Test
-  public void addLastToEmptyDeque(){
+  public void arrayAddLastToEmptyDeque(){
     ArrayDeque<String> emptyDeque = new ArrayDeque<>();
     emptyDeque.addLast("A string");
     assertTrue(emptyDeque.getFirst().equals("A string"));
   }
 
+  @Test
+  public void linkedAddLastToEmptyDeque(){
+    LinkedDeque<String> emptyDeque = new LinkedDeque<>();
+    emptyDeque.addLast("A string");
+    assertTrue(emptyDeque.getFirst().equals("A string"));
+  }
+  
   @Test
   public void addLastToFullDeque(){
     ArrayDeque<String> fullDeque = new ArrayDeque<>(1);
@@ -232,5 +354,5 @@ public class ArrayDequeTest {
     }
     assertTrue(halfFullDeque.getLast().equals("String number 12"));
   }
-}
 
+}
