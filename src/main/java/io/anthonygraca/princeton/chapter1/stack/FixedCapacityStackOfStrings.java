@@ -1,8 +1,8 @@
 package io.anthonygraca.princeton.chapter1.stack;
 
 public class FixedCapacityStackOfStrings {
-  private int m_size = 0;
   private String[] collection;
+  private int m_size = 0;
 
   public FixedCapacityStackOfStrings(int capacity) {
     collection = new String[capacity];
