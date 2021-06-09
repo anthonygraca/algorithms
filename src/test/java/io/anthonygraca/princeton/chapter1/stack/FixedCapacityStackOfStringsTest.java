@@ -7,6 +7,12 @@ import org.junit.Test;
 
 public class FixedCapacityStackOfStringsTest {
   @Test
+  public void initializedStackIsEmpty() {
+    FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings();
+    assertTrue(stack.isEmpty());
+  }
+
+  @Test
   public void pushAString() {
     FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings();
     String example = "dummy string";

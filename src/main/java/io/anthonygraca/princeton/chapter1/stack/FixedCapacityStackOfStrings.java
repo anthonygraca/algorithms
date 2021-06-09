@@ -1,11 +1,13 @@
 package io.anthonygraca.princeton.chapter1.stack;
 
 public class FixedCapacityStackOfStrings {
-  void push(String string) {
+  private int m_size = 0;
 
+  void push(String string) {
+    m_size++;
   }
 
   boolean isEmpty() {
-    return false;
+    return m_size == 0;
   }
 }
