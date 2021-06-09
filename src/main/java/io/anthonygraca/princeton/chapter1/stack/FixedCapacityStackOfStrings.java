@@ -10,4 +10,8 @@ public class FixedCapacityStackOfStrings {
   boolean isEmpty() {
     return m_size == 0;
   }
+
+  int size() {
+    return m_size;
+  }
 }
