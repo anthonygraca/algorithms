@@ -134,6 +134,8 @@ public class ArrayQueue<T> implements Queue<T> {
    * Empties the contents of the queue
    */
   public void clear(){
-
+    while (!isEmpty()){
+      dequeue();
+    }
   }
 }

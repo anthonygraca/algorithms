@@ -209,4 +209,27 @@ public class QueueTest {
     fullQueue.enqueue("A string");
     assertTrue(fullQueue.isFull());
   }
+
+  /*
+   * These test the functionality of the clear method
+   */
+  @Test
+  public void arrayEmptyWhenCleared(){
+    ArrayQueue<String> queue = new ArrayQueue<>();
+    for (int i = 0; i < 10; i++){
+      queue.enqueue("Some string");
+    }
+    queue.clear();
+    assertTrue(queue.isEmpty());
+  }
+
+  @Test
+  public void linkedEmptyWhenCleared(){
+    LinkedQueue<String> queue = new LinkedQueue<>();
+    for (int i = 0; i < 10; i++){
+      queue.enqueue("Some string");
+    }
+    queue.clear();
+    assertTrue(queue.isEmpty());
+  }
 }
