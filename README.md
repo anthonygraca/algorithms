@@ -24,7 +24,7 @@ preventing Maven from easily pulling an already created algs4.jar
 ## Table of Contents
 ### Chapter 1. Fundamentals
 [Binary Search](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/BinarySearch.java) \
-[Stacks](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Stack.java) \
+[Stacks](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) \
 [Queues](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Queue.java) \
 [Bags](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/Bag.java) \
 [Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) \
