@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.deque;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -10,19 +10,19 @@ import org.junit.Test;
 public class DequeTest {
   @Test
   public void constructEmptyDeque() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     assertTrue(deque.size() == 0);
   }
 
   @Test
   public void verifyNewDequeIsEmpty() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     assertTrue(deque.isEmpty());
   }
 
   @Test
   public void addFirstItem() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.addFirst(item);
     assertFalse(deque.isEmpty());
@@ -30,7 +30,7 @@ public class DequeTest {
 
   @Test
   public void addLastItem() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.addLast(item);
     assertFalse(deque.isEmpty());
@@ -38,7 +38,7 @@ public class DequeTest {
 
   @Test
   public void removeFirstItem() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.addFirst(item);
     deque.removeFirst();
@@ -47,14 +47,14 @@ public class DequeTest {
 
   @Test(expected=NoSuchElementException.class)
   public void removeFirstItemWithoutAdd() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.removeFirst();
   }
 
   @Test
   public void removeLastItem() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.addLast(item);
     deque.removeLast();
@@ -63,21 +63,21 @@ public class DequeTest {
 
   @Test(expected=NoSuchElementException.class)
   public void removeLastItemWithoutAdd() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     Item item = new Item();
     deque.removeLast();
   }
 
   @Test(expected=IllegalArgumentException.class)
   public void addFirstWithNullIsInvalid() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     deque.addFirst(null);
     assertTrue(deque.isEmpty());
   }
 
   @Test(expected=IllegalArgumentException.class)
   public void addLastWithNullIsInvalid() {
-    Deque deque = new Deque();
+    Deque<Item> deque = new Deque<Item>();
     deque.addLast(null);
     assertTrue(deque.isEmpty());
   }

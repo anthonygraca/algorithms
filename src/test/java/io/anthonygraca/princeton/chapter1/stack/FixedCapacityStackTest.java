@@ -1,13 +1,13 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.stack;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class StackTest {
+public class FixedCapacityStackTest {
   @Test
   public void shouldAnswerWithTrue() {
-    Stack stack = new Stack();
+    Stack stack = new FixedCapacityStack();
     assertTrue( true );
   }
 }
