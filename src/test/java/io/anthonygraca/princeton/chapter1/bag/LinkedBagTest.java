@@ -4,13 +4,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class BagTest {
+public class LinkedBagTest {
   /*
    * These test the functionality of the constructor
    */
   @Test
   public void defaultConstructor(){
-    ArrayBag bag = new ArrayBag();
+    LinkedBag bag = new LinkedBag();
     assertTrue(bag.size() == 0);
   }
 
@@ -19,14 +19,14 @@ public class BagTest {
    */
   @Test
   public void sizeIncrements(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     bag.add("some string");
     assertTrue(bag.size() == 1);
   }
 
   @Test
   public void sizeIncrementsThroughResizing(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     for (int i = 0; i < 26; i++){
       bag.add("String " + i);
     }
@@ -38,14 +38,14 @@ public class BagTest {
    */
   @Test
   public void addedItemIsInBag(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     bag.add("A string");
     assertTrue(bag.getItem().equals("A string"));
   }
 
   @Test
   public void bagProperlyResizesAndAdds(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     for (int i = 0; i < 25; i++){
       bag.add("String " + i);
     }
@@ -58,7 +58,7 @@ public class BagTest {
    */
   @Test
   public void iteratorWorksWithoutResize(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     for (int i = 0; i < 25; i++){
       bag.add("A string");
     }
@@ -70,7 +70,7 @@ public class BagTest {
 
   @Test
   public void iteratorWorksWithResizing(){
-    ArrayBag<String> bag = new ArrayBag<>();
+    LinkedBag<String> bag = new LinkedBag<>();
     for (int i = 0; i < 51; i++){
       bag.add("A string");
     }
