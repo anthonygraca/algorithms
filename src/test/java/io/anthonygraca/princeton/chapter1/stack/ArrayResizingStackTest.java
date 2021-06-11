@@ -9,13 +9,13 @@ import org.junit.Test;
 public class ArrayResizingStackTest {
   @Test
   public void initializedStackIsEmpty() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(10);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     assertTrue(stack.isEmpty());
   }
 
   @Test
   public void pushAString() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(10);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example = "dummy string";
     stack.push(example);
     assertFalse(stack.isEmpty());
@@ -23,7 +23,7 @@ public class ArrayResizingStackTest {
 
   @Test
   public void verifySize() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(10);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example = "dummy string";
     stack.push(example);
     assertEquals(1, stack.size());
@@ -31,7 +31,7 @@ public class ArrayResizingStackTest {
 
   @Test
   public void verifyPop() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(10);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example = "dummy string";
     stack.push(example);
     assertEquals(example, stack.pop());
@@ -39,18 +39,18 @@ public class ArrayResizingStackTest {
 
   @Test
   public void verifyMultiplePop() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(10);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example1 = "dummy string 1";
     String example2 = "dummy string 2";
     stack.push(example1);
     stack.push(example2);
     assertEquals(example2, stack.pop());
+    assertEquals(example1, stack.pop());
   }
 
   @Test
   public void verifyStackDoesNotOverflow() {
-    int initial_size = 2;
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(initial_size);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example1 = "dummy string 1";
     String example2 = "dummy string 2";
     String example3 = "dummy string 3";
@@ -60,12 +60,11 @@ public class ArrayResizingStackTest {
     stack.push(example3);
     stack.push(example4);
     assertEquals(4, stack.size());
-    assertTrue(stack.size() > initial_size);
   }
 
   @Test
   public void verifyStackShrinks() {
-    ArrayResizingStack<String> stack = new ArrayResizingStack<String>(2);
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
     String example = "dummy string";
     for (int i = 0; i < 10; i++) {
       stack.push(example);

@@ -1,12 +1,8 @@
 package io.anthonygraca.princeton.chapter1.stack;
 
 public class ArrayResizingStack<Item> {
-  private Item[] collection;
+  private Item[] collection = (Item[]) new Object[1];
   private int m_size = 0;
-
-  public ArrayResizingStack(int capacity) {
-    collection = (Item[]) new Object[capacity];
-  }
 
   public void push(Item item) {
     if (m_size == collection.length) resize(2*collection.length);
