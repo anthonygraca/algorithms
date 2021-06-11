@@ -1,6 +1,8 @@
 package io.anthonygraca.princeton.chapter1.stack;
 
-public class ArrayResizingStack<Item> {
+import java.util.Iterator;
+
+public class ArrayResizingStack<Item> implements Iterable<Item> {
   private Item[] collection = (Item[]) new Object[1];
   private int m_size = 0;
 
@@ -34,5 +36,16 @@ public class ArrayResizingStack<Item> {
 
   public int getCapacity() {
     return collection.length;
+  }
+
+  public Iterator<Item> iterator() {
+    return new ReverseArrayIterator();
+  }
+
+  private class ReverseArrayIterator implements Iterator<Item> {
+    private int i = m_size-1;
+    public boolean hasNext() { return i >= 0; }
+    public Item next() { return collection[i--]; }
+    public void remove() { }
   }
 }

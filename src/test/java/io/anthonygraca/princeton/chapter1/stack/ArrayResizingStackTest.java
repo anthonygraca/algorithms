@@ -74,4 +74,22 @@ public class ArrayResizingStackTest {
     }
     assertTrue(stack.size() > stack.getCapacity()/4);
   }
+
+  @Test
+  public void verifyIterator() {
+    ArrayResizingStack<String> stack = new ArrayResizingStack<String>();
+    int count = 0;
+    String example1 = "dummy string 1";
+    String example2 = "dummy string 2";
+    String example3 = "dummy string 3";
+    String example4 = "dummy string 4";
+    stack.push(example1);
+    stack.push(example2);
+    stack.push(example3);
+    stack.push(example4);
+    for (String s : stack) {
+      count++;
+    }
+    assertTrue(count == stack.size());
+  }
 }

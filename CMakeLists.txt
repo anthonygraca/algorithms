@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.19.7)
 
 project(Algorithms)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 set(source-directory
   "${CMAKE_SOURCE_DIR}/src/main/cpp/io/anthonygraca/princeton/chapter1")
 include_directories(${source-directory})
