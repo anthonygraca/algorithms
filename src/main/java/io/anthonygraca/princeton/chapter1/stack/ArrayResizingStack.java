@@ -39,5 +39,4 @@ public class ArrayResizingStack<Item> {
   public int getCapacity() {
     return collection.length;
   }
-
 }
