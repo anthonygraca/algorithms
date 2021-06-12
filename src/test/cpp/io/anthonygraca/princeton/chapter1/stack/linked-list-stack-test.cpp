@@ -23,7 +23,6 @@ TEST(LinkedListStack, InitializedStackIsEmpty) {
   ASSERT_TRUE(stack.isEmpty());
 }
 
-/*
 TEST(LinkedListStack, PushAString) {
   algorithms::LinkedListStack<std::string> stack;
   std::string example = "dummy string";
@@ -31,6 +30,7 @@ TEST(LinkedListStack, PushAString) {
   ASSERT_FALSE(stack.isEmpty());
 }
 
+/*
 TEST(LinkedListStack, VerifySize) {
   algorithms::LinkedListStack<std::string> stack;
   std::string example = "dummy string";
