@@ -36,6 +36,17 @@ public:
     first = new_node;
     m_size++;
   }
+  int getSize() {
+    return m_size;
+  }
+  T pop() {
+    Node<T>* popped_node = first;
+    first = first->next;
+    T item = popped_node->item;
+    delete popped_node;
+    m_size--;
+    return item;
+  }
 private:
   Node<T>* first = nullptr;
   int m_size = 0;
