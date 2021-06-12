@@ -32,7 +32,7 @@ public:
   void push(T item) {
     Node<T>* new_node = new Node<T>();
     new_node->item = item;
-    if (first != nullptr) new_node->next = first->next;
+    new_node->next = first;
     first = new_node;
     m_size++;
   }
