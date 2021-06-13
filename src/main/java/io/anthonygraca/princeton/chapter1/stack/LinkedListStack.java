@@ -32,5 +32,4 @@ public class LinkedListStack<Item> {
     m_size--;
     return popped_node.item;
   }
-
 }

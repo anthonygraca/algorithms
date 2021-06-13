@@ -3,7 +3,7 @@
  *
  *       Filename:  linked-list-stack.h
  *
- *    Description:  
+ *    Description:  Stack with Linked List
  *
  *        Version:  1.0
  *        Created:  06/11/2021 23:50:58
@@ -15,8 +15,8 @@
  * =============================================================================
  */
 
-#ifndef ALGORITHMS_PRINCETON_STACK_ARRAY_BASED_H_
-#define ALGORITHMS_PRINCETON_STACK_ARRAY_BASED_H_
+#ifndef ALGORITHMS_PRINCETON_STACK_LINKED_LIST_BASED_H_
+#define ALGORITHMS_PRINCETON_STACK_LINKED_LIST_BASED_H_
 
 namespace algorithms {
 template<typename T>
@@ -50,7 +50,6 @@ public:
 private:
   Node<T>* first = nullptr;
   int m_size = 0;
-
 };
 } // namespace algorithms
 
