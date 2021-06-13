@@ -5,9 +5,14 @@ import java.util.NoSuchElementException;
 public class Deque<Item> {
   private Node first = null;
   private Node last = null; 
+  private int m_size = 0;
 
   boolean isEmpty() {
-    return true;
+    return first == null;
+  }
+
+  public int size() {
+    return m_size;
   }
 
   void addFirst(Item item) {

@@ -1,5 +1,6 @@
 package io.anthonygraca.princeton.chapter1.deque;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.NoSuchElementException;
@@ -11,6 +12,12 @@ public class DequeTest {
   public void initializedDequeIsEmpty() {
     Deque<String> deque = new Deque<String>();
     assertTrue(deque.isEmpty());
+  }
+
+  @Test
+  public void initializedDequeHasSizeZero() {
+    Deque<String> deque = new Deque<String>();
+    assertEquals(0, deque.size());
   }
 
   @Test(expected=IllegalArgumentException.class)
