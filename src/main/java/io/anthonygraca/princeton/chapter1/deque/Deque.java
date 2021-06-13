@@ -3,6 +3,8 @@ package io.anthonygraca.princeton.chapter1.deque;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> {
+  private Node first = null;
+  private Node last = null; 
 
   boolean isEmpty() {
     return true;
@@ -34,6 +36,12 @@ public class Deque<Item> {
       throw new NoSuchElementException("Cannot remove from empty deque");
     }
     return item;
+  }
+
+  class Node {
+    Item item;
+    Node prev;
+    Node next;
   }
 
 }
