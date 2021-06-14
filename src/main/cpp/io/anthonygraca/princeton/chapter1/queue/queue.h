@@ -11,6 +11,7 @@ struct Node {
 template<typename T>
 class Queue {
 public:
+  ~Queue() { while (!isEmpty()) dequeue(); }
   bool isEmpty() { return first == nullptr; }
   void enqueue(T item) {
     Node<T>* old_last = last;
