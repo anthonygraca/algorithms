@@ -28,6 +28,7 @@ struct Node {
 template<typename T>
 class LinkedListStack {
 public:
+  LinkedListStack() = default;
   ~LinkedListStack() { while (!isEmpty()) pop(); }
   bool isEmpty() { return first == nullptr; }
   void push(T item) {
