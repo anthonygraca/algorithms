@@ -28,6 +28,7 @@ struct Node {
 template<typename T>
 class LinkedListStack {
 public:
+  ~LinkedListStack() { while (!isEmpty()) pop(); }
   bool isEmpty() { return first == nullptr; }
   void push(T item) {
     Node<T>* new_node = new Node<T>();
