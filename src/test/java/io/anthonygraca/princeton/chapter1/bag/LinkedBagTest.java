@@ -79,4 +79,49 @@ public class LinkedBagTest {
       assertTrue(s.equals("A string"));
     }
   }
+
+  /*
+   * These test the functionality of remove
+   */
+  @Test(expected=IllegalStateException.class)
+  public void randomRemoveFailsForEmptyBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.remove();
+  }
+
+  @Test
+  public void randomRemoveSucceedsForOneItemInTheBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.add("Test string");
+    assertTrue(bag.remove().equals("Test string"));
+  }
+
+  @Test
+  public void randomRemoveSucceedsForMoreThanOneItemInTheBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.add("Test string 1");
+    bag.add("Test string 2");
+    String removedItem = bag.remove();
+    assertTrue(removedItem.equals("Test string 1") || removedItem.equals("Test string 2"));
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void specificRemoveFailsForEmptyBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.remove("test string");
+  }
+
+  @Test(expected=IllegalStateException.class)
+  public void specificRemoveFailsForAnItemNotInTheBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.add("Test string");
+    bag.remove("Best ring");
+  }
+
+  @Test
+  public void specificRemoveSucceedsForItemInTheBag(){
+    LinkedBag<String> bag = new LinkedBag<>();
+    bag.add("Test string");
+    assertTrue(bag.remove("Test string").equals("Test string"));
+  }
 }
