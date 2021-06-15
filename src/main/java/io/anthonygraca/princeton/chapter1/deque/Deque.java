@@ -43,7 +43,7 @@ public class Deque<Item> {
     return item;
   }
 
-  class Node {
+  private class Node {
     Item item;
     Node prev;
     Node next;
