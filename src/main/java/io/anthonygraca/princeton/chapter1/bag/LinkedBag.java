@@ -2,6 +2,7 @@ package io.anthonygraca.princeton.chapter1;
 
 import java.util.NoSuchElementException;
 import java.util.Iterator;
+import java.util.Random;
 
 public class LinkedBag<T> implements Bag<T>, Iterable<T>{
   private Node head;
@@ -38,6 +39,89 @@ public class LinkedBag<T> implements Bag<T>, Iterable<T>{
       tail = tail.next;
     }
     size++;
+  }
+
+  /**
+   * Removes a random item from the bag
+   * @return the item that was removed
+   * @throws IllegalStateException if the bag is empty
+   */
+  public T remove(){
+    T removedItem = null;
+    if (isEmpty()){
+      throw new IllegalStateException("Cannot remove an item from an empty bag");
+    }
+    else{
+      // get a random index of the bag
+      Random rng = new Random();
+      int index = rng.nextInt(size);
+      
+      // get to the item and pop it out 
+      size--;
+      Node current = head;
+      Node previous = head;
+      for (int i = 0; i < index; i++){
+        previous = current;
+        current = current.next;
+      }
+      removedItem = current.data;
+
+      // with one object in the bag, prev/curr fails; this solves the issue
+      if (size == 0){
+        head = null;
+        tail = null;
+      }
+      else{
+        previous.next = current.next;
+        current.next = null;
+      }
+    }
+    return removedItem;
+  }
+
+  /**
+   * Removes a particular item from the bag
+   * @param item  the particular item being removed
+   * @return the item that was removed
+   * @throws IllegalStateException if the bag is empty or the item wasn't found
+   */
+  public T remove(T item){
+    T removedItem = null;
+    if (isEmpty()){
+      throw new IllegalStateException("Cannot remove an item from an empty bag");
+    }
+    else{
+      // search for the node that contains the item
+      boolean found = false;
+      Node current = head;
+      Node previous = head;
+      while (!found && current != null){
+        previous = current;
+        if (current.data.equals(item)){
+          found = true;
+          removedItem = current.data;
+        }
+        else{
+          current = current.next;
+        }
+      }
+
+      // if it was found, remove the item
+      if (found){
+        size--;
+        if (size == 0){
+          head = tail = null;
+        }
+        else{
+          previous.next = current.next;
+          current.next = null;
+        }
+      }
+      else{
+        throw new IllegalStateException("Cannot remove an item from an empty bag");
+      }
+    }
+    return removedItem;
   }
 
   /**
