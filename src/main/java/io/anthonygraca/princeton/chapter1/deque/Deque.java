@@ -45,10 +45,11 @@ public class Deque<Item> {
   }
 
   Item removeLast() {
-    Item item = null;
     if (isEmpty()) {
       throw new NoSuchElementException("Cannot remove from empty deque");
     }
+    Item item = last.item;
+    last = last.prev;
     return item;
   }
 

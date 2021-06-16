@@ -80,4 +80,12 @@ public class DequeTest {
     assertTrue(deque.isEmpty());
   }
 
+  @Test
+  public void addFirstAndCanRemoveLast() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    assertEquals(element, deque.removeLast());
+  }
+
 }
