@@ -41,6 +41,7 @@ public class Deque<Item> {
     Item item = first.item;
     first = first.next;
     if (first == null) last = null; 
+    m_size--;
     return item;
   }
 
@@ -51,6 +52,7 @@ public class Deque<Item> {
     Item item = last.item;
     last = last.prev;
     if (last == null) first = null;
+    m_size--;
     return item;
   }
 
