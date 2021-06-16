@@ -20,6 +20,7 @@ public class Deque<Item> {
       throw new IllegalArgumentException("Cannot insert null");
     }
     Node new_node = new Node();
+    if (first != null) first.prev = new_node;
     new_node.item = item;
     new_node.next = first;
     new_node.prev = null;
@@ -32,6 +33,14 @@ public class Deque<Item> {
     if (item == null) {
       throw new IllegalArgumentException("Cannot insert null");
     }
+    Node new_node = new Node();
+    if (last != null) last.next = new_node;
+    new_node.item = item;
+    new_node.prev = last;
+    new_node.next = null;
+    last = new_node;
+    if (first == null) first = new_node;
+    m_size++;
   }
 
   Item removeFirst() {
@@ -41,6 +50,9 @@ public class Deque<Item> {
     Item item = first.item;
     first = first.next;
     if (first == null) last = null; 
+    else {
+      first.prev = null;
+    }
     m_size--;
     return item;
   }
@@ -52,6 +64,9 @@ public class Deque<Item> {
     Item item = last.item;
     last = last.prev;
     if (last == null) first = null;
+    else {
+      last.next = null;
+    }
     m_size--;
     return item;
   }

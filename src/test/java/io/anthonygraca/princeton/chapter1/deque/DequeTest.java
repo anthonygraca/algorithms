@@ -117,5 +117,35 @@ public class DequeTest {
     assertEquals(initial_size, deque.size());
   }
 
+  @Test
+  public void addLastElementChangesSize() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addLast(element);
+    assertTrue(deque.size() > 0);
+  }
 
+  @Test
+  public void addLastMakesStackNotEmpty() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addLast(element);
+    assertFalse(deque.isEmpty());
+  }
+
+  @Test
+  public void addLastAndCanRemoveFirst() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addLast(element);
+    assertEquals(element, deque.removeFirst());
+  }
+
+  @Test
+  public void addLastAndCanRemoveLast() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addLast(element);
+    assertEquals(element, deque.removeLast());
+  }
 }
