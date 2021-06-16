@@ -88,4 +88,13 @@ public class DequeTest {
     assertEquals(element, deque.removeLast());
   }
 
+  @Test
+  public void removeLastRemovesNode() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    deque.removeLast();
+    assertTrue(deque.isEmpty());
+  }
+
 }

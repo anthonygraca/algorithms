@@ -50,6 +50,7 @@ public class Deque<Item> {
     }
     Item item = last.item;
     last = last.prev;
+    if (last == null) first = null;
     return item;
   }
 
