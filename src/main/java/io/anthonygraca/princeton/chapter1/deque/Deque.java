@@ -8,7 +8,7 @@ public class Deque<Item> {
   private int m_size = 0;
 
   boolean isEmpty() {
-    return first == null;
+    return first == null && last == null;
   }
 
   public int size() {
@@ -19,6 +19,13 @@ public class Deque<Item> {
     if (item == null) {
       throw new IllegalArgumentException("Cannot insert null");
     }
+    Node new_node = new Node();
+    new_node.item = item;
+    new_node.next = first;
+    new_node.prev = null;
+    first = new_node;
+    if (last == null) last = new_node; // covers edge case when deque is empty
+    m_size++;
   }
 
   void addLast(Item item) {
@@ -28,10 +35,12 @@ public class Deque<Item> {
   }
 
   Item removeFirst() {
-    Item item = null;
     if (isEmpty()) {
       throw new NoSuchElementException("Cannot remove from empty deque");
     }
+    Item item = first.item;
+    first = first.next;
+    if (first == null) last = null; 
     return item;
   }
 

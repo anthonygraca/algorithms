@@ -2,6 +2,7 @@ package io.anthonygraca.princeton.chapter1.deque;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.util.NoSuchElementException;
 
@@ -44,6 +45,39 @@ public class DequeTest {
     Deque<String> deque = new Deque<String>();
     assertTrue(deque.isEmpty());
     deque.removeLast();
+  }
+
+  @Test
+  public void addFirstElementChangesSize() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    assertTrue(deque.size() > 0);
+  }
+
+  @Test
+  public void addFirstMakesStackNotEmpty() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    assertFalse(deque.isEmpty());
+  }
+
+  @Test
+  public void addFirstAndCanRemoveFirst() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    assertEquals(element, deque.removeFirst());
+  }
+
+  @Test
+  public void removeFirstRemovesNode() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    deque.removeFirst();
+    assertTrue(deque.isEmpty());
   }
 
 }
