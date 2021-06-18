@@ -86,6 +86,9 @@ public class Deque<Item> implements Iterable<Item>{
       throw new UnsupportedOperationException("Remove is unsupported");
     }
     public Item next() {
+      if (!hasNext()) {
+        throw new NoSuchElementException("Remove is unsupported");
+      }
       Item item = current.item;
       current = current.next;
       return item;

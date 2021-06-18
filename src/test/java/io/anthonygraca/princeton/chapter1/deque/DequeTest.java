@@ -169,4 +169,11 @@ public class DequeTest {
     iter.remove();
   }
 
+  @Test(expected=NoSuchElementException.class)
+  public void nextButNoItems() {
+    Deque<String> deque = new Deque<String>();
+    Iterator<String> iter = deque.iterator();
+    iter.next();
+  }
+
 }
