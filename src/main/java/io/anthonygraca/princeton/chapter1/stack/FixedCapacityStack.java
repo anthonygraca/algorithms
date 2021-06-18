@@ -4,6 +4,7 @@ public class FixedCapacityStack<Item> {
   private Item[] collection;
   private int m_size = 0;
 
+  @SuppressWarnings("unchecked")
   public FixedCapacityStack(int capacity) {
     collection = (Item[]) new Object[capacity];
   }
