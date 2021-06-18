@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import java.util.NoSuchElementException;
+import java.util.Iterator;
 
 import org.junit.Test;
 
@@ -160,4 +161,12 @@ public class DequeTest {
       assertEquals(element, entry);
     }
   }
+
+  @Test(expected=UnsupportedOperationException.class)
+  public void removeIsUnsupported() {
+    Deque<String> deque = new Deque<String>();
+    Iterator<String> iter = deque.iterator();
+    iter.remove();
+  }
+
 }

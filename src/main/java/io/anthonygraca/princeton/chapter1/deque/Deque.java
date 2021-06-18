@@ -82,14 +82,15 @@ public class Deque<Item> implements Iterable<Item>{
     public boolean hasNext() {
       return current != null;
     }
-    public void remove() {}
+    public void remove() {
+      throw new UnsupportedOperationException("Remove is unsupported");
+    }
     public Item next() {
       Item item = current.item;
       current = current.next;
       return item;
     }
   }
-
 
   private class Node {
     Item item;
