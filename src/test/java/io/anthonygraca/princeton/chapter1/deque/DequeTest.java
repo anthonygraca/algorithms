@@ -148,4 +148,16 @@ public class DequeTest {
     deque.addLast(element);
     assertEquals(element, deque.removeLast());
   }
+
+  @Test
+  public void iteratorTest() {
+    Deque<String> deque = new Deque<String>();
+    String element = "example";
+    deque.addFirst(element);
+    deque.addFirst(element);
+    deque.addFirst(element);
+    for(String entry : deque) {
+      assertEquals(element, entry);
+    }
+  }
 }

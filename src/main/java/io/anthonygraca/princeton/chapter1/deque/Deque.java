@@ -1,8 +1,9 @@
 package io.anthonygraca.princeton.chapter1.deque;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Deque<Item> {
+public class Deque<Item> implements Iterable<Item>{
   private Node first = null;
   private Node last = null; 
   private int m_size = 0;
@@ -70,6 +71,25 @@ public class Deque<Item> {
     m_size--;
     return item;
   }
+
+  public Iterator<Item> iterator() {
+    return new DequeIterator();
+  }
+
+  private class DequeIterator implements Iterator<Item> {
+    private Node current = first;
+
+    public boolean hasNext() {
+      return current != null;
+    }
+    public void remove() {}
+    public Item next() {
+      Item item = current.item;
+      current = current.next;
+      return item;
+    }
+  }
+
 
   private class Node {
     Item item;
