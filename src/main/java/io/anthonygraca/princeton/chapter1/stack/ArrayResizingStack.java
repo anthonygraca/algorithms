@@ -3,6 +3,7 @@ package io.anthonygraca.princeton.chapter1.stack;
 import java.util.Iterator;
 
 public class ArrayResizingStack<Item> implements Iterable<Item> {
+  @SuppressWarnings("unchecked")
   private Item[] collection = (Item[]) new Object[1];
   private int m_size = 0;
 
@@ -12,6 +13,7 @@ public class ArrayResizingStack<Item> implements Iterable<Item> {
   }
 
   private void resize(int max) {
+    @SuppressWarnings("unchecked")
     Item[] temp = (Item[]) new Object[max];
     for (int i = 0; i < m_size; i++) {
       temp[i] = collection[i];
