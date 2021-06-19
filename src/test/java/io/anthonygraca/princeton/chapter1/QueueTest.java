@@ -205,7 +205,7 @@ public class QueueTest {
 
   @Test
   public void fullWhenFilled(){
-    ArrayQueue fullQueue = new ArrayQueue<>(1);
+    ArrayQueue<String> fullQueue = new ArrayQueue<String>(1);
     fullQueue.enqueue("A string");
     assertTrue(fullQueue.isFull());
   }
