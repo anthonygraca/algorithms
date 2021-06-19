@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.deque;
 
 import java.util.NoSuchElementException;
 
@@ -7,7 +7,7 @@ public class ArrayDeque<T> {
   private int front;
   private int back;
   private int size;
-  private final int OFFSET = 1; // used to help track front and back indeces
+  private final int OFFSET = 1; // used to help track front and back indices
   private static final int DEFAULT_CAPACITY = 25;
   private static final int MAX_CAPACITY = 10000;
 

@@ -34,11 +34,13 @@ files. \
 `cmake ..` to tell cmake to look at the CMakeLists.txt at project root. \
 `make && make test` to compile source and run tests.
 
+### Python Code with VirtualEnv
+`pip3 install virtualenv`
+
 ## Table of Contents
 ### Chapter 1. Fundamentals
 | Topic | C++ | Java |
 |-------|-----|------|
-| Binary Search |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/BinarySearch.java) |
 | Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) |
 | Queues | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
 | Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |

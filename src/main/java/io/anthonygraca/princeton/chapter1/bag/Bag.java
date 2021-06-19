@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.bag;
 
 public interface Bag<T> {
   /**

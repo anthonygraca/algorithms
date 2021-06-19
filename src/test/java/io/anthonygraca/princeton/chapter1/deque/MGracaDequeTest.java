@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.deque;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;

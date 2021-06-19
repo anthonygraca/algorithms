@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.queue;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;

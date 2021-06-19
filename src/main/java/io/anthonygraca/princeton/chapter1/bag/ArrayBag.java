@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter1;
+package io.anthonygraca.princeton.chapter1.bag;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
