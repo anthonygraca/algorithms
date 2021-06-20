@@ -35,12 +35,15 @@ files. \
 `make && make test` to compile source and run tests.
 
 ### Python Code with VirtualEnv
-`pip3 install virtualenv`
+Install [pyenv](https://github.com/pyenv/pyenv#installation) \
+Use pyenv to install Python3 (e.g. `pyenv install 3.9.5`) \
+Use the installed pip3 to install virtualenv `pip install virtualenv` \
+Install [pybuilder](https://pybuilder.io/documentation/tutorial) in VirtualEnv 
 
 ## Table of Contents
 ### Chapter 1. Fundamentals
-| Topic | C++ | Java |
-|-------|-----|------|
+| Topic | C++ | Java | Python |
+|-------|-----|------|--------|
 | Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) |
 | Queues | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
 | Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |
