@@ -44,7 +44,7 @@ Install [pybuilder](https://pybuilder.io/documentation/tutorial) in VirtualEnv
 ### Chapter 1. Fundamentals
 | Topic | C++ | Java | Python |
 |-------|-----|------|--------|
-| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) |
+| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/main/python/stack.py)
 | Queues | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
 | Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |
 | Deque  | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/) |
