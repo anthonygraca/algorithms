@@ -5,7 +5,7 @@ project(Algorithms)
 set(CMAKE_BUILD_TYPE Debug)
 
 set(source-directory
-  "${CMAKE_SOURCE_DIR}/src/main/cpp/io/anthonygraca/princeton/chapter1")
+  "${CMAKE_SOURCE_DIR}/src/main/cpp/fundamentals")
 include_directories(${source-directory})
 
 set(CMAKE_CXX_STANDARD 14)
