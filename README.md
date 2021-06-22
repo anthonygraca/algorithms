@@ -44,19 +44,21 @@ Install [pybuilder](https://pybuilder.io/documentation/tutorial) in VirtualEnv
 ### Chapter 1. Fundamentals
 | Topic | C++ | Java | Python |
 |-------|-----|------|--------|
-| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/main/python/stack.py)
-| Queues | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
+| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/main/python/stack.py)
+| Queues | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/queue) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
 | Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |
 | Deque  | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/) |
 | Union Find | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) |
 ### Chapter 2. Sorting
-Insertion Sort \
-Selection Sort \
-ShellSort \
-QuickSort \
-MergeSort \
-HeapSort \
-Binary Heaps
+| Topic | C++ | Java | Python |
+|-------|-----|------|--------|
+| Insertion Sort |  |  | 
+| Selection Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) |
+| ShellSort | |  |
+| QuickSort | |  |
+| MergeSort | |  |
+| HeapSort | |  |
+| Binary Heaps | |  |
 ### Chapter 3. Searching
 Binary Search Trees \
 Red-Black Trees \
