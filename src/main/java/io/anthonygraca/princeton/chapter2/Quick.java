@@ -2,6 +2,11 @@ package io.anthonygraca.princeton.chapter2;
 
 import java.util.Random;
 
+/*
+ * The core of this algorithm is the choice of partition. We pick a random item, and make sure that 
+ *  everything to the left of this item is smaller and everything to the right of this item is
+ *  larger. We recursively continue until the entire array is sorted.
+ */
 public class Quick extends Sort{
   /**
    * This method implements the quick sort algorithm (nlog(n))
