@@ -55,7 +55,7 @@ Install [pybuilder](https://pybuilder.io/documentation/tutorial) in VirtualEnv
 | Insertion Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Insertion.java) | 
 | Selection Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) |
 | ShellSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Shell.java) |
-| QuickSort | |  |
+| QuickSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) |
 | MergeSort | |  |
 | HeapSort | |  |
 | Binary Heaps | |  |
