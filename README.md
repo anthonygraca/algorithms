@@ -39,7 +39,7 @@ Install [pyenv](https://github.com/pyenv/pyenv#installation) \
 Use pyenv to install Python3 (e.g. `pyenv install 3.9.5`) \
 Use the installed pip3 to install virtualenv `pip install virtualenv` \
 Create and source virtualenv `virtualenv venv && source venv/bin/activate` \
-Install [pybuilder](https://pybuilder.io/documentation/tutorial) in VirtualEnv \
+Install [pybuilder](https://pybuilder.io/documentation/tutorial) in virtualenv \
 Call `pyb` to run all tests
 
 ## Table of Contents

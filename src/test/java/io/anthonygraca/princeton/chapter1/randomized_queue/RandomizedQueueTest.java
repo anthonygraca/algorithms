@@ -14,4 +14,10 @@ public class RandomizedQueueTest {
     RandomizedQueue<String> queue = new RandomizedQueue<String>();
     assertTrue(queue.isEmpty());
   }
+
+  @Test
+  public void emptyQueueHasSizeZero() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    assertEquals(0, queue.size());
+  }
 }
