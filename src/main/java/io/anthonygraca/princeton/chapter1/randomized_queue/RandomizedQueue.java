@@ -13,4 +13,8 @@ public class RandomizedQueue<Item> {
   public void addFirst(Item item) {
     m_size++;
   }
+
+  public void addLast(Item item) {
+    m_size++;
+  }
 }
