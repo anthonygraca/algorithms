@@ -28,4 +28,12 @@ public class RandomizedQueueTest {
     queue.addFirst(example);
     assertEquals(1, queue.size());
   }
+
+  @Test
+  public void addFirstMeansNotEmpty() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example = "example";
+    queue.addFirst(example);
+    assertFalse(queue.isEmpty());
+  }
 }

@@ -3,7 +3,7 @@ package io.anthonygraca.princeton.chapter1.randomized_queue;
 public class RandomizedQueue<Item> {
   private int m_size = 0;
   public boolean isEmpty() {
-    return true;
+    return m_size == 0;
   }
 
   public int size() {
