@@ -20,4 +20,12 @@ public class RandomizedQueueTest {
     RandomizedQueue<String> queue = new RandomizedQueue<String>();
     assertEquals(0, queue.size());
   }
+
+  @Test
+  public void addFirstIncreasesSize() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example = "example";
+    queue.addFirst(example);
+    assertEquals(1, queue.size());
+  }
 }

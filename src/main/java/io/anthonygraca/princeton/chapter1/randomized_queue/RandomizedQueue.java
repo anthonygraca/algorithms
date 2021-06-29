@@ -1,11 +1,16 @@
 package io.anthonygraca.princeton.chapter1.randomized_queue;
 
 public class RandomizedQueue<Item> {
+  private int m_size = 0;
   public boolean isEmpty() {
     return true;
   }
 
   public int size() {
-    return 0;
+    return m_size;
+  }
+
+  public void addFirst(Item item) {
+    m_size++;
   }
 }
