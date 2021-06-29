@@ -10,14 +10,6 @@ public class RandomizedQueue<Item> {
     return m_size;
   }
 
-  public void addFirst(Item item) {
-    m_size++;
-  }
-
-  public void addLast(Item item) {
-    m_size++;
-  }
-
   public void enqueue(Item item) {
     m_size++;
   }

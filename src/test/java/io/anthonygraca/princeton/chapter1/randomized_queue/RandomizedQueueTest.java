@@ -22,38 +22,6 @@ public class RandomizedQueueTest {
   }
 
   @Test
-  public void addFirstIncreasesSize() {
-    RandomizedQueue<String> queue = new RandomizedQueue<String>();
-    String example = "example";
-    queue.addFirst(example);
-    assertEquals(1, queue.size());
-  }
-
-  @Test
-  public void addFirstMeansNotEmpty() {
-    RandomizedQueue<String> queue = new RandomizedQueue<String>();
-    String example = "example";
-    queue.addFirst(example);
-    assertFalse(queue.isEmpty());
-  }
-
-  @Test
-  public void addLastIncreasesSize() {
-    RandomizedQueue<String> queue = new RandomizedQueue<String>();
-    String example = "example";
-    queue.addLast(example);
-    assertEquals(1, queue.size());
-  }
-
-  @Test
-  public void addLastMeansNotEmpty() {
-    RandomizedQueue<String> queue = new RandomizedQueue<String>();
-    String example = "example";
-    queue.addLast(example);
-    assertFalse(queue.isEmpty());
-  }
-
-  @Test
   public void enqueueIncreasesSize() {
     RandomizedQueue<String> queue = new RandomizedQueue<String>();
     String example = "example";
