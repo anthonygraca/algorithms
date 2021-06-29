@@ -17,4 +17,8 @@ public class RandomizedQueue<Item> {
   public void addLast(Item item) {
     m_size++;
   }
+
+  public void enqueue(Item item) {
+    m_size++;
+  }
 }

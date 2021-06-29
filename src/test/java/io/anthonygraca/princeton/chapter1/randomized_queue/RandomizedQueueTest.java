@@ -52,4 +52,20 @@ public class RandomizedQueueTest {
     queue.addLast(example);
     assertFalse(queue.isEmpty());
   }
+
+  @Test
+  public void enqueueIncreasesSize() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example = "example";
+    queue.enqueue(example);
+    assertEquals(1, queue.size());
+  }
+
+  @Test
+  public void enqueueMeansNotEmpty() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example = "example";
+    queue.enqueue(example);
+    assertFalse(queue.isEmpty());
+  }
 }
