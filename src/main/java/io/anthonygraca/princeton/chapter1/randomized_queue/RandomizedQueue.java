@@ -11,6 +11,9 @@ public class RandomizedQueue<Item> {
   }
 
   public void enqueue(Item item) {
+    if (item == null) {
+      throw new IllegalArgumentException("can't be null");
+    }
     m_size++;
   }
 }

@@ -36,4 +36,10 @@ public class RandomizedQueueTest {
     queue.enqueue(example);
     assertFalse(queue.isEmpty());
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void verifyAddFirstInputNotNull() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    queue.enqueue(null);
+  }
 }
