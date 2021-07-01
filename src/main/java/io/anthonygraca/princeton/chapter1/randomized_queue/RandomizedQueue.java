@@ -3,8 +3,9 @@ package io.anthonygraca.princeton.chapter1.randomized_queue;
 import java.util.NoSuchElementException;
 
 public class RandomizedQueue<Item> {
-  private int m_size = 0;
+  @SuppressWarnings("unchecked")
   private Item[] collection = (Item[]) new Object[1];
+  private int m_size = 0;
 
   public boolean isEmpty() {
     return m_size == 0;
@@ -23,6 +24,7 @@ public class RandomizedQueue<Item> {
   }
 
   private void resize(int max) {
+    @SuppressWarnings("unchecked")
     Item[] temp = (Item[]) new Object[max];
     for (int i = 0; i < m_size; i++) {
       temp[i] = collection[i];
