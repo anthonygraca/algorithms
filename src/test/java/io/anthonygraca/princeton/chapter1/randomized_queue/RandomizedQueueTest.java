@@ -42,4 +42,10 @@ public class RandomizedQueueTest {
     RandomizedQueue<String> queue = new RandomizedQueue<String>();
     queue.enqueue(null);
   }
+
+  @Test(expected=NoSuchElementException.class)
+  public void dequeueOnEmptyQueue() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    queue.dequeue();
+  }
 }
