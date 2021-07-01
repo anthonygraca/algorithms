@@ -36,6 +36,8 @@ public class RandomizedQueue<Item> {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
-    return collection[--m_size];
+    Item item = collection[--m_size];
+    collection[m_size] = null;
+    return item;
   }
 }
