@@ -18,7 +18,16 @@ public class RandomizedQueue<Item> {
     if (item == null) {
       throw new IllegalArgumentException("can't be null");
     }
+    if (m_size == collection.length) resize(2*collection.length);
     collection[m_size++] = item;
+  }
+
+  private void resize(int max) {
+    Item[] temp = (Item[]) new Object[max];
+    for (int i = 0; i < m_size; i++) {
+      temp[i] = collection[i];
+    }
+    collection = temp;
   }
 
   public Item dequeue() {

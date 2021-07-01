@@ -56,4 +56,18 @@ public class RandomizedQueueTest {
     queue.enqueue(example);
     assertEquals(example, queue.dequeue());
   }
+
+  @Test
+  public void addMultipleItems() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example1 = "example1";
+    String example2 = "example2";
+    queue.enqueue(example1);
+    queue.enqueue(example2);
+    String output1 = queue.dequeue();
+    String output2 = queue.dequeue();
+    assertTrue(output1 == example1 || output1 == example2);
+    assertTrue(output2 == example1 || output2 == example2);
+  }
+
 }
