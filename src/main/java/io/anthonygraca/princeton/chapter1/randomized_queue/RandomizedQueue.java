@@ -4,6 +4,8 @@ import java.util.NoSuchElementException;
 
 public class RandomizedQueue<Item> {
   private int m_size = 0;
+  private Item[] collection = (Item[]) new Object[1];
+
   public boolean isEmpty() {
     return m_size == 0;
   }
@@ -16,13 +18,13 @@ public class RandomizedQueue<Item> {
     if (item == null) {
       throw new IllegalArgumentException("can't be null");
     }
-    m_size++;
+    collection[m_size++] = item;
   }
 
   public Item dequeue() {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
-    return null;
+    return collection[--m_size];
   }
 }

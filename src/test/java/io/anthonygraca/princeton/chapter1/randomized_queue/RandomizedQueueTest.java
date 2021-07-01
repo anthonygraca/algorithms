@@ -48,4 +48,12 @@ public class RandomizedQueueTest {
     RandomizedQueue<String> queue = new RandomizedQueue<String>();
     queue.dequeue();
   }
+
+  @Test
+  public void dequeAValidItem() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example = "example";
+    queue.enqueue(example);
+    assertEquals(example, queue.dequeue());
+  }
 }
