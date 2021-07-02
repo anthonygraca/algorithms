@@ -70,4 +70,26 @@ public class RandomizedQueueTest {
     assertTrue(output2 == example1 || output2 == example2);
   }
 
+  @Test
+  public void addTwoItemsReturnsSizeTwo() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example1 = "example1";
+    String example2 = "example2";
+    queue.enqueue(example1);
+    queue.enqueue(example2);
+    assertEquals(2, queue.size());
+  }
+
+  @Test
+  public void sampleDoesNotRemoveItem() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String example1 = "example1";
+    String example2 = "example2";
+    queue.enqueue(example1);
+    queue.enqueue(example2);
+    String output1 = queue.sample();
+    assertTrue(output1 == example1 || output1 == example2);
+    assertEquals(2, queue.size());
+  }
+
 }

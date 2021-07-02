@@ -40,4 +40,8 @@ public class RandomizedQueue<Item> {
     collection[m_size] = null;
     return item;
   }
+
+  public Item sample() {
+    return collection[0];
+  }
 }
