@@ -96,7 +96,7 @@ Networking: Ford-Fulkerson
 
 ## Coursera Assignments
 [1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation) \
-[1.2 Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java)
+[1.2 Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) & [Randomized Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/randomized_queue/RandomizedQueue.java)
 
 ## Resources Used
 ### Java
