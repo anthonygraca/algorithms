@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import java.util.NoSuchElementException;
+import java.util.Iterator;
 
 import org.junit.Test;
 
@@ -109,5 +110,13 @@ public class RandomizedQueueTest {
       assertEquals(element, entry);
     }
   }
+
+  @Test(expected=UnsupportedOperationException.class)
+  public void removeIsUnsupported() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    Iterator<String> iter = queue.iterator();
+    iter.remove();
+  }
+
 
 }

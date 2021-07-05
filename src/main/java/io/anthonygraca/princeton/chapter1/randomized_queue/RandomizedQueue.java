@@ -58,7 +58,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
   private class RandomizedQueueIterator implements Iterator<Item> {
     public boolean hasNext() {return false;}
-    public void remove() {}
+    public void remove() {
+      throw new UnsupportedOperationException("Remove is unsupported");
+    }
     public Item next() {
       if (!hasNext()) {
         throw new NoSuchElementException("Queue is Empty");
