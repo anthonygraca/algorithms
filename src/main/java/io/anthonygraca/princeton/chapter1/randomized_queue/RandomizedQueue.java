@@ -22,6 +22,7 @@ public class RandomizedQueue<Item> {
     }
     if (m_size == collection.length) resize(2*collection.length);
     collection[m_size++] = item;
+    StdRandom.shuffle(collection);
   }
 
   private void resize(int max) {
@@ -37,7 +38,6 @@ public class RandomizedQueue<Item> {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
-    StdRandom.shuffle(collection);
     Item item = collection[--m_size];
     collection[m_size] = null;
     return item;
