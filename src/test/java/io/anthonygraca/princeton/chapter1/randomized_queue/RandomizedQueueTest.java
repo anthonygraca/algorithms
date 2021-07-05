@@ -98,4 +98,16 @@ public class RandomizedQueueTest {
     queue.sample();
   }
 
+  @Test
+  public void iteratorTest() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    String element = "example";
+    queue.enqueue(element);
+    queue.enqueue(element);
+    queue.enqueue(element);
+    for(String entry : queue) {
+      assertEquals(element, entry);
+    }
+  }
+
 }

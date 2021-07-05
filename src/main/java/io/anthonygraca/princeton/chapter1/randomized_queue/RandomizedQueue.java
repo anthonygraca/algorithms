@@ -1,9 +1,11 @@
 package io.anthonygraca.princeton.chapter1.randomized_queue;
 
 import edu.princeton.cs.algs4.StdRandom;
+
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class RandomizedQueue<Item> {
+public class RandomizedQueue<Item> implements Iterable<Item> {
   @SuppressWarnings("unchecked")
   private Item[] collection = (Item[]) new Object[1];
   private int m_size = 0;
@@ -48,5 +50,20 @@ public class RandomizedQueue<Item> {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
     return collection[0];
+  }
+
+  public Iterator<Item> iterator() {
+    return new RandomizedQueueIterator();
+  }
+
+  private class RandomizedQueueIterator implements Iterator<Item> {
+    public boolean hasNext() {return false;}
+    public void remove() {}
+    public Item next() {
+      if (!hasNext()) {
+        throw new NoSuchElementException("Queue is Empty");
+      }
+      return sample();
+    }
   }
 }
