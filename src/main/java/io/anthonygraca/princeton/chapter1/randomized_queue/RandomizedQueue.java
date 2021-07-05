@@ -1,5 +1,6 @@
 package io.anthonygraca.princeton.chapter1.randomized_queue;
 
+import edu.princeton.cs.algs4.StdRandom;
 import java.util.NoSuchElementException;
 
 public class RandomizedQueue<Item> {
@@ -36,6 +37,7 @@ public class RandomizedQueue<Item> {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
+    StdRandom.shuffle(collection);
     Item item = collection[--m_size];
     collection[m_size] = null;
     return item;
