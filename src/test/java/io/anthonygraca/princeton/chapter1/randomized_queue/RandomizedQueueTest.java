@@ -92,4 +92,10 @@ public class RandomizedQueueTest {
     assertEquals(2, queue.size());
   }
 
+  @Test(expected=NoSuchElementException.class)
+  public void sampleOnEmptyQueue() {
+    RandomizedQueue<String> queue = new RandomizedQueue<String>();
+    queue.sample();
+  }
+
 }

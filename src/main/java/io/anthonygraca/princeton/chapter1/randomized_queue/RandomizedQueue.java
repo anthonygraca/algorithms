@@ -44,6 +44,9 @@ public class RandomizedQueue<Item> {
   }
 
   public Item sample() {
+    if(isEmpty()) {
+      throw new NoSuchElementException("can't dequeue empty queue");
+    }
     return collection[0];
   }
 }
