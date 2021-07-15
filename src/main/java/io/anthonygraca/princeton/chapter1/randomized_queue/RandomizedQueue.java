@@ -68,4 +68,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
       return sample();
     }
   }
+
+  /* move shuffle so it's only called once */
+  /* implement hasNext() */
 }
