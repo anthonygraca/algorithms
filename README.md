@@ -58,7 +58,7 @@ Call `pyb` to run all tests
 | Selection Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) |
 | ShellSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Shell.java) |
 | QuickSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) |
-| MergeSort | |  |
+| MergeSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Merge.java) |
 | HeapSort | |  |
 | Binary Heaps | |  |
 ### Chapter 3. Searching
