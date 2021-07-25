@@ -19,7 +19,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(Queue, InitializedStackIsEmpty) {
+TEST(Queue, InitializedQueueIsEmpty) {
   algorithms::Queue<std::string> queue;
   ASSERT_TRUE(queue.isEmpty());
 }
