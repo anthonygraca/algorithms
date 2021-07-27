@@ -4,7 +4,12 @@
 namespace algorithms {
 class UnionFind {
   public:
-    int count(void) {return 0;};
+    UnionFind(int n = 0) {
+      m_number_of_components = n;
+    }
+    int count(void) {return m_number_of_components;};
+  private:
+    int m_number_of_components = 0;
 
 };
 } // namespace algorithms

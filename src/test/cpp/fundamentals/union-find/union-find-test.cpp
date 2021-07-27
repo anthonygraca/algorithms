@@ -6,3 +6,9 @@ TEST(UnionFind, InitializedUnionFindHasZeroComponents) {
   algorithms::UnionFind uf;
   ASSERT_TRUE(uf.count() == 0);
 }
+
+TEST(UnionFind, InitializedUnionFindHasNComponents) {
+  int n = 100;
+  algorithms::UnionFind uf(n);
+  ASSERT_TRUE(uf.count() == n);
+}
