@@ -12,3 +12,9 @@ TEST(UnionFind, InitializedUnionFindHasNComponents) {
   algorithms::UnionFind uf(n);
   ASSERT_TRUE(uf.count() == n);
 }
+
+TEST(UnionFind, UniqueComponentsAreNotConnected) {
+  int n = 10;
+  algorithms::UnionFind uf(n);
+  ASSERT_FALSE(uf.connected(1, 2));
+}
