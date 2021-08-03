@@ -1,0 +1,3 @@
+namespace algorithms {
+
+} // namespace algorithms
