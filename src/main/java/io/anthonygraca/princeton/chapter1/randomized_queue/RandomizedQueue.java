@@ -59,8 +59,14 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
   }
 
   private class RandomizedQueueIterator implements Iterator<Item> {
-    int m_current = 0;
-    public boolean hasNext() {return m_current != m_size;}
+    private Item[] iterator_collection = (Item[]) new Object[collection.length];
+    private int m_current = m_size;
+    public RandomizedQueueIterator() {
+      for (int i = 0; i < collection.length; i++) {
+        iterator_collection[i] = collection[i];
+      }
+    }
+    public boolean hasNext() {return m_current > 0;}
     public void remove() {
       throw new UnsupportedOperationException("Remove is unsupported");
     }
@@ -68,8 +74,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
       if (!hasNext()) {
         throw new NoSuchElementException("Queue is Empty");
       }
-      m_current++;
-      return sample();
+      int random_index = StdRandom.uniform(0, m_current);
+      Item item = iterator_collection[random_index];
+      iterator_collection[random_index] = iterator_collection[--m_current];
+      iterator_collection[m_current] = null;
+      return item;
     }
   }
 
