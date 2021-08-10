@@ -9,7 +9,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
   @SuppressWarnings("unchecked")
   private Item[] collection = (Item[]) new Object[1];
   private int m_size = 0;
-  private int m_current = 0;
 
   public boolean isEmpty() {
     return m_size == 0;
@@ -40,7 +39,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
-    Item item = collection[--m_size];
+    int random_index = StdRandom.uniform(0, m_size);
+    Item item = collection[random_index];
+    collection[random_index] = collection[--m_size];
     collection[m_size] = null;
     return item;
   }
@@ -49,11 +50,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     if(isEmpty()) {
       throw new NoSuchElementException("can't dequeue empty queue");
     }
-    StdRandom.shuffle(collection, 0, m_size);
-    if (!(m_current < m_size)) {
-      m_current = 0;
-    }
-    return collection[m_current++];
+    int random_index = StdRandom.uniform(0, m_size);
+    return collection[random_index];
   }
 
   public Iterator<Item> iterator() {
@@ -61,6 +59,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
   }
 
   private class RandomizedQueueIterator implements Iterator<Item> {
+    int m_current = 0;
     public boolean hasNext() {return m_current != m_size;}
     public void remove() {
       throw new UnsupportedOperationException("Remove is unsupported");
@@ -69,6 +68,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
       if (!hasNext()) {
         throw new NoSuchElementException("Queue is Empty");
       }
+      m_current++;
       return sample();
     }
   }
