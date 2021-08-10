@@ -8,7 +8,7 @@ public class Deque<Item> implements Iterable<Item>{
   private Node last = null; 
   private int m_size = 0;
 
-  boolean isEmpty() {
+  public boolean isEmpty() {
     return first == null && last == null;
   }
 
@@ -16,7 +16,7 @@ public class Deque<Item> implements Iterable<Item>{
     return m_size;
   }
 
-  void addFirst(Item item) {
+  public void addFirst(Item item) {
     if (item == null) {
       throw new IllegalArgumentException("Cannot insert null");
     }
@@ -30,7 +30,7 @@ public class Deque<Item> implements Iterable<Item>{
     m_size++;
   }
 
-  void addLast(Item item) {
+  public void addLast(Item item) {
     if (item == null) {
       throw new IllegalArgumentException("Cannot insert null");
     }
@@ -44,7 +44,7 @@ public class Deque<Item> implements Iterable<Item>{
     m_size++;
   }
 
-  Item removeFirst() {
+  public Item removeFirst() {
     if (isEmpty()) {
       throw new NoSuchElementException("Cannot remove from empty deque");
     }
@@ -58,7 +58,7 @@ public class Deque<Item> implements Iterable<Item>{
     return item;
   }
 
-  Item removeLast() {
+  public Item removeLast() {
     if (isEmpty()) {
       throw new NoSuchElementException("Cannot remove from empty deque");
     }
