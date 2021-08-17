@@ -54,7 +54,7 @@ Call `pyb` to run all tests
 ### Chapter 2. Sorting
 | Topic | C++ | Java |
 |-------|-----|------|
-| Insertion Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Insertion.java) | 
+| Insertion Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/insertion/insertion-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Insertion.java) | 
 | Selection Sort |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) |
 | ShellSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Shell.java) |
 | QuickSort | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) |
