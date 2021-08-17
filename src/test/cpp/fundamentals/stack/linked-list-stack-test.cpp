@@ -14,7 +14,7 @@
  *
  * =============================================================================
  */
-#include "stack/linked-list-stack.h"
+#include "fundamentals/stack/linked-list-stack.h"
 
 #include "gtest/gtest.h"
 

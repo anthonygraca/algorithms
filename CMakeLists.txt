@@ -5,10 +5,10 @@ project(Algorithms)
 set(CMAKE_BUILD_TYPE Debug)
 
 set(source-directory
-  "${CMAKE_SOURCE_DIR}/src/main/cpp/fundamentals")
+  "${CMAKE_SOURCE_DIR}/src/main/cpp/")
 include_directories(${source-directory})
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(src)
 

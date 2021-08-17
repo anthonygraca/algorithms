@@ -1,5 +1,5 @@
-#include "union-find/union-find.h"
-#include "union-find/quick-find.h"
+#include "fundamentals/union-find/union-find.h"
+#include "fundamentals/union-find/quick-find.h"
 
 #include "gtest/gtest.h"
 

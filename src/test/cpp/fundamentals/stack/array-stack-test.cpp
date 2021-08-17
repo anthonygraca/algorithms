@@ -1,4 +1,4 @@
-#include "stack/array-stack.h"
+#include "fundamentals/stack/array-stack.h"
 
 #include "gtest/gtest.h"
 

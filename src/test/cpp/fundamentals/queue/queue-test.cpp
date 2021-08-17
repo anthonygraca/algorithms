@@ -15,7 +15,7 @@
  * =============================================================================
  */
 
-#include "queue/queue.h"
+#include "fundamentals/queue/queue.h"
 
 #include "gtest/gtest.h"
 
