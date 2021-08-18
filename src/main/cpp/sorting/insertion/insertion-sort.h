@@ -3,6 +3,10 @@
 
 #include <vector>
 
+/*
+ * An already sorted array takes O(n)
+ */
+
 namespace algorithms {
 class InsertionSort {
   public:
