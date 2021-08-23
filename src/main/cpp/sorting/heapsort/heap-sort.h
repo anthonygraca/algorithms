@@ -7,23 +7,31 @@ namespace algorithms {
 class HeapSort {
   public:
     std::vector<int> sort(std::vector<int>& input) {
-      /*
-      int n = input.size();
-      for (int k = n/2; k >= 1; k--) {
-        //sink(input, k, n);
+      int n = input.size()-1;
+      for (int k = n/2-1; k >= 0; k--) {
+        sink(input, k, n);
       }
-      while (n > 1) {
-        auto temp{input[1]};
-        input[1] = input[n];
+      while (n > 0) {
+        auto temp{input[0]};
+        input[0] = input[n];
         input[n--] = temp;
-        //sink(input, 1, n);
+        sink(input, 0, n);
       }
-      */
-    
-      return {1,2,3,4};
+      return input;
     }
-
-
+  private:
+    std::vector<int> sink(std::vector<int>& input, int k, int endpoint) {
+      while (2*(k+1)-1 < endpoint) {
+        int j = 2*(k+1)-1;
+        if (j < endpoint && input[j] < input[j+1]) j++;
+        if (input[k] >= input[j]) break;
+        auto temp{input[k]};
+        input[k] = input[j];
+        input[j] = temp;
+        k = j;
+      }
+      return input;
+    }
 };
 } // namespace algorithms
 
