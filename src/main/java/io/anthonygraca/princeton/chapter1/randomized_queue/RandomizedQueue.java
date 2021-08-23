@@ -58,6 +58,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     return new RandomizedQueueIterator();
   }
 
+  @SuppressWarnings("unchecked")
   private class RandomizedQueueIterator implements Iterator<Item> {
     private Item[] iterator_collection = (Item[]) new Object[collection.length];
     private int m_current = m_size;
