@@ -123,5 +123,15 @@ public class PointTest {
     Point pointB = new Point(x1, y1);
     assertEquals(pointA.slopeTo(pointB), Double.NEGATIVE_INFINITY, 0.1);
   }
+
+/*
+ *
+   The slopeOrder() method should return a comparator that compares its two 
+   argument points by the slopes they make with the invoking point (x0, y0). 
+   Formally, the point (x1, y1) is less than the point (x2, y2) if and only if 
+   the slope (y1 − y0) / (x1 − x0) is less than the slope (y2 − y0) / (x2 − x0).
+   Treat horizontal, vertical, and degenerate line segments as in the 
+   slopeTo() method.
+ */
 }
 
