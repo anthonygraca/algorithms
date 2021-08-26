@@ -60,7 +60,7 @@ Call `pyb` to run all tests
 | QuickSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/quicksort/quick-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) |
 | MergeSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/mergesort/merge-sort.h) || [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Merge.java) |
 | HeapSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/heapsort/heap-sort.h) |  |
-| Binary Heaps | |  |
+| Binary Heaps | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/binary-heap/binary-heap.h) |  |
 ### Chapter 3. Searching
 Binary Search Trees \
 Red-Black Trees \
