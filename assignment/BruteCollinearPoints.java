@@ -1,5 +1,3 @@
-package io.anthonygraca.princeton.chapter2.CollinearPoints;
-
 import java.util.ArrayList;
 
 public class BruteCollinearPoints {

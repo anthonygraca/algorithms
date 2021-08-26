@@ -7,8 +7,6 @@
  *  For use on Coursera, Algorithms Part I programming assignment.
  *
  ******************************************************************************/
-package io.anthonygraca.princeton.chapter2.CollinearPoints;
-
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
 
