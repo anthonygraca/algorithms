@@ -65,7 +65,6 @@ public class FastCollinearPointsTest {
     assertEquals(algo.segments()[0].toString(), "(1, 1) -> (1, 5)");
   }
 
-  /*
   @Test
   public void verifyMultipleCollinearPoints() {
     Point[] points = {new Point(1,1), new Point(1,2), 
@@ -73,7 +72,6 @@ public class FastCollinearPointsTest {
     FastCollinearPoints algo = new FastCollinearPoints(points);
     assertEquals(algo.numberOfSegments(), 1);
   }
-  */
 
   @Test
   public void verifySingleValidLineSegmentCountFromManyPoints() {
@@ -114,11 +112,11 @@ public class FastCollinearPointsTest {
                       new Point(11000,3000), new Point(5000, 12000),
                       new Point(9000,6000)};
     FastCollinearPoints algo = new FastCollinearPoints(points);
-    assertEquals(algo.numberOfSegments(), 3);
+    assertEquals(algo.numberOfSegments(), 4);
     assertEquals(algo.segments()[0].toString(), "(10000, 0) -> (0, 10000)");
     assertEquals(algo.segments()[1].toString(), "(10000, 0) -> (30000, 0)");
     assertEquals(algo.segments()[2].toString(), "(13000, 0) -> (5000, 12000)");
-    //assertEquals(algo.segments()[3].toString(), "(30000, 0) -> (0, 30000)");
+    assertEquals(algo.segments()[3].toString(), "(30000, 0) -> (0, 30000)");
   }
 
   @Test

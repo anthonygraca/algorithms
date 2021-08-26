@@ -58,28 +58,42 @@ public class FastCollinearPoints {
    *  and sorting brings such points together. The algorithm is fast because 
    *  the bottleneck operation is sorting.
    */
-  private ArrayList<LineSegment> findLineSegmentsContainingFourPoints(Point[] points) {
-    Point[] copy = new Point[points.length];
-    for (int i = 0; i < points.length; i++) {
-      copy[i] = points[i];
-    }
-    for (int p = 0; p < points.length; p++) {
-      Arrays.sort(copy, p, copy.length, points[p].slopeOrder());
-      int start = 1;
-      int end = 1;
-      Point point = points[p];
-      while (start < points.length && end+1 < points.length) {
-        double start_slope = point.slopeTo(copy[start]);
-        double end_slope = point.slopeTo(copy[end+1]);
-        if (start_slope == end_slope) {
-          end++;
+  private ArrayList<LineSegment> 
+    findLineSegmentsContainingFourPoints(Point[] points) {
+    Point[] sorted_slope_order = Arrays.copyOf(points, points.length);
+    Point[] sorted_nominal_order = Arrays.copyOf(points, points.length);
+    Arrays.sort(sorted_nominal_order);
+    for (int i = 0; i < sorted_nominal_order.length; ++i) {
+      Point origin = sorted_nominal_order[i];
+      Arrays.sort(sorted_slope_order); // take advantage of stability in sorting algo
+      Arrays.sort(sorted_slope_order, origin.slopeOrder());
+      int count = 1;
+      Point lineBeginning = null;
+      for (int j = 0; j < sorted_slope_order.length-1; ++j) {
+        if (sorted_slope_order[j].slopeTo(origin) == 
+            sorted_slope_order[j+1].slopeTo(origin)) {
+          count++;
+          if (count == 2) {
+            lineBeginning = sorted_slope_order[j];
+            count++;
+          }
+          else if (count >= 4 && j + 1 == sorted_slope_order.length - 1) {
+            if (lineBeginning.compareTo(origin) > 0) {
+              m_segments.add(new LineSegment(origin, sorted_slope_order[j + 1]));
+            }
+            count = 1;
+          }
+        }
+        else if (count >= 4) {
+          if (lineBeginning.compareTo(origin) > 0) {
+            m_segments.add(new LineSegment(origin, sorted_slope_order[j]));
+          }
+          count = 1;
         }
         else {
-          addLineSegment(start, end, copy, point);
-          start = end+1;
+          count = 1;
         }
       }
-      addLineSegment(start, end, copy, point);
     }
     return m_segments;
   }
@@ -112,18 +126,4 @@ public class FastCollinearPoints {
       return 0;
     }
   }
-
-  private void addLineSegment(int start, int end, Point[] copy, Point p) {
-    Point[] collinear = new Point[end-start+2];
-    collinear[0] = p;
-    for (int i = start, j = 1; i <= end; i++, j++) {
-      collinear[j] = copy[i];
-    }
-    if (end - start >= 2) {
-      Arrays.sort(collinear);
-      if (p == collinear[0] || p == collinear[collinear.length-1])
-        m_segments.add(new LineSegment(collinear[0], collinear[collinear.length-1]));
-    }
-  }
-
 }
