@@ -11,7 +11,7 @@ public class FastCollinearPoints {
       throw new IllegalArgumentException("Invalid Input");
     }
     if (points.length >= 4) {
-      m_segments = findLineSegmentsContainingFourPoints(points);
+      m_segments = findLineSegments(points);
     }
   }
 
@@ -58,35 +58,36 @@ public class FastCollinearPoints {
    *  and sorting brings such points together. The algorithm is fast because 
    *  the bottleneck operation is sorting.
    */
-  private ArrayList<LineSegment> 
-    findLineSegmentsContainingFourPoints(Point[] points) {
-    Point[] sorted_slope_order = Arrays.copyOf(points, points.length);
-    Point[] sorted_nominal_order = Arrays.copyOf(points, points.length);
-    Arrays.sort(sorted_nominal_order);
-    for (int i = 0; i < sorted_nominal_order.length; ++i) {
-      Point origin = sorted_nominal_order[i];
-      Arrays.sort(sorted_slope_order); // take advantage of stability in sorting algo
-      Arrays.sort(sorted_slope_order, origin.slopeOrder());
+  private ArrayList<LineSegment> findLineSegments(Point[] points) {
+    Point[] sorted_by_slope_order = Arrays.copyOf(points, points.length);
+    Point[] sorted_by_nominal_order = Arrays.copyOf(points, points.length);
+    Arrays.sort(sorted_by_nominal_order);
+    for (int i = 0; i < sorted_by_nominal_order.length; ++i) {
+      Point origin = sorted_by_nominal_order[i];
+      // take advantage of stability in sorting algorithm
+      Arrays.sort(sorted_by_slope_order); 
+      Arrays.sort(sorted_by_slope_order, origin.slopeOrder());
       int count = 1;
       Point lineBeginning = null;
-      for (int j = 0; j < sorted_slope_order.length-1; ++j) {
-        if (sorted_slope_order[j].slopeTo(origin) == 
-            sorted_slope_order[j+1].slopeTo(origin)) {
+      for (int j = 0; j < sorted_by_slope_order.length-1; ++j) {
+        if (sorted_by_slope_order[j].slopeTo(origin) == 
+            sorted_by_slope_order[j+1].slopeTo(origin)) {
           count++;
           if (count == 2) {
-            lineBeginning = sorted_slope_order[j];
+            lineBeginning = sorted_by_slope_order[j];
             count++;
           }
-          else if (count >= 4 && j + 1 == sorted_slope_order.length - 1) {
+          else if (count >= 4 && j + 1 == sorted_by_slope_order.length - 1) {
             if (lineBeginning.compareTo(origin) > 0) {
-              m_segments.add(new LineSegment(origin, sorted_slope_order[j + 1]));
+              m_segments.add(
+                  new LineSegment(origin, sorted_by_slope_order[j+1]));
             }
             count = 1;
           }
         }
         else if (count >= 4) {
           if (lineBeginning.compareTo(origin) > 0) {
-            m_segments.add(new LineSegment(origin, sorted_slope_order[j]));
+            m_segments.add(new LineSegment(origin, sorted_by_slope_order[j]));
           }
           count = 1;
         }
@@ -108,22 +109,5 @@ public class FastCollinearPoints {
 
   public int numberOfSegments() {
     return m_segments.size();
-  }
-
-  private Comparator<Point> bestOrder(Point p) {
-    return new ByBestOrder(p);
-  }
-
-  private class ByBestOrder implements Comparator<Point> {
-    Point p;
-    public ByBestOrder(Point p) {
-      this.p = p;
-    }
-    public int compare(Point x, Point y) {
-      double slopeToX = this.p.slopeTo(x);
-      double slopeToY = this.p.slopeTo(y);
-      if (slopeToX != slopeToY) return 1;
-      return 0;
-    }
   }
 }

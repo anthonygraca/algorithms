@@ -67,9 +67,9 @@ Call `pyb` to run all tests
 |-------|-----|------|
 | Binary Search Trees | | |
 | Red-Black Trees | | |
+| k-d trees | | |
 | Separate Chaining Hash Tables | | |
 | Linear Probing Hash Tables | | |
-| k-d trees | | |
 ### Chapter 4. Graphs
 Depth-First Search \
 Breadth-First Search \
@@ -99,7 +99,8 @@ Networking: Ford-Fulkerson
 ## Coursera Assignments
 [1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation) \
 [1.2 Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) & [Randomized Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/randomized_queue/RandomizedQueue.java) \
-[1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java)
+[1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java) \
+[1.4 Slider Puzzle](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/EightPuzzle/)
 
 ## Resources Used
 ### Java
