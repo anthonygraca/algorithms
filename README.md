@@ -65,7 +65,7 @@ Call `pyb` to run all tests
 ### Chapter 3. Searching
 | Topic | C++ | Java |
 |-------|-----|------|
-| Binary Search Trees | | |
+| Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | |
 | Red-Black Trees | | |
 | k-d trees | | |
 | Separate Chaining Hash Tables | | |

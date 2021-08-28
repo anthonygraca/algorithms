@@ -114,7 +114,7 @@ public class BoardTest {
   }
 
   @Test
-  public void verifyNeighboars() {
+  public void verifyNeighbors() {
     int[][] input = {{8, 1, 3},
                      {4, 0, 2},
                      {7, 6, 5}};
@@ -141,7 +141,7 @@ public class BoardTest {
     expected.push(neighbor_board3);
     expected.push(neighbor_board4);
     Iterator<Board> generated_neighbors = board.neighbors().iterator();
-    while(generated_neighbors.hasNext()) {
+    while(!expected.empty()) {
       assertTrue(generated_neighbors.next().equals(expected.pop()));
     }
   }
@@ -153,5 +153,51 @@ public class BoardTest {
                      {7, 8, 0}};
     Board board = new Board(input);
     assertTrue(board.isGoal());
+  }
+
+  @Test
+  public void verifyManhattanExample1() {
+    int[][] input = {{4, 1, 3},
+                     {0, 2, 5},
+                     {7, 8, 6}};
+    Board board = new Board(input);
+    final int expected = 5;
+    assertEquals(expected, board.manhattan());
+  }
+
+  @Test
+  public void verifyManhattanExample2() {
+    int[][] input = {{1, 0, 3},
+                     {4, 2, 5},
+                     {7, 8, 6}};
+    Board board = new Board(input);
+    final int expected = 3;
+    assertEquals(expected, board.manhattan());
+  }
+
+  @Test
+  public void verifyTwin() {
+    int[][] input = {{1, 0, 3},
+                     {4, 2, 5},
+                     {7, 8, 6}};
+    Board board = new Board(input);
+    int[][] twin = {{1, 0, 3},
+                    {4, 5, 2},
+                    {7, 8, 6}};
+    Board expected = new Board(twin);
+    assertEquals(expected, board.twin());
+  }
+
+  @Test
+  public void verifyTwinOtherCase() {
+    int[][] input = {{4, 1, 3},
+                     {0, 2, 5},
+                     {7, 8, 6}};
+    Board board = new Board(input);
+    int[][] twin = {{1, 4, 3},
+                    {0, 2, 5},
+                    {7, 8, 6}};
+    Board expected = new Board(twin);
+    assertEquals(expected, board.twin());
   }
 }

@@ -11,17 +11,18 @@ public class Board {
 
   public Board(int[][] input) {
     m_size = input[0].length;
-    m_tiles = new int[m_size][m_size];
-    copyBoard(input);
+    m_tiles = copyBoard(input);
     generateGoalBoard(m_size);
   }
 
-  private void copyBoard(int[][] input) {
-    for (int i = 0; i < m_size; i++) {
-      for (int j = 0; j < m_size; j++) {
-        m_tiles[i][j] = input[i][j];
+  private int[][] copyBoard(int[][] input) {
+    int[][] tiles = new int[input.length][input.length];
+    for (int i = 0; i < input.length; i++) {
+      for (int j = 0; j < input.length; j++) {
+        tiles[i][j] = input[i][j];
       }
     }
+    return tiles;
   }
 
   private void generateGoalBoard(int size) {
@@ -108,33 +109,29 @@ public class Board {
     return new GeneratedNeighbors();
   }
 
+  public Board twin() {
+    int[][] tiles = copyBoard(m_tiles);
+    if (tiles[0][0] != 0 && tiles[0][1] != 0) {
+      int swap = tiles[0][0];
+      tiles[0][0] = tiles[0][1];
+      tiles[0][1] = swap;
+    }
+    else {
+      int swap = tiles[1][1];
+      tiles[1][1] = tiles[1][2];
+      tiles[1][2] = swap;
+    }
+    return new Board(tiles);
+  }
+
   private class GeneratedNeighbors implements Iterable<Board> {
     public Iterator<Board> iterator() {
       return new GeneratedNeighborsIterator();
     }
     private class GeneratedNeighborsIterator implements Iterator<Board> {
-      Stack<Board> expected = new Stack<Board>();
+      Stack<Board> expected = null;
       public GeneratedNeighborsIterator() {
-        int[][] neighbor1 = {{8, 0, 3},
-                             {4, 1, 2},
-                             {7, 6, 5}};
-        Board neighbor_board1 = new Board(neighbor1);
-        int[][] neighbor2 = {{8, 1, 3},
-                             {0, 4, 2},
-                             {7, 6, 5}};
-        Board neighbor_board2 = new Board(neighbor2);
-        int[][] neighbor3 = {{8, 1, 3},
-                             {4, 2, 0},
-                             {7, 6, 5}};
-        Board neighbor_board3 = new Board(neighbor3);
-        int[][] neighbor4 = {{8, 1, 3},
-                             {4, 6, 2},
-                             {7, 0, 5}};
-        Board neighbor_board4 = new Board(neighbor4);
-        expected.push(neighbor_board1);
-        expected.push(neighbor_board2);
-        expected.push(neighbor_board3);
-        expected.push(neighbor_board4);
+        expected = generateNeighbors(m_tiles);
       }
       public boolean hasNext() {
         return !expected.empty();
@@ -147,6 +144,106 @@ public class Board {
           throw new NoSuchElementException("Empty");
         }
         return expected.pop();
+      }
+      private Stack<Board> generateNeighbors(int[][] tiles) {
+        Stack<Board> neighbors = new Stack<Board>();
+        Board neighbor_board = getUpNeighbor(tiles);
+        if (neighbor_board != null) neighbors.push(neighbor_board);
+        neighbor_board = getLeftNeighbor(tiles);
+        if (neighbor_board != null) neighbors.push(neighbor_board);
+        neighbor_board = getRightNeighbor(tiles);
+        if (neighbor_board != null) neighbors.push(neighbor_board);
+        neighbor_board = getDownNeighbor(tiles);
+        if (neighbor_board != null) neighbors.push(neighbor_board);
+        return neighbors;
+      }
+      private Board getUpNeighbor(int[][] tiles) {
+        int[][] neighbor = new int[tiles.length][tiles.length];
+        for (int i = 0; i < tiles.length; i++) {
+          for (int j = 0; j < tiles.length; j++) {
+            neighbor[i][j] = tiles[i][j];
+            if (neighbor[i][j] == 0) {
+              if (i > 0) {
+                int zero_tile = neighbor[i][j];
+                neighbor[i][j] = neighbor[i-1][j];
+                neighbor[i-1][j] = zero_tile;
+              }
+              else {
+                return null;
+              }
+            }
+          }
+        }
+        Board board = new Board(neighbor);
+        return board;
+      }
+      private Board getLeftNeighbor(int[][] tiles) {
+        int[][] neighbor = new int[tiles.length][tiles.length];
+        for (int i = 0; i < tiles.length; i++) {
+          for (int j = 0; j < tiles.length; j++) {
+            neighbor[i][j] = tiles[i][j];
+            if (neighbor[i][j] == 0) {
+              if (j > 0) {
+                int zero_tile = neighbor[i][j];
+                neighbor[i][j] = neighbor[i][j-1];
+                neighbor[i][j-1] = zero_tile;
+              }
+              else {
+                return null;
+              }
+            }
+          }
+        }
+        Board board = new Board(neighbor);
+        return board;
+      }
+      private Board getRightNeighbor(int[][] tiles) {
+        int[][] neighbor = new int[tiles.length][tiles.length];
+        int zero_i = -1;
+        int zero_j = -1;
+        for (int i = 0; i < tiles.length; i++) {
+          for (int j = 0; j < tiles.length; j++) {
+            neighbor[i][j] = tiles[i][j];
+            if (neighbor[i][j] == 0) {
+              zero_i = i;
+              zero_j = j;
+            }
+          }
+        }
+        if (zero_j < tiles.length-1) {
+          int zero_tile = neighbor[zero_i][zero_j];
+          neighbor[zero_i][zero_j] = neighbor[zero_i][zero_j+1];
+          neighbor[zero_i][zero_j+1] = zero_tile;
+        }
+        else {
+          return null;
+        }
+        Board board = new Board(neighbor);
+        return board;
+      }
+      private Board getDownNeighbor(int[][] tiles) {
+        int[][] neighbor = new int[tiles.length][tiles.length];
+        int zero_i = -1;
+        int zero_j = -1;
+        for (int i = 0; i < tiles.length; i++) {
+          for (int j = 0; j < tiles.length; j++) {
+            neighbor[i][j] = tiles[i][j];
+            if (neighbor[i][j] == 0) {
+              zero_i = i;
+              zero_j = j;
+            }
+          }
+        }
+        if (zero_i < tiles.length-1) {
+          int zero_tile = neighbor[zero_i][zero_j];
+          neighbor[zero_i][zero_j] = neighbor[zero_i+1][zero_j];
+          neighbor[zero_i+1][zero_j] = zero_tile;
+        }
+        else {
+          return null;
+        }
+        Board board = new Board(neighbor);
+        return board;
       }
     }
   }
