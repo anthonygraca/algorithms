@@ -102,6 +102,9 @@ public class Board {
   }
 
   public boolean equals(Object y) {
+    if (y == null) {
+      return false;
+    }
     return this.toString().equals(y.toString());
   }
 
@@ -117,9 +120,9 @@ public class Board {
       tiles[0][1] = swap;
     }
     else {
-      int swap = tiles[1][1];
-      tiles[1][1] = tiles[1][2];
-      tiles[1][2] = swap;
+      int swap = tiles[1][0];
+      tiles[1][0] = tiles[1][1];
+      tiles[1][1] = swap;
     }
     return new Board(tiles);
   }

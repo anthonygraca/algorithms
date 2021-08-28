@@ -105,6 +105,15 @@ public class BoardTest {
   }
 
   @Test
+  public void verifyEqualBoardsWithNull() {
+    int[][] input = {{8, 1, 3},
+                     {4, 0, 2},
+                     {7, 6, 5}};
+    Board board = new Board(input);
+    assertFalse(board.equals(null));
+  }
+
+  @Test
   public void verifyBoardIsNotGoal() {
     int[][] input = {{8, 1, 3},
                      {4, 0, 2},
@@ -182,7 +191,7 @@ public class BoardTest {
                      {7, 8, 6}};
     Board board = new Board(input);
     int[][] twin = {{1, 0, 3},
-                    {4, 5, 2},
+                    {2, 4, 5},
                     {7, 8, 6}};
     Board expected = new Board(twin);
     assertEquals(expected, board.twin());

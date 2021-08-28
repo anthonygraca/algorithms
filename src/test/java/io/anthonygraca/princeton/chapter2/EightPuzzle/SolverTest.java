@@ -16,7 +16,7 @@ public class SolverTest {
     Solver solver = new Solver(null);
   }
 
-//  @Test
+  @Test
   public void handleExample() {
     int[][] input = {{0, 1, 3},
                      {4, 2, 5},
