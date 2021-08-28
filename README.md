@@ -50,7 +50,7 @@ Call `pyb` to run all tests
 | Queues | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/queue) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
 | Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |
 | Deque  | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/) |
-| Union Find | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) |
+| Union Find | | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) |
 ### Chapter 2. Sorting
 | Topic | C++ | Java |
 |-------|-----|------|
