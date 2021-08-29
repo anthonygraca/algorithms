@@ -3,17 +3,12 @@
 #include "gtest/gtest.h"
 
 TEST(BinarySearchTree, TrivialExample) {
-  constexpr int insert_count{1};
-  const std::string input{"SEARCHEXAMPLE"};
+  const std::string input{"S"};
   algorithms::BinarySearchTree bst;
-  int val = 0;
-  while (val < insert_count) {
-    bst.put(input[val], val);
-    val++;
-  }
-  ASSERT_EQ(val, bst.size());
+  bst.put(input[0], 0);
+  ASSERT_EQ(1, bst.size());
   ASSERT_EQ("S", bst.inorder());
-  ASSERT_EQ(val-1, bst.get(input[val-1]));
+  ASSERT_EQ(0, bst.get(input[0]));
 }
 
 TEST(BinarySearchTree, TwoElements) {
