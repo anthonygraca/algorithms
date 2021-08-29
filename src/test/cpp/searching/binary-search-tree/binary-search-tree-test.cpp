@@ -81,3 +81,29 @@ TEST(BinarySearchTree, MinimumValue) {
   }
   ASSERT_EQ('A', bst.min());
 }
+
+TEST(BinarySearchTree, DeleteMin) {
+  const std::string input{"SEARCHEXAMPLE"};
+  algorithms::BinarySearchTree bst;
+  int val = 0;
+  while (val < input.size()) {
+    bst.put(input[val], val);
+    val++;
+  }
+  bst.deleteMin();
+  ASSERT_EQ(9, bst.size());
+  ASSERT_EQ("CEHLMPRSX", bst.inorder());
+}
+
+TEST(BinarySearchTree, DeleteNodeWithTwoChildren) {
+  const std::string input{"SEARCHEXAMPLE"};
+  algorithms::BinarySearchTree bst;
+  int val = 0;
+  while (val < input.size()) {
+    bst.put(input[val], val);
+    val++;
+  }
+  bst.deleteNode('E');
+  ASSERT_EQ(9, bst.size());
+  ASSERT_EQ("ACHLMPRSX", bst.inorder());
+}
