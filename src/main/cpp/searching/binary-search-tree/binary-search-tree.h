@@ -6,9 +6,14 @@
 namespace algorithms {
 class BinarySearchTree {
   public:
+    BinarySearchTree() = default;
     ~BinarySearchTree() {
       postorder_delete(m_root);
     }
+    BinarySearchTree(BinarySearchTree&&) = delete;
+    BinarySearchTree& operator=(BinarySearchTree&&) = delete;
+    BinarySearchTree(const BinarySearchTree&) = delete;
+    BinarySearchTree& operator=(const BinarySearchTree&) = delete;
     void put(char key, int val) {
       m_root = put(m_root, key, val);
     }
@@ -36,6 +41,19 @@ class BinarySearchTree {
     }
     void deleteNode(char key) {
       m_root = deleteNode(m_root, key);
+    }
+    char floor(char key) {
+      Node* x = floor(m_root, key);
+      if (x == nullptr) throw new std::runtime_error("No such element");
+      return x->m_key;
+    }
+    char select(int k) {
+      if (k < 0 || k >= size()) throw new std::invalid_argument("illegal argument");
+      Node* x = select(m_root, k);
+      return x->m_key;
+    }
+    int rank(char key) {
+      return rank(key, m_root);
     }
   private:
     struct Node {
@@ -145,6 +163,29 @@ class BinarySearchTree {
       x->m_left = detachMin(x->m_left);
       x->m_nodes_in_subtree = size(x->m_left) + size(x->m_right) + 1;
       return x;
+    }
+    Node* floor(Node* x, char key) {
+      if (x == nullptr) return nullptr;
+      if (key == x->m_key) return x;
+      if (key < x->m_key) return floor(x->m_left, key);
+      Node* t = floor(x->m_right, key);
+      if (t != nullptr) return t;
+      else return x;
+    }
+    Node* select(Node* x, int k) {
+      // Return Node* containing key of rank k
+      if (x == nullptr) return nullptr;
+      int t = size(x->m_left);
+      if (t > k) return select(x->m_left, k);
+      else if (t < k) return select(x->m_right, k-t-1);
+      else return x;
+    }
+    int rank(char key, Node* x) {
+      // Return number of keys less than ke in the subtree rooted at x
+      if (x == nullptr) return 0;
+      if (key < x->m_key) return rank(key, x->m_left);
+      if (key > x->m_key) return 1 + size(x->m_left) + rank(key, x->m_left);
+      else return size(x->m_left);
     }
     Node* m_root = nullptr;
 };

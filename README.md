@@ -65,7 +65,7 @@ Call `pyb` to run all tests
 | Topic | C++ | Java |
 |-------|-----|------|
 | Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | |
-| Red-Black Trees | | |
+| Red-Black Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) | |
 | k-d trees | | |
 | Separate Chaining Hash Tables | | |
 | Linear Probing Hash Tables | | |
