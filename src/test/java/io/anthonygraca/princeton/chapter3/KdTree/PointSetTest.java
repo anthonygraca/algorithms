@@ -32,4 +32,10 @@ public class PointSetTest {
     Point2D some_point = new Point2D(1,2);
     assertFalse(set.contains(some_point));
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void containHandlesNull() {
+    PointSET set = new PointSET();
+    assertFalse(set.contains(null));
+  }
 }
