@@ -11,7 +11,7 @@ package io.anthonygraca.princeton.chapter2.KdTree;
  */
 public class PointSET {
   boolean isEmpty() {
-    return true;
+    return size() == 0;
   }
 
   int size() {
