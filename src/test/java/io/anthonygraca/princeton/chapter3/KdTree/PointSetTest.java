@@ -1,9 +1,12 @@
 package io.anthonygraca.princeton.chapter2.KdTree;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import edu.princeton.cs.algs4.Point2D;
 
 public class PointSetTest {
   @Test
@@ -22,5 +25,11 @@ public class PointSetTest {
   public void insertHandlesNull() {
     PointSET set = new PointSET();
     set.insert(null);
+  }
+
+  public void emptySetDoesNotContainAnything() {
+    PointSET set = new PointSET();
+    Point2D some_point = new Point2D(1,2);
+    assertFalse(set.contains(some_point));
   }
 }

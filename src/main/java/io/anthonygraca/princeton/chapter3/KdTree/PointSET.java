@@ -23,4 +23,8 @@ public class PointSET {
   void insert(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
   }
+
+  boolean contains(Point2D p) {
+    return false;
+  }
 }
