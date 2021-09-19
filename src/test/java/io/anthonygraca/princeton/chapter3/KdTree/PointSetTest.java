@@ -17,4 +17,10 @@ public class PointSetTest {
     PointSET set = new PointSET();
     assertEquals(0, set.size());
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void insertHandlesNull() {
+    PointSET set = new PointSET();
+    set.insert(null);
+  }
 }

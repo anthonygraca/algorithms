@@ -1,5 +1,7 @@
 package io.anthonygraca.princeton.chapter2.KdTree;
 
+import edu.princeton.cs.algs4.Point2D;
+
 /*
  * Write a data type to represent a set of points in the unit square (all 
  * points have x- and y-coordinates between 0 and 1) using a 2d-tree to 
@@ -16,5 +18,9 @@ public class PointSET {
 
   int size() {
     return 0;
+  }
+
+  void insert(Point2D p) {
+    if (p == null) throw new IllegalArgumentException("input is null");
   }
 }
