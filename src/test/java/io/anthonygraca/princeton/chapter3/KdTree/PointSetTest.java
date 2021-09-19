@@ -56,4 +56,12 @@ public class PointSetTest {
     PointSET set = new PointSET();
     set.range(null);
   }
+
+  @Test
+  public void insertSomePointIntoSet() {
+    PointSET set = new PointSET();
+    Point2D some_point = new Point2D(1,2);
+    set.insert(some_point);
+    assertTrue(set.contains(some_point));
+  }
 }

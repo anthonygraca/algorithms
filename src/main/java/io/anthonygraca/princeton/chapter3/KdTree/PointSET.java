@@ -2,6 +2,7 @@ package io.anthonygraca.princeton.chapter2.KdTree;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
+import edu.princeton.cs.algs4.SET;
 
 /*
  * Write a data type to represent a set of points in the unit square (all 
@@ -13,33 +14,40 @@ import edu.princeton.cs.algs4.RectHV;
  * to mining data to image retrieval.
  */
 public class PointSET {
-  boolean isEmpty() {
+  private SET<Point2D> set = null;
+
+  public PointSET() {
+    set = new SET<Point2D>();
+  }
+
+  public boolean isEmpty() {
     return size() == 0;
   }
 
-  int size() {
+  public int size() {
     return 0;
   }
 
   // Should be T:O(log n)
-  void insert(Point2D p) {
+  public void insert(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
+    set.add(p);
   }
 
   // Should be T:O(log n)
-  boolean contains(Point2D p) {
+  public boolean contains(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
-    return false;
+    return set.contains(p);
   }
 
   // Should be T:O(n)
-  Point2D nearest(Point2D p) {
+  public Point2D nearest(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
     return null;
   }
 
   // Should be T:O(n)
-  Iterable<Point2D> range(RectHV rect) {
+  public Iterable<Point2D> range(RectHV rect) {
     if (rect == null) throw new IllegalArgumentException("input is null");
     return null;
   }
