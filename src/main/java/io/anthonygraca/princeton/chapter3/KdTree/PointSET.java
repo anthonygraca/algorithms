@@ -1,6 +1,7 @@
 package io.anthonygraca.princeton.chapter2.KdTree;
 
 import edu.princeton.cs.algs4.Point2D;
+import edu.princeton.cs.algs4.RectHV;
 
 /*
  * Write a data type to represent a set of points in the unit square (all 
@@ -31,6 +32,11 @@ public class PointSET {
 
   Point2D nearest(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
+    return null;
+  }
+
+  Iterable<Point2D> range(RectHV rect) {
+    if (rect == null) throw new IllegalArgumentException("input is null");
     return null;
   }
 }

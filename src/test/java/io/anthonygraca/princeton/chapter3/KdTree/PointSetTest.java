@@ -50,4 +50,10 @@ public class PointSetTest {
     PointSET set = new PointSET();
     set.nearest(null);
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void rangeHandlesNull() {
+    PointSET set = new PointSET();
+    set.range(null);
+  }
 }
