@@ -30,6 +30,7 @@ public class PointSET {
   }
 
   Point2D nearest(Point2D p) {
+    if (p == null) throw new IllegalArgumentException("input is null");
     return null;
   }
 }

@@ -44,11 +44,10 @@ public class PointSetTest {
     Point2D some_point = new Point2D(1,2);
     assertEquals(null, set.nearest(some_point));
   }
-  /*
+
   @Test(expected=IllegalArgumentException.class)
   public void nearestHandlesNull() {
     PointSET set = new PointSET();
-    assertFalse(set.nearest(null));
+    set.nearest(null);
   }
-  */
 }
