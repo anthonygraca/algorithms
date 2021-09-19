@@ -21,20 +21,24 @@ public class PointSET {
     return 0;
   }
 
+  // Should be T:O(log n)
   void insert(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
   }
 
+  // Should be T:O(log n)
   boolean contains(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
     return false;
   }
 
+  // Should be T:O(n)
   Point2D nearest(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
     return null;
   }
 
+  // Should be T:O(n)
   Iterable<Point2D> range(RectHV rect) {
     if (rect == null) throw new IllegalArgumentException("input is null");
     return null;
