@@ -25,7 +25,7 @@ public class PointSET {
   }
 
   public int size() {
-    return 0;
+    return set.size();
   }
 
   // Should be T:O(log n)
