@@ -70,14 +70,16 @@ Call `pyb` to run all tests
 | Separate Chaining Hash Tables | | |
 | Linear Probing Hash Tables | | |
 ### Chapter 4. Graphs
-Depth-First Search \
-Breadth-First Search \
-Topological Sort \
-Kosaraju−Sharir \
-Kruskal \
-Prim \
-Dijkistra \
-Bellman−Ford
+| Topic | C++ | Java |
+|-------|-----|------|
+| Depth-First Search | | |
+| Breadth-First Search | | |
+| Topological Sort | | |
+| Kosaraju−Sharir | | |
+| Kruskal | | |
+| Prim | | |
+| Dijkistra | | |
+| Bellman−Ford | | |
 ### Chapter 5. Strings
 LSD Radix Sort \
 MSD Radix Sort \
