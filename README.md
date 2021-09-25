@@ -72,7 +72,7 @@ Call `pyb` to run all tests
 ### Chapter 4. Graphs
 | Topic | C++ | Java |
 |-------|-----|------|
-| Depth-First Search | | |
+| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/depth-first-search.h) | |
 | Breadth-First Search | | |
 | Topological Sort | | |
 | Kosaraju−Sharir | | |
