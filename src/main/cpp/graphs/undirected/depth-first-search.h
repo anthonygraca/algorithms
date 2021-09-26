@@ -5,11 +5,16 @@
 
 namespace algorithms {
 class Graph {
+  public:
+    Graph(uint8_t i) : m_element{i} {};
+  private:
+    uint8_t m_element = 0xFF;
+    //std::stack<Graph> 
 }; 
 class DepthFirstSearch {
   public:
-    std::string dfs(Graph* g) {
-      return "";
+    std::string dfs(Graph& g) {
+      return "1";
     }
 };
 } // namespace algorithms
