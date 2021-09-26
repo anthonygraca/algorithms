@@ -3,14 +3,9 @@
 
 #include <string>
 
+#include "graph/graph.h"
+
 namespace algorithms {
-class Graph {
-  public:
-    Graph(uint8_t i) : m_element{i} {};
-  private:
-    uint8_t m_element = 0xFF;
-    //std::stack<Graph> 
-}; 
 class DepthFirstSearch {
   public:
     std::string dfs(Graph& g) {

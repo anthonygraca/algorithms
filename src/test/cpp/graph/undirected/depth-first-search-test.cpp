@@ -1,4 +1,4 @@
-#include "graphs/undirected/depth-first-search.h"
+#include "graph/undirected/depth-first-search.h"
 
 #include "gtest/gtest.h"
 
