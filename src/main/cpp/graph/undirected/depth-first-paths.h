@@ -1,6 +1,7 @@
 #ifndef ALGORITHMS_PRINCETON_UNDIRECTED_GRAPHS_DEPTH_FIRST_SEARCH_PATH_FINDING_H_
 #define ALGORITHMS_PRINCETON_UNDIRECTED_GRAPHS_DEPTH_FIRST_SEARCH_PATH_FINDING_H_
 
+#include <stack>
 #include <vector>
 
 #include "graph/graph.h"
@@ -15,7 +16,15 @@ class DepthFirstPaths {
         m_source(source_vertex) {
       dfs(g, source_vertex);
     };
-    bool hasPathTo(int v) {return m_marked[v];};
+    bool hasPathTo(int v) { return m_marked[v]; };
+    std::stack<int> pathTo(int v) {
+      std::stack<int> path;
+      for (int x = v; x != m_source; x = m_edge_to[x]) {
+        path.push(x);
+      }
+      path.push(m_source);
+      return path;
+    };
   private:
     std::vector<bool> m_marked;
     std::vector<int> m_edge_to;
@@ -29,7 +38,6 @@ class DepthFirstPaths {
         }
       }
     };
-
 }; 
 } // namespace algorithms
 
