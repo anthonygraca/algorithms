@@ -73,7 +73,7 @@ Call `pyb` to run all tests
 | Topic | C++ | Java |
 |-------|-----|------|
 | Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/depth-first-search.h) | |
-| Breadth-First Search | | |
+| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/breadth-first-search.h) | |
 | Topological Sort | | |
 | Kosaraju−Sharir | | |
 | Kruskal | | |
