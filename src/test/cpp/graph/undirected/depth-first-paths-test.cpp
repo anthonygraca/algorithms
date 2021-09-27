@@ -21,5 +21,5 @@ TEST(DepthFirstPaths, VerifyHasPathTo) {
   ASSERT_TRUE(algo.hasPathTo(3));
   ASSERT_TRUE(algo.hasPathTo(4));
   ASSERT_TRUE(algo.hasPathTo(5));
-  ASSERT_TRUE(algo.hasPathTo(6));
+  ASSERT_FALSE(algo.hasPathTo(6));
 }
