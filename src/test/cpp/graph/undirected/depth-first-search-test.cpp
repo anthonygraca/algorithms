@@ -2,18 +2,22 @@
 
 #include "gtest/gtest.h"
 
-TEST(DepthFirstSearch, OnlyOneVertex) {
-  algorithms::Graph g{1};
-  algorithms::DepthFirstSearch algo;
-  ASSERT_EQ("1", algo.dfs(g));
-}
-
-TEST(DepthFirstSearch, DISABLED_BasicExampleWithTwoVertices) {
-  /*
-  algorithms::Graph g1{1};
-  algorithms::Graph g2{2, g1};
-  g1.connect(g2);
-  algorithms::DepthFirstSearch algo;
-  ASSERT_EQ("1 2", algo.dfs(g1));
-  */
+TEST(DepthFirstSearch, VerifyNodesAreMarked) {
+  algorithms::Graph g{7};
+  g.addEdge(0, 5);
+  g.addEdge(2, 4);
+  g.addEdge(2, 3);
+  g.addEdge(1, 2);
+  g.addEdge(0, 1);
+  g.addEdge(3, 4);
+  g.addEdge(3, 5);
+  g.addEdge(0, 2);
+  algorithms::DepthFirstSearch algo(g, 0);
+  ASSERT_TRUE(algo.marked(0));
+  ASSERT_TRUE(algo.marked(1));
+  ASSERT_TRUE(algo.marked(2));
+  ASSERT_TRUE(algo.marked(3));
+  ASSERT_TRUE(algo.marked(4));
+  ASSERT_TRUE(algo.marked(5));
+  ASSERT_FALSE(algo.marked(6));
 }
