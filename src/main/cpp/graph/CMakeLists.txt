@@ -6,4 +6,4 @@ add_subdirectory(undirected)
 add_library(digraph OBJECT
             digraph.h)
 
-#add_subdirectory(directed)
+add_subdirectory(directed)
