@@ -9,3 +9,7 @@ add_test(NAME depth-first-paths-test COMMAND depth-first-paths-test)
 add_executable(breadth-first-paths-test breadth-first-paths-test.cpp)
 target_link_libraries(breadth-first-paths-test gtest_main breadth-first-paths)
 add_test(NAME breadth-first-paths-test COMMAND breadth-first-paths-test)
+
+add_executable(connected-components-test connected-components-test.cpp)
+target_link_libraries(connected-components-test gtest_main connected-components)
+add_test(NAME connected-components-test COMMAND connected-components-test)

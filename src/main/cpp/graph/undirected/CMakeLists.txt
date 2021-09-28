@@ -6,3 +6,6 @@ add_library(depth-first-paths OBJECT
 
 add_library(breadth-first-paths OBJECT
             breadth-first-paths.h)
+
+add_library(connected-components OBJECT
+            connected-components.h)
