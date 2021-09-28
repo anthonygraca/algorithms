@@ -73,7 +73,7 @@ Call `pyb` to run all tests
 | Topic | C++ | Java |
 |-------|-----|------|
 | Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/depth-first-search.h) | |
-| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/breadth-first-search.h) | |
+| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/breadth-first-paths.h) | |
 | Topological Sort | | |
 | Kosaraju−Sharir | | |
 | Kruskal | | |
@@ -81,19 +81,21 @@ Call `pyb` to run all tests
 | Dijkistra | | |
 | Bellman−Ford | | |
 ### Chapter 5. Strings
-LSD Radix Sort \
-MSD Radix Sort \
-3-Way Radix QuickSort \
-Multiway Tries \
-Ternary Search Tries \
-Knuth−Morris−Pratt \
-Boyer−Moore \
-Rabin–Karp \
-Regular Expression Matching \
-Run-Length Coding \
-Huffman Coding \
-LZW Compression \
-Burrows−Wheeler Transform
+| Topic | C++ | Java |
+|-------|-----|------|
+| LSD Radix Sort | | |
+| MSD Radix Sort | | |
+| 3-Way Radix QuickSort | | |
+| Multiway Tries | | |
+| Ternary Search Tries | | |
+| Knuth−Morris−Pratt | | |
+| Boyer−Moore | | |
+| Rabin–Karp | | |
+| Regular Expression Matching | | |
+| Run-Length Coding | | |
+| Huffman Coding | | |
+| LZW Compression | | |
+| Burrows−Wheeler Transform | | |
 ### Chapter 6. Context
 Networking: Ford-Fulkerson
 

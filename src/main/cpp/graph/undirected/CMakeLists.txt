@@ -4,5 +4,5 @@ add_library(depth-first-search OBJECT
 add_library(depth-first-paths OBJECT
             depth-first-paths.h)
 
-add_library(breadth-first-search OBJECT
-            breadth-first-search.h)
+add_library(breadth-first-paths OBJECT
+            breadth-first-paths.h)
