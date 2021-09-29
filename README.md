@@ -44,38 +44,39 @@ Call `pyb` to run all tests
 
 ## Table of Contents
 ### Chapter 1. Fundamentals
-| Topic | C++ | Java |
-|-------|-----|------|
-| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) | 
-| Queues | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/queue) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) |
-| Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) |
-| Deque  | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/) |
+| Topic | C++ | Java | Tests |
+|-------|-----|------|-------|
+| Stacks | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/stack) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/test/cpp/fundamentals/stack) |
+| Queues | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/fundamentals/queue) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/queue) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/fundamentals/queue/queue-test.cpp) |
+| Bags   | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/bag) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/test/java/io/anthonygraca/princeton/chapter1/bag) |
+| Deque  | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/java/io/anthonygraca/princeton/chapter1/deque/DequeTest.java) |
 | Union Find | | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/UnionFind.java) |
 ### Chapter 2. Sorting
-| Topic | C++ | Java |
-|-------|-----|------|
-| Insertion Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/insertion/insertion-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Insertion.java) | 
-| Selection Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/selection/selection-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) |
-| ShellSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/shellsort/shell-sort.h)| [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Shell.java) |
-| QuickSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/quicksort/quick-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) |
-| MergeSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/mergesort/merge-sort.h) || [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Merge.java) |
-| HeapSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/heapsort/heap-sort.h) |  |
-| Binary Heaps | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/binary-heap/binary-heap.h) |  |
+| Topic | C++ | Java | Tests |
+|-------|-----|------|-------|
+| Insertion Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/insertion/insertion-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Insertion.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/insertion/insertion-sort-test.cpp) |
+| Selection Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/selection/selection-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Selection.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/selection/selection-sort-test.cpp) |
+| ShellSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/shellsort/shell-sort.h)| [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Shell.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/shellsort/shell-sort-test.cpp) |
+| QuickSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/quicksort/quick-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Quick.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/quicksort/quick-sort-test.cpp) |
+| MergeSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/mergesort/merge-sort.h) || [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/Merge.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/tree/main/src/test/cpp/sorting/mergesort) |
+| HeapSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/heapsort/heap-sort.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/heapsort/heap-sort-test.cpp) | 
+| Binary Heaps | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/binary-heap/binary-heap.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/binary-heap/binary-heap-test.cpp) |
 ### Chapter 3. Searching
 | Topic | C++ | Java |
 |-------|-----|------|
-| Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | |
-| Red-Black Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) | |
+| Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/binary-search-tree/binary-search-tree-test.cpp) |
+| Red-Black Trees | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/red-black-tree/red-black-tree-test.cpp) |
 | k-d trees | | |
 | Separate Chaining Hash Tables | | |
 | Linear Probing Hash Tables | | |
 ### Chapter 4. Graphs
 | Topic | C++ | Java |
 |-------|-----|------|
-| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/depth-first-search.h) | |
-| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/connected-components.h) | |
-| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graphs/undirected/breadth-first-paths.h) | |
-| Topological Sort | | |
+| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | |
+| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | |
+| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | |
+| Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | |
+| Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | |
 | Kosaraju−Sharir | | |
 | Kruskal | | |
 | Prim | | |
@@ -109,6 +110,7 @@ Networking: Ford-Fulkerson
 ## Resources Used
 ### Java
 [Sedgewick - Algorithms, Fourth Edition](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) \
-[Algorithms, Part 1 on Coursera](https://www.coursera.org/learn/algorithms-part1/home/info)
+[Algorithms, Part 1 on Coursera](https://www.coursera.org/learn/algorithms-part1/home/info) \
+[Algorithms, Part 2 on Coursera](https://www.coursera.org/learn/algorithms-part2/home/info)
 ### C++
 [Stroustrup - The C++ Programming Language, Fourth Edition](https://www.amazon.com/C-Programming-Language-4th/dp/0321563840)
