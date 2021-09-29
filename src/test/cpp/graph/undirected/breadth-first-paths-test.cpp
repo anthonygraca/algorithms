@@ -122,3 +122,4 @@ TEST(BreadthFirstPaths, VerifyPathToOne) {
   ASSERT_EQ(1, stack.top());
   stack.pop();
 }
+
