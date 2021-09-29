@@ -6,3 +6,6 @@ add_library(directed-cycle OBJECT
 
 add_library(directed-breadth-first-search OBJECT
             breadth-first-search.h)
+
+add_library(topological-sort OBJECT
+            topological-sort.h)
