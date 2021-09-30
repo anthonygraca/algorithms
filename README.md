@@ -80,7 +80,7 @@ Call `pyb` to run all tests
 | Kosaraju−Sharir | | |
 | Kruskal | | |
 | Prim | | |
-| Dijkistra | | |
+| Dijkstra | | |
 | Bellman−Ford | | |
 ### Chapter 5. Strings
 | Topic | C++ | Java |

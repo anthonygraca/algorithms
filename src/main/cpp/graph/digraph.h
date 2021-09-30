@@ -10,8 +10,7 @@ public:
   Digraph() = delete;
   Digraph(int v) : m_vertices(v) {
     for(int i = 0; i < v; i++) {
-      std::unordered_set<int> stack;
-      m_adjacency_list.push_back(stack);
+      m_adjacency_list.push_back(std::unordered_set<int>());
     }
   }
   int vertices() { return m_vertices; };
@@ -22,6 +21,15 @@ public:
   }
   std::unordered_set<int> adj(int v) {
     return m_adjacency_list[v];
+  }
+  Digraph reverse() {
+    Digraph reversed(m_adjacency_list.size());
+    for(int v = 0; v < m_adjacency_list.size(); v++) {
+      for(int w : m_adjacency_list[v]) {
+        reversed.addEdge(w, v);
+      }
+    }
+    return reversed;
   }
 private:
   int m_vertices = 0;

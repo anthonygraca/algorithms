@@ -13,3 +13,7 @@ add_test(NAME directed-breadth-first-search-test COMMAND directed-breadth-first-
 add_executable(topological-sort-test topological-sort-test.cpp)
 target_link_libraries(topological-sort-test gtest_main topological-sort)
 add_test(NAME topological-sort-test COMMAND topological-sort-test)
+
+add_executable(kosaraju-sharir-test kosaraju-sharir-test.cpp)
+target_link_libraries(kosaraju-sharir-test gtest_main kosaraju-sharir)
+add_test(NAME kosaraju-sharir-test COMMAND kosaraju-sharir-test)

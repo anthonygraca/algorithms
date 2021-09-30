@@ -127,3 +127,40 @@ TEST(Digraph, BookBigExample) {
   ASSERT_TRUE(g.adj(0).contains(1));
   ASSERT_FALSE(g.adj(1).contains(0));
 }
+
+TEST(Digraph, ReverseGraph) {
+  algorithms::Digraph g{13};
+  g.addEdge(4,2);
+  g.addEdge(2,3);
+  g.addEdge(3,2);
+  g.addEdge(6,0);
+  g.addEdge(0,1);
+  g.addEdge(2,0);
+  g.addEdge(11,12);
+  g.addEdge(12,9);
+  g.addEdge(9,10);
+  g.addEdge(9,11);
+  g.addEdge(7,9);
+  g.addEdge(10,12);
+  g.addEdge(11,4);
+  g.addEdge(4,3);
+  g.addEdge(3,5);
+  g.addEdge(6,8);
+  g.addEdge(8,6);
+  g.addEdge(5,4);
+  g.addEdge(0,5);
+  g.addEdge(6,4);
+  g.addEdge(6,9);
+  g.addEdge(7,6);
+  auto reversed = g.reverse();
+  ASSERT_TRUE(reversed.adj(2).contains(4));
+  ASSERT_FALSE(reversed.adj(4).contains(2));
+  ASSERT_TRUE(reversed.adj(3).contains(2));
+  ASSERT_TRUE(reversed.adj(2).contains(3));
+  ASSERT_TRUE(reversed.adj(0).contains(6));
+  ASSERT_FALSE(reversed.adj(6).contains(0));
+  ASSERT_TRUE(reversed.adj(1).contains(0));
+  ASSERT_FALSE(reversed.adj(0).contains(1));
+  ASSERT_TRUE(reversed.adj(0).contains(2));
+  ASSERT_FALSE(reversed.adj(2).contains(0));
+}

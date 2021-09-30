@@ -9,3 +9,6 @@ add_library(directed-breadth-first-search OBJECT
 
 add_library(topological-sort OBJECT
             topological-sort.h)
+
+add_library(kosaraju-sharir OBJECT
+            kosaraju-sharir.h)
