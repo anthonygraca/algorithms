@@ -13,13 +13,13 @@ public:
       m_adjacency_list.push_back(std::unordered_set<int>());
     }
   }
-  int vertices() { return m_vertices; };
-  int edges() { return m_edges; };
+  int vertices() const { return m_vertices; };
+  int edges() const { return m_edges; };
   void addEdge(int v, int w) {
     m_adjacency_list[v].insert(w);
     m_edges++;
   }
-  std::unordered_set<int> adj(int v) {
+  std::unordered_set<int> adj(int v) const {
     return m_adjacency_list[v];
   }
   Digraph reverse() {

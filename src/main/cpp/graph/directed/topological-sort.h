@@ -10,7 +10,7 @@ namespace algorithms {
 class TopologicalSort {
 public:
   TopologicalSort() = delete;
-  TopologicalSort(Digraph& g) : m_marked(g.vertices(), false) {
+  TopologicalSort(const Digraph& g) : m_marked(g.vertices(), false) {
     for (int i = 0; i < g.vertices(); i++) {
       if (!m_marked[i]) dfs(g, i);
     }
@@ -18,7 +18,7 @@ public:
   std::stack<int> order() {
     return m_reverse_postorder;
   }
-  void dfs(Digraph& g, int v) {
+  void dfs(const Digraph& g, int v) {
     m_marked[v] = true;
     for (int w : g.adj(v)) {
       if (!m_marked[w]) {
