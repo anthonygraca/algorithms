@@ -58,4 +58,40 @@ public class SAPTest {
     SAP sap = new SAP(g);
     sap.ancestor(null,null);
   }
+
+  @Test
+  public void ExampleOne() {
+    SAP sap = new SAP(g);
+    int v = 3;
+    int w = 11;
+    assertEquals(4, sap.length(v, w));
+    assertEquals(1, sap.ancestor(v, w));
+  }
+
+  @Test
+  public void ExampleTwo() {
+    SAP sap = new SAP(g);
+    int v = 9;
+    int w = 12;
+    assertEquals(3, sap.length(v, w));
+    assertEquals(5, sap.ancestor(v, w));
+  }
+
+  @Test
+  public void ExampleThree() {
+    SAP sap = new SAP(g);
+    int v = 7;
+    int w = 2;
+    assertEquals(4, sap.length(v, w));
+    assertEquals(0, sap.ancestor(v, w));
+  }
+
+  @Test
+  public void ExampleFour() {
+    SAP sap = new SAP(g);
+    int v = 1;
+    int w = 6;
+    assertEquals(-1, sap.length(v, w));
+    assertEquals(-1, sap.ancestor(v, w));
+  }
 }

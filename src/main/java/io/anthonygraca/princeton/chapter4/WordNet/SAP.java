@@ -2,6 +2,8 @@ package io.anthonygraca.princeton.chapter4.WordNet;
 
 import edu.princeton.cs.algs4.Digraph;
 
+import java.util.Stack;
+
 public class SAP {
   Digraph graph = null;
   public SAP(Digraph g) {
@@ -13,12 +15,60 @@ public class SAP {
 
   public int length(int v, int w) {
     validateBounds(v, w);
-    return -1;
+    Stack<Integer> stack_v = new Stack<Integer>();
+    Stack<Integer> stack_w = new Stack<Integer>();
+    int vertex = v;
+    stack_v.push(vertex);
+    while (graph.adj(vertex).iterator().hasNext()) {
+      vertex = graph.adj(vertex).iterator().next();
+      stack_v.push(vertex);
+    }
+    vertex = w;
+    stack_w.push(vertex);
+    while (graph.adj(vertex).iterator().hasNext()) {
+      vertex = graph.adj(vertex).iterator().next();
+      stack_w.push(vertex);
+    }
+    int ancestor = -1;
+    while (stack_w.peek() == stack_v.peek()) {
+      ancestor = stack_w.pop();
+      stack_v.pop();
+    }
+    if (ancestor == -1) return -1;
+    int count = 0;
+    while (!stack_v.isEmpty()) {
+      stack_v.pop();
+      count++;
+    }
+    while (!stack_w.isEmpty()) {
+      stack_w.pop();
+      count++;
+    }
+    return count;
   }
 
   public int ancestor(int v, int w) {
     validateBounds(v, w);
-    return -1;
+    Stack<Integer> stack_v = new Stack<Integer>();
+    Stack<Integer> stack_w = new Stack<Integer>();
+    int vertex = v;
+    stack_v.push(vertex);
+    while (graph.adj(vertex).iterator().hasNext()) {
+      vertex = graph.adj(vertex).iterator().next();
+      stack_v.push(vertex);
+    }
+    vertex = w;
+    stack_w.push(vertex);
+    while (graph.adj(vertex).iterator().hasNext()) {
+      vertex = graph.adj(vertex).iterator().next();
+      stack_w.push(vertex);
+    }
+    int ancestor = -1;
+    while (stack_w.peek() == stack_v.peek()) {
+      ancestor = stack_w.pop();
+      stack_v.pop();
+    }
+    return ancestor;
   }
 
   public int length(Iterable<Integer> v, Iterable<Integer> w) {
