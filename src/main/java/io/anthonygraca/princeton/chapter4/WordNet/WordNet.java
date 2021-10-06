@@ -3,13 +3,13 @@ package io.anthonygraca.princeton.chapter4.WordNet;
 import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.RedBlackBST;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.TreeSet;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.TreeSet;
 
 public class WordNet {
 
@@ -29,7 +29,16 @@ public class WordNet {
     readSysnetsFromFile(new File(sysnets));
     graph = new Digraph(m_count);
     readHypernymsFromFile(new File(hypernyms));
-    //checkValidRootedDag();
+    checkValidRootedDag();
+  }
+
+  // TODO: how to check for root?
+  protected int checkValidRootedDag() {
+    int vertex = 0;
+    while (graph.adj(vertex).iterator().hasNext()) {
+      vertex = graph.adj(vertex).iterator().next();
+    }
+    return vertex;
   }
 
   private void readSysnetsFromFile(File file) {
@@ -40,7 +49,6 @@ public class WordNet {
         m_count++;
       }
     } catch (FileNotFoundException e) { 
-      System.out.println("Working Directory = " + System.getProperty("user.dir"));
       System.out.println("sysnet file not found");
     }
   }
@@ -100,6 +108,10 @@ public class WordNet {
       throw new IllegalArgumentException("distance() arguments must be valid nouns");
     }
     return "";
+  }
+
+  protected Digraph getGraph() {
+    return graph;
   }
 
   private class GeneratedNouns implements Iterable<String> {

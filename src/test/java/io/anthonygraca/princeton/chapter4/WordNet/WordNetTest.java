@@ -4,12 +4,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.TreeSet;
 import java.util.Iterator;
 
 public class WordNetTest {
+  static WordNet net = null;
+  @BeforeClass
+  public static void beforeClass() {
+    net = new WordNet(
+        "src/test/java/io/anthonygraca/princeton/chapter4/WordNet/synsets.txt", 
+        "src/test/java/io/anthonygraca/princeton/chapter4/WordNet/hypernyms.txt");
+  }
   @Test(expected=IllegalArgumentException.class)
   public void CatchDoubleNullInputInConstructor() {
     WordNet w = new WordNet(null, null);
@@ -62,34 +70,23 @@ public class WordNetTest {
 
   @Test(expected=IllegalArgumentException.class)
   public void CatchDistanceArgumentIsNotANoun() {
-    String entry = "36,AND_circuit AND_gate,a circuit in a computer that " + 
-                   "fires only when all of its inputs fire ";
-    TreeSet<String> expected = new TreeSet<String>();
-    expected.add("AND_circuit");
-    expected.add("AND_gate");
-    WordNet net = new WordNet();
-    net.getSysnetFromEntry(entry);
     net.distance("boogly", "woogly");
   }
 
   @Test(expected=IllegalArgumentException.class)
   public void CatchSapArgumentIsNotANoun() {
-    String entry = "36,AND_circuit AND_gate,a circuit in a computer that " + 
-                   "fires only when all of its inputs fire ";
-    TreeSet<String> expected = new TreeSet<String>();
-    expected.add("AND_circuit");
-    expected.add("AND_gate");
-    WordNet net = new WordNet();
-    net.getSysnetFromEntry(entry);
     net.sap("boogly", "woogly");
   }
 
   @Test
   public void ReadFile() {
-    WordNet net = new WordNet("synsets.txt", "hypernyms.txt");
     assertTrue(net.isNoun("AND_circuit"));
     assertTrue(net.isNoun("AND_gate"));
-    Iterator<String> iter = net.nouns().iterator();
     assertFalse(net.isNoun("random_word"));
+  }
+
+  @Test
+  public void CheckValidRootedDag() {
+    assertEquals(38003, net.checkValidRootedDag());
   }
 }
