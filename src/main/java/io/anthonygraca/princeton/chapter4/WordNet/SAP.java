@@ -7,22 +7,27 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class SAP {
+  private DeluxeBFS[] bfs = null;
   Digraph graph = null;
+  int root = -1;
   public SAP(Digraph g) {
     if (g == null) {
       throw new IllegalArgumentException("SAP cannot have null input");
+    }
+    bfs = new DeluxeBFS[g.V()];
+    for (int i = 0; i < g.V(); i++) {
+      bfs[i] = null;
     }
     graph = g;
   }
 
   public int length(int v, int w) {
     validateBounds(v, w);
-    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
-    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
+    checkCache(v,w);
     int root = getRoot(v);
-    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
+    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
     int ancestor = -1;
     while (stack_v.peekFirst() == stack_w.peekFirst()) {
       ancestor = stack_v.removeFirst();
@@ -42,12 +47,11 @@ public class SAP {
 
   public int ancestor(int v, int w) {
     validateBounds(v, w);
-    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
-    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
+    checkCache(v,w);
     int root = getRoot(v);
-    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
+    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
     int ancestor = -1;
     while (stack_v.peekFirst() == stack_w.peekFirst()) {
       ancestor = stack_v.removeFirst();
@@ -56,13 +60,26 @@ public class SAP {
     return ancestor;
   }
 
+  private void checkCache(int v, int w) {
+    checkCacheForBfs(v);
+    checkCacheForBfs(w);
+  }
+
+  private void checkCacheForBfs(int v) {
+    if (bfs[v] == null) {
+      bfs[v] = new DeluxeBFS(graph, v);
+    }
+  }
 
   private int getRoot(int v) {
-    int vertex = v;
-    while(hasParent(vertex)) {
-      vertex = getParent(vertex);
+    if (root == -1) {
+      int vertex = v;
+      while(hasParent(vertex)) {
+        vertex = getParent(vertex);
+      }
+      return vertex;
     }
-    return vertex;
+    return root;
   }
   
   private int getAncestor(Stack<Integer> path_a, Stack<Integer> path_b) {
@@ -110,7 +127,27 @@ public class SAP {
     if (v == null || w == null) {
       throw new IllegalArgumentException("Iterable can't be null");
     }
-    return -1;
+    validateBounds(v, w);
+    checkCache(v,w);
+    int root = getRoot(v);
+    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
+    int ancestor = -1;
+    while (stack_v.peekFirst() == stack_w.peekFirst()) {
+      ancestor = stack_v.removeFirst();
+      stack_w.removeFirst();
+    }
+    return ancestor;
+  }
+
+  private void checkCache(Iterable<Integer> v, Iterable<Integer> w) {
+    for (int vertex : v) {
+      checkCacheForBfs(vertex);
+    }
+    for (int vertex : w) {
+      checkCacheForBfs(vertex);
+    }
   }
 
   private void validateBounds(int v, int w) {
@@ -120,6 +157,26 @@ public class SAP {
     int max_vertices = graph.V();
     if (v >= max_vertices || w >= max_vertices) {
       throw new IllegalArgumentException("Vertex can't be above bounds");
+    }
+  }
+
+  private void validateBounds(Iterable<Integer> v, Iterable<Integer> w) {
+    int max_vertices = graph.V();
+    for (int vertex : v) {
+      if(vertex < 0) {
+        throw new IllegalArgumentException("Vertex can't be negative");
+      }
+      if (vertex >= max_vertices) {
+        throw new IllegalArgumentException("Vertex can't be above bounds");
+      }
+    }
+    for (int vertex : w) {
+      if(vertex < 0) {
+        throw new IllegalArgumentException("Vertex can't be negative");
+      }
+      if (vertex >= max_vertices) {
+        throw new IllegalArgumentException("Vertex can't be above bounds");
+      }
     }
   }
 }

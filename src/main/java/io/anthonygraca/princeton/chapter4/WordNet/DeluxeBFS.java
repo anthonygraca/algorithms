@@ -8,24 +8,59 @@ import java.util.Queue;
 public class DeluxeBFS {
   private boolean[] marked;
   private int[] edgeTo;
-  private final int s;
+  private int[] distTo;
   
   public DeluxeBFS(Digraph G, int s) {
     marked = new boolean[G.V()];
     edgeTo = new int[G.V()];
-    this.s = s;
+    distTo = new int[G.V()];
+    for (int i = 0; i < G.V(); i++) {
+      distTo[i] = Integer.MAX_VALUE;
+    }
     bfs(G,s);
+  }
+
+  public DeluxeBFS(Digraph G, Iterable<Integer> sources) {
+    marked = new boolean[G.V()];
+    edgeTo = new int[G.V()];
+    distTo = new int[G.V()];
+    for (int i = 0; i < G.V(); i++) {
+      distTo[i] = Integer.MAX_VALUE;
+    }
+    bfs(G,sources);
   }
 
   private void bfs(Digraph G, int s) {
     Queue<Integer> queue = new ArrayDeque<Integer>();
     marked[s] = true;
+    distTo[s] = 0;
     queue.add(s);
     while(queue.peek() != null) {
       int v = queue.poll();
       for (int w : G.adj(v)) {
         if (!marked[w]) {
           edgeTo[w] = v;
+          distTo[w] = distTo[v] + 1;
+          marked[w] = true;
+          queue.add(w);
+        }
+      }
+    }
+  }
+
+  private void bfs(Digraph G, Iterable<Integer> sources) {
+    Queue<Integer> queue = new ArrayDeque<Integer>();
+    for (int v : sources) {
+      marked[v] = true;
+      distTo[v] = 0;
+      queue.add(v);
+    }
+    while(queue.peek() != null) {
+      int v = queue.poll();
+      for (int w : G.adj(v)) {
+        if (!marked[w]) {
+          edgeTo[w] = v;
+          distTo[w] = distTo[v] + 1;
           marked[w] = true;
           queue.add(w);
         }
@@ -40,10 +75,11 @@ public class DeluxeBFS {
   public ArrayDeque<Integer> pathTo(int v) {
     if (!hasPathTo(v)) return null;
     ArrayDeque<Integer> path = new ArrayDeque<Integer>();
-    for (int x = v; x != s; x = edgeTo[x]) {
+    int x;
+    for (x = v; distTo[x] != 0; x = edgeTo[x]) {
       path.add(x);
     }
-    path.add(s);
+    path.add(x);
     return path;
   }
 }
