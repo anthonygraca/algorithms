@@ -70,14 +70,14 @@ Call `pyb` to run all tests
 | Separate Chaining Hash Tables | | |
 | Linear Probing Hash Tables | | |
 ### Chapter 4. Graphs
-| Topic | C++ | Java |
-|-------|-----|------|
-| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | |
-| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | |
-| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | |
-| Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | |
-| Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | |
-| Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | |
+| Topic | C++ | Java | Tests |
+|-------|-----|------|-------|
+| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/depth-first-search-test.cpp) |
+| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/connected-components-test.cpp) |
+| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/breadth-first-paths-test.cpp) |
+| Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/cycle-test.cpp) |
+| Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/topological-sort-test.cpp) |
+| Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/kosaraju-sharir-test.cpp) |
 | Kruskal | | |
 | Prim | | |
 | Dijkstra | | |
