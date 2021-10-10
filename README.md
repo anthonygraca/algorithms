@@ -77,7 +77,7 @@ Call `pyb` to run all tests
 | Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | |
 | Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | |
 | Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | |
-| Kosaraju−Sharir | | |
+| Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | |
 | Kruskal | | |
 | Prim | | |
 | Dijkstra | | |
