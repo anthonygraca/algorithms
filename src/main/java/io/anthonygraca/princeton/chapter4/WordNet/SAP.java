@@ -9,7 +9,6 @@ import java.util.Stack;
 public class SAP {
   private DeluxeBFS[] bfs = null;
   Digraph graph = null;
-  int root = -1;
   public SAP(Digraph g) {
     if (g == null) {
       throw new IllegalArgumentException("SAP cannot have null input");
@@ -23,11 +22,12 @@ public class SAP {
 
   public int length(int v, int w) {
     validateBounds(v, w);
-    checkCache(v,w);
+    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
+    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
     int root = getRoot(v);
-    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
+    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
     int ancestor = -1;
     while (stack_v.peekFirst() == stack_w.peekFirst()) {
       ancestor = stack_v.removeFirst();
@@ -47,11 +47,12 @@ public class SAP {
 
   public int ancestor(int v, int w) {
     validateBounds(v, w);
-    checkCache(v,w);
+    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
+    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
     int root = getRoot(v);
-    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
+    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
     int ancestor = -1;
     while (stack_v.peekFirst() == stack_w.peekFirst()) {
       ancestor = stack_v.removeFirst();
@@ -72,6 +73,7 @@ public class SAP {
   }
 
   private int getRoot(int v) {
+    int root = -1;
     if (root == -1) {
       int vertex = v;
       while(hasParent(vertex)) {
@@ -81,7 +83,7 @@ public class SAP {
     }
     return root;
   }
-  
+
   private int getAncestor(Stack<Integer> path_a, Stack<Integer> path_b) {
     int ancestor = -1;
     while (path_b.peek() == path_a.peek()) {
@@ -128,17 +130,31 @@ public class SAP {
       throw new IllegalArgumentException("Iterable can't be null");
     }
     validateBounds(v, w);
-    checkCache(v,w);
+    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
+    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
     int root = getRoot(v);
-    if (!(bfs[v].hasPathTo(root) && bfs[w].hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs[v].pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs[w].pathTo(root);
+    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
+    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
+    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
     int ancestor = -1;
     while (stack_v.peekFirst() == stack_w.peekFirst()) {
       ancestor = stack_v.removeFirst();
       stack_w.removeFirst();
     }
     return ancestor;
+  }
+
+  private int getRoot(Iterable<Integer> v) {
+    int root = -1;
+    for (int vertex : v) {
+      if (root == -1) {
+        while(hasParent(vertex)) {
+          root = getParent(vertex);
+        }
+        return root;
+      }
+    }
+    return root;
   }
 
   private void checkCache(Iterable<Integer> v, Iterable<Integer> w) {
