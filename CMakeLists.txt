@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19.7)
+cmake_minimum_required(VERSION 3.22)
 
 project(Algorithms)
 
@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(src)
 
-#Turn off with -DTEST=OFF
+# Turn off with -DTEST=OFF
 option(TEST "Build all tests." ON)
 if(TEST)
   include(cmake/googletest.cmake)
