@@ -14,7 +14,8 @@ preventing Maven from easily pulling an already created algs4.jar
 1. `git clone https://github.com/kevin-wayne/algs4.git`
 2. `cd algs4 && mvn package`
 3. `cd </path/of/this-project>`
-4. `mvn install:install-file -Dfile=/path/to/algs4/target/algs4-1.0.0.0.jar -DgroupId=edu.princeton.cs -DartifactId=algs4 -Dversion=1.0.0 -Dpackaging=jar`
+4. `mvn package`
+5. `mvn install:install-file -Dfile=/path/to/algs4/target/algs4-1.0.0.0.jar -DgroupId=edu.princeton.cs -DartifactId=algs4 -Dversion=1.0.0 -Dpackaging=jar`
 
 #### Normal Usage
 `mvn package` to compile and package. \
