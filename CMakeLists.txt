@@ -14,7 +14,15 @@ add_subdirectory(src)
 
 # Turn off with -DTEST=OFF
 option(TEST "Build all tests." ON)
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/e649993a402d96afe25fbf3413749adf0f2947f6.zip
+)
+FetchContent_MakeAvailable(googletest)
+
 if(TEST)
-  include(cmake/googletest.cmake)
+  enable_testing()
   add_subdirectory(src/test)
 endif()
