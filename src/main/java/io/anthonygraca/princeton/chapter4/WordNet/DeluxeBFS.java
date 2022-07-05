@@ -93,4 +93,8 @@ public class DeluxeBFS {
       }
     }
   }
+
+  public int getDistance(int v) {
+    return distTo[v];
+  }
 }
