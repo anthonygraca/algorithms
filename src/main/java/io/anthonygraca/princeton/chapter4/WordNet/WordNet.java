@@ -10,12 +10,13 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.TreeSet;
+import java.util.Hashtable;
 
 public class WordNet {
 
   private Digraph graph = null;
-  private RedBlackBST<Integer, ArrayList<String>> bst = new RedBlackBST<Integer, ArrayList<String>>();
-  private TreeSet<String> set = new TreeSet<String>();
+  private Hashtable<String, Integer> map =  new Hashtable<String, Integer>();
+  private ArrayList<ArrayList<String>> synset = new ArrayList<ArrayList<String>>();
   private int m_count = 0;
 
   protected WordNet() {
@@ -34,8 +35,10 @@ public class WordNet {
 
   protected int checkValidRootedDag() {
     int vertex = 0;
-    while (graph.adj(vertex).iterator().hasNext()) {
-      vertex = graph.adj(vertex).iterator().next();
+    Iterator<Integer> iter = graph.adj(0).iterator();
+    while (iter.hasNext()) {
+      vertex = iter.next();
+      iter = graph.adj(vertex).iterator();
     }
     return vertex;
   }
@@ -66,13 +69,13 @@ public class WordNet {
   protected String[] getSysnetFromEntry(String entry) {
     String[] fields = entry.split(",");
     String[] nouns = fields[1].split(" ");
-    ArrayList<String> sysnet = new ArrayList<String>();
+    ArrayList<String> synonyms = new ArrayList<String>();
     for (int i = 0; i < nouns.length; i++) {
-      set.add(nouns[i]);
-      sysnet.add(nouns[i]);
+      int id = Integer.parseInt(fields[0]);
+      map.put(nouns[i], id);
+      synonyms.add(nouns[i]);
     }
-    int id = Integer.parseInt(fields[0]);
-    bst.put(id, sysnet);
+    synset.add(synonyms);
     return fields;
   }
 
@@ -86,7 +89,10 @@ public class WordNet {
 
   // must be T:O(logn)
   public boolean isNoun(String query) {
-    return set.contains(query);
+    if (query == null) {
+      throw new IllegalArgumentException("null");
+    }
+    return map.containsKey(query);
   }
 
   public Iterable<String> nouns() {
@@ -98,7 +104,8 @@ public class WordNet {
     if (!isNoun(noun_a) || !isNoun(noun_b)) {
       throw new IllegalArgumentException("distance() arguments must be valid nouns");
     }
-    return -1;
+    SAP sap = new SAP(graph);
+    return sap.length(map.get(noun_a), map.get(noun_b));
   }
 
   // must be T:O(n)
@@ -106,7 +113,8 @@ public class WordNet {
     if (!isNoun(noun_a) || !isNoun(noun_b)) {
       throw new IllegalArgumentException("distance() arguments must be valid nouns");
     }
-    return "";
+    SAP sap = new SAP(graph);
+    return synset.get(sap.ancestor(map.get(noun_a), map.get(noun_b))).get(0);
   }
 
   protected Digraph getGraph() {
@@ -119,7 +127,7 @@ public class WordNet {
     }
 
   private class GeneratedNounsIterator implements Iterator<String> {
-    Iterator<String> iter = set.iterator();
+    Iterator<String> iter = map.keySet().iterator();
     public GeneratedNounsIterator() {
     }
     public boolean hasNext() {

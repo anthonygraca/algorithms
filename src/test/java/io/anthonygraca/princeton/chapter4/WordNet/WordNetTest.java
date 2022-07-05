@@ -89,4 +89,23 @@ public class WordNetTest {
   public void CheckValidRootedDag() {
     assertEquals(38003, net.checkValidRootedDag());
   }
+
+  @Test
+  public void ValidateSAPDistance() {
+    String nounA = "dada";
+    String nounB = "siamese_connection";
+    assertEquals(13, net.distance(nounA, nounB));
+  }
+
+  /*
+    problem caused by not calling iterator version.
+    find way to speed up iterator SAP
+   */
+  //@Test
+  public void ValidateSAPDistanceExampleTwo() {
+    String nounA = "Savoyard";
+    String nounB = "liquidator";
+    assertEquals(5, net.distance(nounA, nounB));
+  }
+
 }
