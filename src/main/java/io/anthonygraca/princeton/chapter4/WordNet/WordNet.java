@@ -32,8 +32,6 @@ public class WordNet {
     checkValidRootedDag();
   }
 
-  // TODO: how to check for root?
-    // reverse, dfs, find indegree of 0
   protected int checkValidRootedDag() {
     int vertex = 0;
     while (graph.adj(vertex).iterator().hasNext()) {

@@ -2,6 +2,8 @@ package io.anthonygraca.princeton.chapter4.WordNet;
 
 import edu.princeton.cs.algs4.Digraph;
 
+import java.util.Iterator;
+
 public class SAP {
   private DeluxeBFS[] bfs = null;
   private final Digraph graph;
@@ -13,7 +15,7 @@ public class SAP {
     for (int i = 0; i < g.V(); i++) {
       bfs[i] = null;
     }
-    graph = g;
+    graph = new Digraph(g);
   }
 
   public int length(int v, int w) {
@@ -61,12 +63,14 @@ public class SAP {
     if (v == null || w == null) {
       throw new IllegalArgumentException("Iterable can't be null");
     }
+    validateBounds(v, w);
     int[] distance_v = new int[graph.V()];
     for (int i = 0; i < graph.V(); i++) {
 	distance_v[i] = Integer.MAX_VALUE;
     }
-    while (v.iterator().hasNext()) {
-	DeluxeBFS bfs = new DeluxeBFS(graph, v.iterator().next());
+    Iterator<Integer> iter = v.iterator();
+    while (iter.hasNext()) {
+	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
 	for (int i = 0; i < graph.V(); i++) {
 	  int distance = bfs.getDistance(i);
 	  if (distance < distance_v[i]) {
@@ -101,8 +105,45 @@ public class SAP {
     if (v == null || w == null) {
       throw new IllegalArgumentException("Iterable can't be null");
     }
-
-    return -1;
+    validateBounds(v, w);
+    int[] distance_v = new int[graph.V()];
+    for (int i = 0; i < graph.V(); i++) {
+	distance_v[i] = Integer.MAX_VALUE;
+    }
+    Iterator<Integer> iter = v.iterator();
+    while (iter.hasNext()) {
+	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
+	for (int i = 0; i < graph.V(); i++) {
+	  int distance = bfs.getDistance(i);
+	  if (distance < distance_v[i]) {
+	    distance_v[i] = distance;
+	  }
+	}
+    }
+    int[] distance_w = new int[graph.V()];
+    for (int i = 0; i < graph.V(); i++) {
+	distance_w[i] = Integer.MAX_VALUE;
+    }
+    iter = w.iterator();
+    while (iter.hasNext()) {
+	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
+	for (int i = 0; i < graph.V(); i++) {
+	  int distance = bfs.getDistance(i);
+	  if (distance < distance_w[i]) {
+	    distance_w[i] = distance;
+	  }
+	}
+    }
+    int min = Integer.MAX_VALUE;
+    int ancestor = -1;
+    for(int i = 0; i < graph.V(); i++) {
+	if ((distance_v[i] != Integer.MAX_VALUE && distance_w[i] != Integer.MAX_VALUE) &&
+	    (distance_v[i] + distance_w[i] < min)) {
+	    min = distance_v[i] + distance_w[i];
+	    ancestor = i;
+	}
+    }
+    return ancestor;
   }
 
   private void validateBounds(int v, int w) {
@@ -117,19 +158,29 @@ public class SAP {
 
   private void validateBounds(Iterable<Integer> v, Iterable<Integer> w) {
     int max_vertices = graph.V();
-    for (int vertex : v) {
-      if(vertex < 0) {
+    Iterator<Integer> iter = v.iterator();
+    while (iter.hasNext()) {
+      Integer vertex = iter.next();
+      if (vertex == null) {
+	throw new IllegalArgumentException("null");
+      }
+      if(vertex.intValue() < 0) {
         throw new IllegalArgumentException("Vertex can't be negative");
       }
-      if (vertex >= max_vertices) {
+      if (vertex.intValue() >= max_vertices) {
         throw new IllegalArgumentException("Vertex can't be above bounds");
       }
     }
-    for (int vertex : w) {
-      if(vertex < 0) {
+    iter = w.iterator();
+    while (iter.hasNext()) {
+      Integer vertex = iter.next();
+      if (vertex == null) {
+	throw new IllegalArgumentException("null");
+      }
+      if(vertex.intValue() < 0) {
         throw new IllegalArgumentException("Vertex can't be negative");
       }
-      if (vertex >= max_vertices) {
+      if (vertex.intValue() >= max_vertices) {
         throw new IllegalArgumentException("Vertex can't be above bounds");
       }
     }

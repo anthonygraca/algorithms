@@ -10,6 +10,8 @@ import org.junit.Test;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Digraph;
 
+import java.util.Arrays;
+
 public class SAPTest {
   static Digraph g = null;
   @BeforeClass
@@ -93,4 +95,29 @@ public class SAPTest {
     assertEquals(-1, sap.length(v, w));
     assertEquals(-1, sap.ancestor(v, w));
   }
+
+  @Test(expected=IllegalArgumentException.class)
+  public void CallingLengthWithInvalidArgument() {
+    Iterable<Integer> v = Arrays.asList(-1, 9, 10, 11, 12);
+    Iterable<Integer> w = Arrays.asList(2, 3, 4);
+    SAP sap = new SAP(g);
+    sap.length(v, w);
+  }
+
+  @Test(expected=IllegalArgumentException.class)
+    public void CallingAncestorWithInvalidArgument() {
+    Iterable<Integer> v = Arrays.asList(-1, 9, 10, 11, 12);
+    Iterable<Integer> w = Arrays.asList(2, 3, 4);
+    SAP sap = new SAP(g);
+    sap.ancestor(v, w);
+  }
+
+  @Test
+  public void CallingAncestorWithValidArgument() {
+    Iterable<Integer> v = Arrays.asList(9, 10, 11, 12);
+    Iterable<Integer> w = Arrays.asList(2, 3, 4);
+    SAP sap = new SAP(g);
+    assertEquals(1, sap.ancestor(v, w));
+  }
+
 }
