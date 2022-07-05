@@ -67,7 +67,6 @@ public class SAPTest {
     assertEquals(4, sap.length(v, w));
     assertEquals(1, sap.ancestor(v, w));
   }
-
   @Test
   public void ExampleTwo() {
     SAP sap = new SAP(g);

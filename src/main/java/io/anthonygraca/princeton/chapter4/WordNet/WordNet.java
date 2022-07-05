@@ -13,10 +13,10 @@ import java.util.TreeSet;
 
 public class WordNet {
 
-  Digraph graph = null;
-  RedBlackBST<Integer, ArrayList<String>> bst = new RedBlackBST<Integer, ArrayList<String>>();
-  TreeSet<String> set = new TreeSet<String>();
-  int m_count = 0;
+  private Digraph graph = null;
+  private RedBlackBST<Integer, ArrayList<String>> bst = new RedBlackBST<Integer, ArrayList<String>>();
+  private TreeSet<String> set = new TreeSet<String>();
+  private int m_count = 0;
 
   protected WordNet() {
     graph = new Digraph(48085);
@@ -33,6 +33,7 @@ public class WordNet {
   }
 
   // TODO: how to check for root?
+    // reverse, dfs, find indegree of 0
   protected int checkValidRootedDag() {
     int vertex = 0;
     while (graph.adj(vertex).iterator().hasNext()) {

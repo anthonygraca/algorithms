@@ -82,4 +82,15 @@ public class DeluxeBFS {
     path.add(x);
     return path;
   }
+
+  public void transferDistance(int[] ancestor_distance) {
+    for (int i = 0; i < distTo.length; i++) {
+      if (hasPathTo(i) && ancestor_distance[i] != Integer.MAX_VALUE) {
+        ancestor_distance[i] += distTo[i];
+      }
+      else {
+	ancestor_distance[i] = Integer.MAX_VALUE;
+      }
+    }
+  }
 }

@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class SAP {
   private DeluxeBFS[] bfs = null;
-  Digraph graph = null;
+  private Digraph graph = null;
   public SAP(Digraph g) {
     if (g == null) {
       throw new IllegalArgumentException("SAP cannot have null input");
@@ -24,66 +24,43 @@ public class SAP {
     validateBounds(v, w);
     DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
     DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
-    int root = getRoot(v);
-    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
-    int ancestor = -1;
-    while (stack_v.peekFirst() == stack_w.peekFirst()) {
-      ancestor = stack_v.removeFirst();
-      stack_w.removeFirst();
+    int[] distance = new int[graph.V()];
+    for (int i = 0; i < graph.V(); i++) {
+	distance[i] = 0;
     }
-    int count = 0;
-    while (!stack_v.isEmpty()) {
-      stack_v.removeFirst();
-      count++;
+    bfs_v.transferDistance(distance);
+    bfs_w.transferDistance(distance);
+    int min = Integer.MAX_VALUE;
+    
+    for (int i = 0; i < distance.length; i++) {
+	if (distance[i] < min) {
+	    min = distance[i];
+	}
     }
-    while (!stack_w.isEmpty()) {
-      stack_w.removeFirst();
-      count++;
-    }
-    return count;
+    return (min == Integer.MAX_VALUE) ? -1 : min;
   }
 
   public int ancestor(int v, int w) {
     validateBounds(v, w);
     DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
     DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
-    int root = getRoot(v);
-    if (!(bfs_v.hasPathTo(root) && bfs_w.hasPathTo(root))) return -1;
-    ArrayDeque<Integer> stack_v = bfs_v.pathTo(root);
-    ArrayDeque<Integer> stack_w = bfs_w.pathTo(root);
+    int[] distance = new int[graph.V()];
+    for (int i = 0; i < graph.V(); i++) {
+	distance[i] = 0;
+    }
+    bfs_v.transferDistance(distance);
+    bfs_w.transferDistance(distance);
+    int min = Integer.MAX_VALUE;
     int ancestor = -1;
-    while (stack_v.peekFirst() == stack_w.peekFirst()) {
-      ancestor = stack_v.removeFirst();
-      stack_w.removeFirst();
+    for (int i = 0; i < distance.length; i++) {
+	if (distance[i] < min) {
+	    min = distance[i];
+	    ancestor = i;
+	}
     }
     return ancestor;
   }
-
-  private void checkCache(int v, int w) {
-    checkCacheForBfs(v);
-    checkCacheForBfs(w);
-  }
-
-  private void checkCacheForBfs(int v) {
-    if (bfs[v] == null) {
-      bfs[v] = new DeluxeBFS(graph, v);
-    }
-  }
-
-  private int getRoot(int v) {
-    int root = -1;
-    if (root == -1) {
-      int vertex = v;
-      while(hasParent(vertex)) {
-        vertex = getParent(vertex);
-      }
-      return vertex;
-    }
-    return root;
-  }
-
+    
   private int getAncestor(Stack<Integer> path_a, Stack<Integer> path_b) {
     int ancestor = -1;
     while (path_b.peek() == path_a.peek()) {
@@ -155,15 +132,6 @@ public class SAP {
       }
     }
     return root;
-  }
-
-  private void checkCache(Iterable<Integer> v, Iterable<Integer> w) {
-    for (int vertex : v) {
-      checkCacheForBfs(vertex);
-    }
-    for (int vertex : w) {
-      checkCacheForBfs(vertex);
-    }
   }
 
   private void validateBounds(int v, int w) {
