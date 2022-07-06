@@ -2,7 +2,6 @@ package io.anthonygraca.princeton.chapter4.WordNet;
 
 import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.Topological;
-import edu.princeton.cs.algs4.In;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,6 +19,7 @@ public class WordNet {
   private ArrayList<ArrayList<String>> synset =
     new ArrayList<ArrayList<String>>();
   private int m_count = 0;
+  private SAP sap = null;
 
   protected WordNet() {
     graph = new Digraph(48085);
@@ -33,6 +33,7 @@ public class WordNet {
     graph = new Digraph(m_count);
     readHypernymsFromFile(new File(hypernyms));
     checkValidRootedDag();
+    sap = new SAP(graph);
   }
 
   protected boolean checkValidRootedDag() {
@@ -45,17 +46,26 @@ public class WordNet {
   }
 
   private void readSysnetsFromFile(File file) {
-    In sc = new In(file);
-    while (sc.hasNextLine()) {
-      getSysnetFromEntry(sc.readLine());
-      m_count++;
+    try {
+      Scanner sc = new Scanner(file);
+      while (sc.hasNextLine()) {
+	getSysnetFromEntry(sc.nextLine());
+	m_count++;
+      }
+    }
+    catch (FileNotFoundException e) {
+      System.out.println("file can't be processed");
     }
   }
 
   private void readHypernymsFromFile(File file) {
-    In sc = new In(file);
-    while (sc.hasNextLine()) {
-      getHypernymsFromEntry(sc.readLine());
+    try {
+      Scanner sc = new Scanner(file);
+      while (sc.hasNextLine()) {
+	getHypernymsFromEntry(sc.nextLine());
+      }
+    } catch (FileNotFoundException e) {
+      System.out.println("file can't be processed");
     }
   }
 
@@ -104,7 +114,6 @@ public class WordNet {
     if (!isNoun(noun_a) || !isNoun(noun_b)) {
       throw new IllegalArgumentException("distance() arguments must be valid nouns");
     }
-    SAP sap = new SAP(graph);
     return sap.length(map.get(noun_a), map.get(noun_b));
   }
 
@@ -113,8 +122,14 @@ public class WordNet {
     if (!isNoun(noun_a) || !isNoun(noun_b)) {
       throw new IllegalArgumentException("distance() arguments must be valid nouns");
     }
-    SAP sap = new SAP(graph);
-    return synset.get(sap.ancestor(map.get(noun_a), map.get(noun_b))).get(0);
+    ArrayList<String> list =
+      synset.get(sap.ancestor(map.get(noun_a), map.get(noun_b)));
+    String nouns = list.get(0);
+    for (int i = 1; i < list.size(); i++) {
+      nouns = nouns + " " + list.get(i);
+    }
+    return nouns;
+    //   return synset.get(sap.ancestor(map.get(noun_a), map.get(noun_b))).get(0);
   }
 
   protected Digraph getGraph() {

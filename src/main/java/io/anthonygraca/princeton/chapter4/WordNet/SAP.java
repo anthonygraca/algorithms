@@ -5,15 +5,10 @@ import edu.princeton.cs.algs4.Digraph;
 import java.util.Iterator;
 
 public class SAP {
-  private DeluxeBFS[] bfs = null;
   private final Digraph graph;
   public SAP(Digraph g) {
     if (g == null) {
       throw new IllegalArgumentException("SAP cannot have null input");
-    }
-    bfs = new DeluxeBFS[g.V()];
-    for (int i = 0; i < g.V(); i++) {
-      bfs[i] = null;
     }
     graph = new Digraph(g);
   }
