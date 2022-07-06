@@ -64,39 +64,19 @@ public class SAP {
       throw new IllegalArgumentException("Iterable can't be null");
     }
     validateBounds(v, w);
-    int[] distance_v = new int[graph.V()];
+    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
+    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
+    int[] distance = new int[graph.V()];
     for (int i = 0; i < graph.V(); i++) {
-	distance_v[i] = Integer.MAX_VALUE;
+      distance[i] = 0;
     }
-    Iterator<Integer> iter = v.iterator();
-    while (iter.hasNext()) {
-	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
-	for (int i = 0; i < graph.V(); i++) {
-	  int distance = bfs.getDistance(i);
-	  if (distance < distance_v[i]) {
-	    distance_v[i] = distance;
-	  }
-	}
-    }
-    int[] distance_w = new int[graph.V()];
-    for (int i = 0; i < graph.V(); i++) {
-	distance_w[i] = Integer.MAX_VALUE;
-    }
-    while (w.iterator().hasNext()) {
-	DeluxeBFS bfs = new DeluxeBFS(graph, w.iterator().next());
-	for (int i = 0; i < graph.V(); i++) {
-	  int distance = bfs.getDistance(i);
-	  if (distance < distance_w[i]) {
-	    distance_w[i] = distance;
-	  }
-	}
-    }
+    bfs_v.transferDistance(distance);
+    bfs_w.transferDistance(distance);
     int min = Integer.MAX_VALUE;
-    for(int i = 0; i < graph.V(); i++) {
-	if ((distance_v[i] != Integer.MAX_VALUE && distance_w[i] != Integer.MAX_VALUE) &&
-	    (distance_v[i] + distance_w[i] < min)) {
-	    min = distance_v[i] + distance_w[i];
-	}
+    for(int i = 0; i < distance.length; i++) {
+      if (distance[i] < min) {
+	min = distance[i];
+      }
     }
     return (min == Integer.MAX_VALUE) ? -1 : min;
   }
@@ -106,42 +86,21 @@ public class SAP {
       throw new IllegalArgumentException("Iterable can't be null");
     }
     validateBounds(v, w);
-    int[] distance_v = new int[graph.V()];
+    DeluxeBFS bfs_v = new DeluxeBFS(graph, v);
+    DeluxeBFS bfs_w = new DeluxeBFS(graph, w);
+    int[] distance = new int[graph.V()];
     for (int i = 0; i < graph.V(); i++) {
-	distance_v[i] = Integer.MAX_VALUE;
+	distance[i] = 0;
     }
-    Iterator<Integer> iter = v.iterator();
-    while (iter.hasNext()) {
-	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
-	for (int i = 0; i < graph.V(); i++) {
-	  int distance = bfs.getDistance(i);
-	  if (distance < distance_v[i]) {
-	    distance_v[i] = distance;
-	  }
-	}
-    }
-    int[] distance_w = new int[graph.V()];
-    for (int i = 0; i < graph.V(); i++) {
-	distance_w[i] = Integer.MAX_VALUE;
-    }
-    iter = w.iterator();
-    while (iter.hasNext()) {
-	DeluxeBFS bfs = new DeluxeBFS(graph, iter.next());
-	for (int i = 0; i < graph.V(); i++) {
-	  int distance = bfs.getDistance(i);
-	  if (distance < distance_w[i]) {
-	    distance_w[i] = distance;
-	  }
-	}
-    }
+    bfs_v.transferDistance(distance);
+    bfs_w.transferDistance(distance);
     int min = Integer.MAX_VALUE;
     int ancestor = -1;
-    for(int i = 0; i < graph.V(); i++) {
-	if ((distance_v[i] != Integer.MAX_VALUE && distance_w[i] != Integer.MAX_VALUE) &&
-	    (distance_v[i] + distance_w[i] < min)) {
-	    min = distance_v[i] + distance_w[i];
-	    ancestor = i;
-	}
+    for (int i = 0; i < graph.V(); i++) {
+      if (distance[i] < min) {
+	min = distance[i];
+	ancestor = i;
+      }
     }
     return ancestor;
   }

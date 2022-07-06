@@ -101,7 +101,7 @@ public class WordNetTest {
     problem caused by not calling iterator version.
     find way to speed up iterator SAP
    */
-  //@Test
+  @Test
   public void ValidateSAPDistanceExampleTwo() {
     String nounA = "Savoyard";
     String nounB = "liquidator";

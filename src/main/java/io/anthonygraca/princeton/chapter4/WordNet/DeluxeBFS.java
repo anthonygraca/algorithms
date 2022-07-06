@@ -85,8 +85,10 @@ public class DeluxeBFS {
 
   public void transferDistance(int[] ancestor_distance) {
     for (int i = 0; i < distTo.length; i++) {
-      if (hasPathTo(i) && ancestor_distance[i] != Integer.MAX_VALUE) {
-        ancestor_distance[i] += distTo[i];
+      if (hasPathTo(i)) {
+	if (ancestor_distance[i] != Integer.MAX_VALUE) {
+	  ancestor_distance[i] += distTo[i];
+	}
       }
       else {
 	ancestor_distance[i] = Integer.MAX_VALUE;

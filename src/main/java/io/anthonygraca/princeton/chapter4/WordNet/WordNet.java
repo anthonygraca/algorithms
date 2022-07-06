@@ -1,7 +1,6 @@
 package io.anthonygraca.princeton.chapter4.WordNet;
 
 import edu.princeton.cs.algs4.Digraph;
-import edu.princeton.cs.algs4.RedBlackBST;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,14 +8,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.TreeSet;
 import java.util.Hashtable;
 
 public class WordNet {
 
   private Digraph graph = null;
-  private Hashtable<String, Integer> map =  new Hashtable<String, Integer>();
-  private ArrayList<ArrayList<String>> synset = new ArrayList<ArrayList<String>>();
+  private Hashtable<String, ArrayList<Integer>> map =
+    new Hashtable<String, ArrayList<Integer>>();
+  private ArrayList<ArrayList<String>> synset =
+    new ArrayList<ArrayList<String>>();
   private int m_count = 0;
 
   protected WordNet() {
@@ -72,7 +72,14 @@ public class WordNet {
     ArrayList<String> synonyms = new ArrayList<String>();
     for (int i = 0; i < nouns.length; i++) {
       int id = Integer.parseInt(fields[0]);
-      map.put(nouns[i], id);
+      if (map.containsKey(nouns[i])) {
+	map.get(nouns[i]).add(id);
+      }
+      else {
+	ArrayList<Integer> ids = new ArrayList<Integer>();
+	ids.add(id);
+	map.put(nouns[i], ids);
+      }
       synonyms.add(nouns[i]);
     }
     synset.add(synonyms);
