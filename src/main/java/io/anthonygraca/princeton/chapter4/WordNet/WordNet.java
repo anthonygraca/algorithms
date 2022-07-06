@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class WordNet {
 
   private Digraph graph = null;
-  private Hashtable<String, ArrayList<Integer>> map =
-    new Hashtable<String, ArrayList<Integer>>();
+  private HashMap<String, ArrayList<Integer>> map =
+    new HashMap<String, ArrayList<Integer>>();
   private ArrayList<ArrayList<String>> synset =
     new ArrayList<ArrayList<String>>();
   private int m_count = 0;
