@@ -1,6 +1,8 @@
 package io.anthonygraca.princeton.chapter4.WordNet;
 
 import edu.princeton.cs.algs4.Digraph;
+import edu.princeton.cs.algs4.Topological;
+import edu.princeton.cs.algs4.In;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,36 +35,27 @@ public class WordNet {
     checkValidRootedDag();
   }
 
-  protected int checkValidRootedDag() {
-    int vertex = 0;
-    Iterator<Integer> iter = graph.adj(0).iterator();
-    while (iter.hasNext()) {
-      vertex = iter.next();
-      iter = graph.adj(vertex).iterator();
+  protected boolean checkValidRootedDag() {
+    Topological t = new Topological(graph);
+    if (!t.hasOrder()) {
+      throw new IllegalArgumentException("No root");
     }
-    return vertex;
+    return true;
+
   }
 
   private void readSysnetsFromFile(File file) {
-    try {
-      Scanner sc = new Scanner(file);
-      while (sc.hasNextLine()) {
-        getSysnetFromEntry(sc.nextLine());
-        m_count++;
-      }
-    } catch (FileNotFoundException e) { 
-      System.out.println("sysnet file not found");
+    In sc = new In(file);
+    while (sc.hasNextLine()) {
+      getSysnetFromEntry(sc.readLine());
+      m_count++;
     }
   }
 
   private void readHypernymsFromFile(File file) {
-    try {
-      Scanner sc = new Scanner(file);
-      while (sc.hasNextLine()) {
-        getHypernymsFromEntry(sc.nextLine());
-      }
-    } catch (FileNotFoundException e) { 
-      System.out.println("hypernyms file not found");
+    In sc = new In(file);
+    while (sc.hasNextLine()) {
+      getHypernymsFromEntry(sc.readLine());
     }
   }
 

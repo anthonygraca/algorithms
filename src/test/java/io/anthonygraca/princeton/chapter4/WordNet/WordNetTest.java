@@ -87,7 +87,7 @@ public class WordNetTest {
 
   @Test
   public void CheckValidRootedDag() {
-    assertEquals(38003, net.checkValidRootedDag());
+    assertEquals(true, net.checkValidRootedDag());
   }
 
   @Test
