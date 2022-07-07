@@ -1,4 +1,3 @@
-
 # Data Structures & Algorithms
 
 ## How to Build
@@ -79,6 +78,8 @@ files.
 | Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/cycle-test.cpp) |
 | Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/topological-sort-test.cpp) |
 | Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/kosaraju-sharir-test.cpp) |
+| Weighted Edge Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
+| Edge Weighted Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
 | Kruskal | | |
 | Prim | | |
 | Dijkstra | | |
