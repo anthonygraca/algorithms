@@ -1,3 +1,4 @@
+
 # Data Structures & Algorithms
 
 ## How to Build
@@ -18,30 +19,27 @@ preventing Maven from easily pulling an already created algs4.jar
 5. `mvn install:install-file -Dfile=/path/to/algs4/target/algs4-1.0.0.0.jar -DgroupId=edu.princeton.cs -DartifactId=algs4 -Dversion=1.0.0 -Dpackaging=jar`
 
 #### Normal Usage
-`mvn package` to compile and package. \
-`java -jar target/<name-of-file>.jar` to run the compiled code \
-
-`mvn test` to build and run tests.
+1. `mvn package` to compile and package. 
+2. `java -jar target/<name-of-file>.jar` to run the compiled code 
+3. `mvn test` to build and run tests.
 
 ### C++ Code with CMake
-[CMake](https://cmake.org/) (version >= 3.19.7) is the build tool that manages all of the C++
-code in this project. Code is compiled with a C++14 compiler.
+[CMake](https://cmake.org/) (version >= 3.23) is the build tool that manages all of the C++
+code in this project. Code is compiled with a C++17 compiler.
 
 #### Normal Usage
-Do the "cmake dance". \
-`mkdir build` to create a separate build folder to isolate generate cmake build
-files. \
-`cd build` to enter build folder. \
-`cmake ..` to tell cmake to look at the CMakeLists.txt at project root. \
-`make && make test` to compile source and run tests.
+Do the "cmake dance". 
+1. `cmake -S. -Bbuild` to create a separate build folder to isolate generate cmake build
+files. 
+2. `cmake --build build --parallel && ctest --test-dir build --parallel` to compile source and run tests.
 
 ### Python Code with VirtualEnv
-Install [pyenv](https://github.com/pyenv/pyenv#installation) \
-Use pyenv to install Python3 (e.g. `pyenv install 3.9.5`) \
-Use the installed pip3 to install virtualenv `pip install virtualenv` \
-Create and source virtualenv `virtualenv venv && source venv/bin/activate` \
-Install [pybuilder](https://pybuilder.io/documentation/tutorial) in virtualenv \
-Call `pyb` to run all tests
+1. Install [pyenv](https://github.com/pyenv/pyenv#installation) 
+2. Use pyenv to install Python3 (e.g. `pyenv install 3.9.5`) 
+3. Use the installed pip3 to install virtualenv `pip install virtualenv` 
+4. Create and source virtualenv `virtualenv venv && source venv/bin/activate` 
+5. Install [pybuilder](https://pybuilder.io/documentation/tutorial) in virtualenv 
+6. Call `pyb` to run all tests
 
 ## Table of Contents
 ### Chapter 1. Fundamentals
@@ -109,8 +107,7 @@ Networking: Ford-Fulkerson
 [1.2 Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) & [Randomized Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/randomized_queue/RandomizedQueue.java) \
 [1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java) \
 [1.4 Slider Puzzle](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/EightPuzzle/) \
-[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/) \
-
+[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/) 
 ## Resources Used
 ### Java
 [Sedgewick - Algorithms, Fourth Edition](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) \
