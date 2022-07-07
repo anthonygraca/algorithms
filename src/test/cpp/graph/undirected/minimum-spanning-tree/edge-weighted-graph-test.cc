@@ -104,3 +104,47 @@ TEST(EdgeWeightedGraph, LessThanOrEqual) {
   algorithms::Edge e2(vertex_c, vertex_d, weight2);
   EXPECT_LE(e2, e1);
 }
+
+TEST(EdgeWeightedGraph, InitializeEdgeWeightedGraph) {
+  int vertices{2};
+  algorithms::EdgeWeightedGraph g(vertices);
+  EXPECT_EQ(vertices, g.getVertices());
+}
+
+TEST(EdgeWeightedGraph, DefaultEdgesIsZero) {
+  int vertices{2};
+  algorithms::EdgeWeightedGraph g(vertices);
+  EXPECT_EQ(0, g.getEdges());
+}
+
+TEST(EdgeWeightedGraph, IncrementEdges) {
+  int vertex_a{0};
+  int vertex_b{1};
+  double weight1{.50};
+  algorithms::Edge e1(vertex_a, vertex_b, weight1);
+  int vertices{2};
+  algorithms::EdgeWeightedGraph g(vertices);
+  g.addEdge(e1);
+  EXPECT_EQ(1, g.getEdges());
+}
+
+TEST(EdgeWeightedGraph, GetEdgeAdjacentToVertex) {
+  int vertex_a{0};
+  int vertex_b{1};
+  double weight1{.50};
+  algorithms::Edge e1(vertex_a, vertex_b, weight1);
+  int vertex_c{1};
+  int vertex_d{0};
+  double weight2{.80};
+  algorithms::Edge e2(vertex_c, vertex_d, weight2);
+  int vertices{2};
+  algorithms::EdgeWeightedGraph g(vertices);
+  g.addEdge(e1);
+  g.addEdge(e2);
+  std::unordered_set<const algorithms::Edge*> adjacent_0 = g.adj(1);
+  std::unordered_set<const algorithms::Edge*> adjacent_1 = g.adj(0);
+  EXPECT_TRUE(adjacent_0.find(&e1) != adjacent_0.end());
+  EXPECT_TRUE(adjacent_0.find(&e2) != adjacent_0.end());
+  EXPECT_TRUE(adjacent_1.find(&e1) != adjacent_1.end());
+  EXPECT_TRUE(adjacent_1.find(&e2) != adjacent_1.end());
+}
