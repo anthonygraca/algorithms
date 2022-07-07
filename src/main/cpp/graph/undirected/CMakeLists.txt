@@ -9,3 +9,5 @@ add_library(breadth-first-paths OBJECT
 
 add_library(connected-components OBJECT
             connected-components.h)
+
+add_subdirectory(minimum-spanning-tree)

@@ -1,0 +1,7 @@
+#ifndef ALGORITHMS_PRINCETON_UNDIRECTED_EDGE_WEIGHTED_GRAPH_H_
+#define ALGORITHMS_PRINCETON_UNDIRECTED_EDGE_WEIGHTED_GRAPH_H_
+
+namespace algorithms {
+}  // namespace algorithms
+
+#endif

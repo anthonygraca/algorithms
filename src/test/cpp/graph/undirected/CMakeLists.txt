@@ -13,3 +13,5 @@ add_test(NAME breadth-first-paths-test COMMAND breadth-first-paths-test)
 add_executable(connected-components-test connected-components-test.cpp)
 target_link_libraries(connected-components-test gtest_main connected-components)
 add_test(NAME connected-components-test COMMAND connected-components-test)
+
+add_subdirectory(minimum-spanning-tree)
