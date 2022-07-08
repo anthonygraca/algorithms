@@ -4,6 +4,8 @@
 #include <unordered_set>
 #include <vector>
 
+#include <graph/undirected/minimum-spanning-tree/edge.h>
+
 namespace algorithms {
   class EdgeWeightedGraph {
   public:
@@ -20,7 +22,7 @@ namespace algorithms {
       adj_[e.other(e.either())].insert(&e);
       edges_++;
     }
-    std::unordered_set<const Edge*> adj(int v) {
+    std::unordered_set<const Edge*> adj(int v) const {
       return adj_[v];
     }
   private:
