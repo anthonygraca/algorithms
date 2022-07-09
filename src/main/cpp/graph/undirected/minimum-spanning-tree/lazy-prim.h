@@ -14,13 +14,13 @@ namespace algorithms {
     LazyPrim(const EdgeWeightedGraph& g) : marked_(g.getVertices(), false) {
       visit(g, 0);
       while (pq_.size() > 0) {
-	Edge e = pq_.top(); pq_.pop();
-	int v = e.either(), w = e.other(v);
-	if (marked_[v] && marked_[w]) continue;
-	weight_ += e.getWeight();
-	mst_.push_back(e);
-	if (!marked_[v]) visit(g, v);
-	if (!marked_[w]) visit(g, w);
+        Edge e = pq_.top(); pq_.pop();
+        int v = e.either(), w = e.other(v);
+        if (marked_[v] && marked_[w]) continue;
+        weight_ += e.getWeight();
+        mst_.push_back(e);
+        if (!marked_[v]) visit(g, v);
+        if (!marked_[w]) visit(g, w);
       }
     }
     std::vector<Edge> getEdges() {
