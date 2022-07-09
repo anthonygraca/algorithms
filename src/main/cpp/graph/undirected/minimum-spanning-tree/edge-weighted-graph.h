@@ -15,19 +15,22 @@ namespace algorithms {
       }
     }
     int getVertices() const { return vertices_; }
-    int getEdges() const { return edges_; }
+    int getNumberOfEdges() const { return number_of_edges_; }
+    std::vector<Edge> getEdges() const { return edges_; }
     void addEdge(const Edge e) {
+      edges_.push_back(e);
       adj_[e.either()].push_back(e);
       adj_[e.other(e.either())].push_back(e);
-      edges_++;
+      number_of_edges_++;
     }
     std::vector<Edge> adj(int v) const {
       return adj_[v];
     }
   private:
     int vertices_{0};
-    int edges_{0};
+    int number_of_edges_{0};
     std::vector<std::vector<Edge>> adj_;
+    std::vector<Edge> edges_;
   };
 }  // namespace algorithms
 #endif

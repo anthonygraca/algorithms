@@ -114,7 +114,7 @@ TEST(EdgeWeightedGraph, InitializeEdgeWeightedGraph) {
 TEST(EdgeWeightedGraph, DefaultEdgesIsZero) {
   int vertices{2};
   algorithms::EdgeWeightedGraph g(vertices);
-  EXPECT_EQ(0, g.getEdges());
+  EXPECT_EQ(0, g.getNumberOfEdges());
 }
 
 TEST(EdgeWeightedGraph, IncrementEdges) {
@@ -125,7 +125,7 @@ TEST(EdgeWeightedGraph, IncrementEdges) {
   int vertices{2};
   algorithms::EdgeWeightedGraph g(vertices);
   g.addEdge(e1);
-  EXPECT_EQ(1, g.getEdges());
+  EXPECT_EQ(1, g.getNumberOfEdges());
 }
 
 TEST(EdgeWeightedGraph, GetEdgeAdjacentToVertex) {
