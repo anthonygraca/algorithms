@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(Algorithms)
+project(Algorithms
+        LANGUAGES CXX)
 
 set(CMAKE_BUILD_TYPE Debug)
 
 set(source-directory
+  "${CMAKE_SOURCE_DIR}"
   "${CMAKE_SOURCE_DIR}/src/main/cpp/")
 include_directories(${source-directory})
 

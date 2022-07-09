@@ -141,12 +141,16 @@ TEST(EdgeWeightedGraph, GetEdgeAdjacentToVertex) {
   algorithms::EdgeWeightedGraph g(vertices);
   g.addEdge(e1);
   g.addEdge(e2);
-  std::unordered_set<const algorithms::Edge*> adjacent_0 = g.adj(0);
-  std::unordered_set<const algorithms::Edge*> adjacent_1 = g.adj(1);
-  EXPECT_TRUE(adjacent_0.find(&e1) != adjacent_0.end());
-  EXPECT_TRUE(adjacent_0.find(&e2) != adjacent_0.end());
-  EXPECT_TRUE(adjacent_1.find(&e1) != adjacent_1.end());
-  EXPECT_TRUE(adjacent_1.find(&e2) != adjacent_1.end());
+  auto adjacent_0 = g.adj(0);
+  auto adjacent_1 = g.adj(1);
+  EXPECT_TRUE(std::find(std::begin(adjacent_0), std::end(adjacent_0), e1)
+              != std::end(adjacent_0));
+  EXPECT_TRUE(std::find(std::begin(adjacent_0), std::end(adjacent_0), e2)
+              != std::end(adjacent_0));
+  EXPECT_TRUE(std::find(std::begin(adjacent_1), std::end(adjacent_1), e1)
+              != std::end(adjacent_1));
+  EXPECT_TRUE(std::find(std::begin(adjacent_1), std::end(adjacent_1), e2)
+              != std::end(adjacent_1));
 }
 
 TEST(EdgeWeightedGraph, TestScoping) {
@@ -164,8 +168,8 @@ TEST(EdgeWeightedGraph, TestScoping) {
     g.addEdge(e1);
     g.addEdge(e2);
   }
-  std::unordered_set<const algorithms::Edge*> adjacent_0 = g.adj(0);
-  for (const algorithms::Edge* e : adjacent_0) {
-    EXPECT_GE(1, e->either());
+  auto adjacent_0 = g.adj(0);
+  for (auto e : adjacent_0) {
+    EXPECT_GE(1, e.either());
   }
 }

@@ -37,7 +37,7 @@ namespace algorithms {
     void visit(const EdgeWeightedGraph& g, int v) {
       marked_[v] = true;
       for (auto e : g.adj(v)) {
-	if (!marked_[e->other(v)]) pq_.push(*e);
+        if (!marked_[e.other(v)]) pq_.push(e);
       }
     }
   };
