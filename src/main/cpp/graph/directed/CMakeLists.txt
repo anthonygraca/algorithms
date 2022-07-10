@@ -12,3 +12,5 @@ add_library(topological-sort OBJECT
 
 add_library(kosaraju-sharir OBJECT
             kosaraju-sharir.h)
+
+add_subdirectory(shortest-path)

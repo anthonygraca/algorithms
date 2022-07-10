@@ -17,3 +17,5 @@ add_test(NAME topological-sort-test COMMAND topological-sort-test)
 add_executable(kosaraju-sharir-test kosaraju-sharir-test.cpp)
 target_link_libraries(kosaraju-sharir-test gtest_main kosaraju-sharir)
 add_test(NAME kosaraju-sharir-test COMMAND kosaraju-sharir-test)
+
+add_subdirectory(shortest-path)
