@@ -5,6 +5,26 @@
 #include <graph/directed/shortest-path/edge-weighted-digraph.h>
 #include <graph/directed/shortest-path/directed-edge.h>
 
+TEST(DijkstraShortestPath, NegativeWeights) {
+  algorithms::EdgeWeightedDigraph g(4);
+  g.addEdge(algorithms::DirectedEdge(0, 1, 4));
+  g.addEdge(algorithms::DirectedEdge(1, 2, 6));
+  g.addEdge(algorithms::DirectedEdge(2, 3, -9));
+  g.addEdge(algorithms::DirectedEdge(0, 3, 2));
+  algorithms::Dijkstra sp(g, 0);
+  auto weight = sp.getWeight();
+  auto edges = sp.getEdges();
+  EXPECT_EQ(0, edges[1].from());
+  EXPECT_EQ(1, edges[1].to());
+  EXPECT_NEAR(4, weight[1], 0.01);
+  EXPECT_EQ(1, edges[2].from());
+  EXPECT_EQ(2, edges[2].to());
+  EXPECT_NEAR(10, weight[2], 0.01);
+  EXPECT_EQ(2, edges[3].from());
+  EXPECT_EQ(3, edges[3].to());
+  EXPECT_NEAR(1, weight[3], 0.01);
+}
+
 TEST(DijkstraShortestPath, TinyEWD) {
   algorithms::EdgeWeightedDigraph g(8);
   g.addEdge(algorithms::DirectedEdge(4, 5, 0.35));

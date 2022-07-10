@@ -82,7 +82,7 @@ files.
 | Edge Weighted Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
 | Kruskal | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst-test.cc) |
 | Prim | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/lazy-prim.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/lazy-prim-test.cc) |
-| Dijkstra | | |
+| Dijkstra | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/shortest-path/dijkstra.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/shortest-path/dijkstra-test.cc) |
 | Bellman−Ford | | |
 ### Chapter 5. Strings
 | Topic | C++ | Java |
