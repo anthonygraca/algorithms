@@ -33,11 +33,9 @@ public:
       if (j > 0) dfs(grid, i, j - 1);
       if (j < grid[i].size() - 1) dfs(grid, i, j + 1);
     }
-    
   }
 private:
   int islands_{0};
-  
 };
 } //namespace leetcode
 
