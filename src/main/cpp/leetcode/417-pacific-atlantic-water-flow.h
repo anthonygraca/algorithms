@@ -6,54 +6,25 @@
 namespace leetcode {
 class Solution {
 public:
-
-  std::vector<std::vector<bool>> initializeArray(
-      std::vector<std::vector<int>>& heights) {
-    std::vector<std::vector<bool>> output;
-    for (int i = 0; i < heights.size(); i++) {
-      output.push_back(std::vector(heights[i].size(), false));
-    }
-    return output;
-  }
   std::vector<std::vector<int>>
       pacificAtlantic(std::vector<std::vector<int>>& heights) {
-
-    reach_pacific = initializeArray(heights);
-    reach_atlantic = initializeArray(heights);
-    marked = initializeArray(heights);
-        // initialize default tiles that are reachable
-    for (int i = 0; i < heights.size(); i++) {
-      for (int j = 0; j < heights[i].size(); j++) {
-        if (i == 0 || j == 0) {
-          reach_pacific[i][j] = true;
-        }
-        if (i == heights.size() - 1 || j == heights[i].size()-1) {
-          reach_atlantic[i][j] = true;
-        }
-          
-      }
+    int n = heights.size();
+    int m = heights[0].size();
+    reach_pacific = std::vector<std::vector<bool>>(n, std::vector<bool>(m, false));
+    reach_atlantic = std::vector<std::vector<bool>>(n, std::vector<bool>(m, false));
+    // dfs on pacific side from left and atlantic side from right
+    for (int i = 0; i < n; i++) {
+      dfs(heights, reach_pacific, i, 0);
+      dfs(heights, reach_atlantic, i, m-1);
     }
-    // dfs on pacific side
-    for (int i = 0; i < heights.size(); i++) {
-      for (int j = 0; j < heights[0].size(); j++) {
-        if (!marked[i][j] && reach_pacific[i][j]) {
-          dfs(heights, reach_pacific, i, j);
-        }
-
-      }
+    // dfs on pacific side from top and atlantic side from bottom
+    for (int j = 0; j < m; j++) {
+      dfs(heights, reach_pacific, 0, j);
+      dfs(heights, reach_atlantic, n-1, j);
     }
-    marked = initializeArray(heights);
-    // dfs on atlantic side
-    for (int i = heights.size() - 1; i >= 0; i--) {
-      for (int j = heights[0].size() - 1; j >= 0; j--) {
-        if (!marked[i][j] && reach_atlantic[i][j])
-          dfs(heights, reach_atlantic, i, j);
-      }
-    }
-    // find intersection of two sides
     std::vector<std::vector<int>> coord;
-    for (int i = 0; i < heights.size(); i++) {
-      for (int j = 0; j < heights[0].size(); j++) {
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
         if (reach_pacific[i][j] && reach_atlantic[i][j]) {
           coord.push_back({i, j});
         }
@@ -62,24 +33,20 @@ public:
     return coord;
   }
   void dfs(std::vector<std::vector<int>>& heights,
-           std::vector<std::vector<bool>>& reach, int i, int j) {
-    if (!marked[i][j] && reach[i][j]) {
-      marked[i][j] = true;
-      if (i > 0 && doesFlowUp(heights, i, j) && !reach[i-1][j]) {
-        reach[i-1][j] = true;
-        dfs(heights, reach, i-1, j);
+           std::vector<std::vector<bool>>& visited, int i, int j) {
+    if (!visited[i][j]) {
+      visited[i][j] = true;
+      if (i > 0 && doesFlowUp(heights, i, j)) {
+        dfs(heights, visited, i-1, j);
       }
-      if (i < heights.size() -1 && doesFlowDown(heights, i, j) && !reach[i+1][j]) {
-        reach[i+1][j] = true;
-        dfs(heights, reach, i+1, j);
+      if (i < heights.size() -1 && doesFlowDown(heights, i, j)) {
+        dfs(heights, visited, i+1, j);
       }
-      if (j > 0 && doesFlowLeft(heights, i, j) && !reach[i][j-1]) {
-        reach[i][j-1] = true;
-        dfs(heights, reach, i, j-1);
+      if (j > 0 && doesFlowLeft(heights, i, j)) {
+        dfs(heights, visited, i, j-1);
       }
-      if (j < heights[0].size() -1 && doesFlowRight(heights, i, j) && !reach[i][j+1]) {
-        reach[i][j+1] = true;
-        dfs(heights, reach, i, j+1);
+      if (j < heights[0].size() -1 && doesFlowRight(heights, i, j)) {
+        dfs(heights, visited, i, j+1);
       }
     }
   }
@@ -99,7 +66,6 @@ public:
 private:
   std::vector<std::vector<bool>> reach_pacific;
   std::vector<std::vector<bool>> reach_atlantic;
-  std::vector<std::vector<bool>> marked;
 };
 } // namespace leetcode
 #endif
