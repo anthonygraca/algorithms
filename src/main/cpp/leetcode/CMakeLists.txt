@@ -6,3 +6,5 @@ target_link_libraries(133-clone-graph PUBLIC node)
 add_library(node OBJECT node.h)
 
 add_library(695-max-area-of-island OBJECT 695-max-area-of-island.h)
+
+add_library(417-pacific-atlantic-water-flow OBJECT 417-pacific-atlantic-water-flow.h)
