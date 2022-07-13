@@ -53,7 +53,7 @@ class MaxPriorityQueue {
     void sink(int parent) {
       int child = 2*(parent+1)-1;
       while (child < m_size) {
-        if (child < m_size && m_binary_heap[child] < m_binary_heap[child+1]) {
+        if (child < m_size-1 && m_binary_heap[child] < m_binary_heap[child+1]) {
           child++;
         }
         if (m_binary_heap[parent] > m_binary_heap[child]) break;
