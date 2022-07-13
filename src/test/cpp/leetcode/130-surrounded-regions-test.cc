@@ -34,3 +34,12 @@ TEST(SurroundedRegions, SecondExample) {
   solution.solve(board);
   EXPECT_EQ(board, board);
 }
+
+TEST(SurroundedRegions, ThirdExample) {
+  std::vector<std::vector<char>> board {
+    {'O'}
+  };
+  leetcode::Solution solution;
+  solution.solve(board);
+  EXPECT_EQ(board, board);
+}
