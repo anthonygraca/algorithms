@@ -10,3 +10,5 @@ add_library(695-max-area-of-island OBJECT 695-max-area-of-island.h)
 add_library(417-pacific-atlantic-water-flow OBJECT 417-pacific-atlantic-water-flow.h)
 
 add_library(130-surrounded-regions OBJECT 130-surrounded-regions.h)
+
+add_library(997-rotting-oranges OBJECT 997-rotting-oranges.h)

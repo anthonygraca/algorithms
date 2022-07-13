@@ -18,3 +18,7 @@ add_test(NAME 417-pacific-atlantic-water-flow-test COMMAND 417-pacific-atlantic-
 add_executable(130-surrounded-regions-test 130-surrounded-regions-test.cc)
 target_link_libraries(130-surrounded-regions-test gtest_main 130-surrounded-regions)
 add_test(NAME 130-surrounded-regions-test COMMAND 130-surrounded-regions-test)
+
+add_executable(997-rotting-oranges-test 997-rotting-oranges-test.cc)
+target_link_libraries(997-rotting-oranges-test gtest_main 997-rotting-oranges)
+add_test(NAME 997-rotting-oranges-test COMMAND 997-rotting-oranges-test)
