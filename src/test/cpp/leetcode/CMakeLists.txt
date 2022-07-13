@@ -14,3 +14,7 @@ add_test(NAME 695-max-area-of-island-test COMMAND 695-max-area-of-island-test)
 add_executable(417-pacific-atlantic-water-flow-test 417-pacific-atlantic-water-flow-test.cc)
 target_link_libraries(417-pacific-atlantic-water-flow-test gtest_main 417-pacific-atlantic-water-flow)
 add_test(NAME 417-pacific-atlantic-water-flow-test COMMAND 417-pacific-atlantic-water-flow-test)
+
+add_executable(130-surrounded-regions-test 130-surrounded-regions-test.cc)
+target_link_libraries(130-surrounded-regions-test gtest_main 130-surrounded-regions)
+add_test(NAME 130-surrounded-regions-test COMMAND 130-surrounded-regions-test)
