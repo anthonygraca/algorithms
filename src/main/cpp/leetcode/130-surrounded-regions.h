@@ -16,7 +16,7 @@ class Solution {
     }
 
     // traverse on top and bottom border
-    for (int j = 0; j < m; j++) {
+    for (int j = 1; j < m-1; j++) {
       if (board[0][j] == 'O') dfs(board, 0, j);
       if (board[n-1][j] == 'O') dfs(board, n-1, j);
     }
