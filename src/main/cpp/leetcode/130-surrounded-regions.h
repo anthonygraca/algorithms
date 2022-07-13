@@ -9,31 +9,32 @@ class Solution {
   
   void solve(std::vector<std::vector<char>>& board) {
     int n = board.size(), m = board[0].size();
-    visited = std::vector<std::vector<bool>>(n, std::vector<bool>(m, false));
-
     // traverse on left and right border
     for (int i = 0; i < n; i++) {
-      if (!visited[i][0] && board[i][0] == 'O') dfs(board, i, 0);
-      if (!visited[i][m-1] && board[i][m-1] == 'O') dfs(board, i, m-1);
+      if (board[i][0] == 'O') dfs(board, i, 0);
+      if (board[i][m-1] == 'O') dfs(board, i, m-1);
     }
 
     // traverse on top and bottom border
     for (int j = 0; j < m; j++) {
-      if (!visited[0][j] && board[0][j] == 'O') dfs(board, 0, j);
-      if (!visited[n-1][j] && board[n-1][j] == 'O') dfs(board, n-1, j);
+      if (board[0][j] == 'O') dfs(board, 0, j);
+      if (board[n-1][j] == 'O') dfs(board, n-1, j);
     }
 
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < m; j++) {
-        if (!visited[i][j]) {
+        if (board[i][j] == 'V') {
+          board[i][j] = 'O';
+        }
+        else {
           board[i][j] = 'X';
         }
       }
     }
   }
   void dfs(std::vector<std::vector<char>>& board, int i, int j) {
-    if (!visited[i][j]) {
-      visited[i][j] = true;
+    if (board[i][j] == 'O') {
+      board[i][j] = 'V';
       // up
       if (i > 0 && board[i-1][j] == 'O') {
         dfs(board, i - 1, j);
@@ -52,9 +53,6 @@ class Solution {
       }
     }
   }
- private:
-  std::vector<std::vector<bool>> visited;
-  
 };
 } // namespace leetcode
 
