@@ -60,33 +60,33 @@ files.
 | HeapSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/heapsort/heap-sort.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/heapsort/heap-sort-test.cpp) | 
 | Binary Heaps | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/binary-heap/binary-heap.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/binary-heap/binary-heap-test.cpp) |
 ### Chapter 3. Searching
-| Topic | C++ | Java |
-|-------|-----|------|
+| Topic | C++ |
+|-------|-----|
 | Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/binary-search-tree/binary-search-tree-test.cpp) |
-| Red-Black Trees | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/red-black-tree/red-black-tree-test.cpp) |
-| k-d trees | | |
-| Separate Chaining Hash Tables | | |
-| Linear Probing Hash Tables | | |
+| Red-Black Trees | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) |
+| k-d trees | |
+| Separate Chaining Hash Tables | |
+| Linear Probing Hash Tables | |
 ### Chapter 4. Graphs
-| Topic | C++ | Java | Tests |
-|-------|-----|------|-------|
-| Undirected Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/graph.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/graph-test.cpp) |
-| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/DeluxeBFS.java) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/depth-first-search-test.cpp) |
-| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/connected-components-test.cpp) |
-| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/breadth-first-paths-test.cpp) |
-| Directed Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/digraph.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/digraph-test.cpp) |
-| Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/cycle-test.cpp) |
-| Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/topological-sort-test.cpp) |
-| Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/kosaraju-sharir-test.cpp) |
-| Weighted Edge Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
-| Edge Weighted Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
-| Kruskal | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst-test.cc) |
-| Prim | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/lazy-prim.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/lazy-prim-test.cc) |
-| Dijkstra | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/shortest-path/dijkstra.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/shortest-path/dijkstra-test.cc) |
+| Topic | C++ | Tests |
+|-------|-----|-------|
+| Undirected Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/graph.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/graph-test.cpp) |
+| Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/depth-first-search-test.cpp) |
+| Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/connected-components-test.cpp) |
+| Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/breadth-first-paths-test.cpp) |
+| Directed Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/digraph.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/digraph-test.cpp) |
+| Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/cycle-test.cpp) |
+| Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/topological-sort-test.cpp) |
+| Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/kosaraju-sharir-test.cpp) |
+| Weighted Edge Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
+| Edge Weighted Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/edge-weighted-graph-test.cc) |
+| Kruskal | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/kruskal-mst-test.cc) |
+| Prim | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/minimum-spanning-tree/lazy-prim.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/minimum-spanning-tree/lazy-prim-test.cc) |
+| Dijkstra | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/shortest-path/dijkstra.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/shortest-path/dijkstra-test.cc) |
 | Bellman−Ford | | |
 ### Chapter 5. Strings
-| Topic | C++ | Java |
-|-------|-----|------|
+| Topic | C++ | Tests |
+|-------|-----|-------|
 | LSD Radix Sort | | |
 | MSD Radix Sort | | |
 | 3-Way Radix QuickSort | | |
