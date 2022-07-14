@@ -4,6 +4,9 @@ import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
 import edu.princeton.cs.algs4.SET;
 
+import java.util.Iterator;
+import java.util.ArrayList;
+
 /*
  * Write a data type to represent a set of points in the unit square (all 
  * points have x- and y-coordinates between 0 and 1) using a 2d-tree to 
@@ -31,7 +34,7 @@ public class PointSET {
   // Should be T:O(log n)
   public void insert(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
-    set.add(p);
+    if (!set.contains(p)) set.add(p);
   }
 
   // Should be T:O(log n)
@@ -43,12 +46,26 @@ public class PointSET {
   // Should be T:O(n)
   public Point2D nearest(Point2D p) {
     if (p == null) throw new IllegalArgumentException("input is null");
-    return null;
+    Point2D neighbor = null;
+    double distance = Double.MAX_VALUE;
+    for (Point2D point : set) {
+      if (distance > point.distanceTo(p)) {
+        distance = point.distanceTo(p);
+        neighbor = point;
+      }
+    }
+    return neighbor;
   }
 
   // Should be T:O(n)
   public Iterable<Point2D> range(RectHV rect) {
     if (rect == null) throw new IllegalArgumentException("input is null");
-    return null;
+    ArrayList<Point2D> list = new ArrayList<Point2D>();
+    for (Point2D p : set) {
+      if (rect.contains(p)) {
+        list.add(p);
+      }
+    }
+    return list;
   }
 }

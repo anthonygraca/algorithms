@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import edu.princeton.cs.algs4.Point2D;
+import edu.princeton.cs.algs4.RectHV;
 
 public class PointSetTest {
   @Test
@@ -65,11 +66,69 @@ public class PointSetTest {
     assertTrue(set.contains(some_point));
   }
 
-  //@Test
+  @Test
   public void insertShouldIncrementSize() {
     PointSET set = new PointSET();
     Point2D some_point = new Point2D(1,2);
     set.insert(some_point);
-    assertTrue(set.size() == 0);
+    assertTrue(set.size() != 0);
+  }
+
+  @Test
+  public void nearestNeighbor() {
+    PointSET set = new PointSET();
+    Point2D some_point = new Point2D(1,2);
+    set.insert(some_point);
+    Point2D neighbor = new Point2D(1,1);
+    assertEquals(some_point, set.nearest(neighbor));
+  }
+
+  
+  @Test
+  public void nearestNeighborOfSquare() {
+    PointSET set = new PointSET();
+    Point2D a = new Point2D(0,0);
+    Point2D b = new Point2D(0,5);
+    Point2D c = new Point2D(5,0);
+    Point2D d = new Point2D(5,5);
+    set.insert(a);
+    set.insert(b);
+    set.insert(c);
+    set.insert(d);
+    Point2D neighbor = new Point2D(1,1);
+    assertEquals(a, set.nearest(neighbor));
+  }
+
+  @Test
+  public void nearestNeighborOutsideSquare() {
+    PointSET set = new PointSET();
+    Point2D a = new Point2D(0,0);
+    Point2D b = new Point2D(0,5);
+    Point2D c = new Point2D(5,0);
+    Point2D d = new Point2D(5,5);
+    set.insert(a);
+    set.insert(b);
+    set.insert(c);
+    set.insert(d);
+    Point2D neighbor = new Point2D(6,6);
+    assertEquals(d, set.nearest(neighbor));
+  }
+  
+  @Test
+  public void RangeInRectangle() {
+    PointSET set = new PointSET();
+    Point2D a = new Point2D(0,0);
+    Point2D b = new Point2D(0,5);
+    Point2D c = new Point2D(5,0);
+    Point2D d = new Point2D(5,5);
+    Point2D e = new Point2D(6,6);
+    set.insert(a);
+    set.insert(b);
+    set.insert(c);
+    set.insert(d);
+    set.insert(e);
+    RectHV rect = new RectHV(0.0, 0.0, 7.0, 7.0);
+    Iterable<Point2D> iter = set.range(rect);
+    assertTrue(iter != null);
   }
 }
