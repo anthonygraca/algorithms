@@ -12,3 +12,9 @@ add_library(417-pacific-atlantic-water-flow OBJECT 417-pacific-atlantic-water-fl
 add_library(130-surrounded-regions OBJECT 130-surrounded-regions.h)
 
 add_library(997-rotting-oranges OBJECT 997-rotting-oranges.h)
+
+add_library(207-course-schedule-1 OBJECT 207-course-schedule-1.h)
+
+add_library(210-course-schedule-2 OBJECT 210-course-schedule-2.h)
+
+add_library(684-redundant-connection OBJECT 684-redundant-connection.h)

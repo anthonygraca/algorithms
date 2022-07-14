@@ -22,3 +22,15 @@ add_test(NAME 130-surrounded-regions-test COMMAND 130-surrounded-regions-test)
 add_executable(997-rotting-oranges-test 997-rotting-oranges-test.cc)
 target_link_libraries(997-rotting-oranges-test gtest_main 997-rotting-oranges)
 add_test(NAME 997-rotting-oranges-test COMMAND 997-rotting-oranges-test)
+
+add_executable(207-course-schedule-1-test 207-course-schedule-1-test.cc)
+target_link_libraries(207-course-schedule-1-test gtest_main 207-course-schedule-1)
+add_test(NAME 207-course-schedule-1-test COMMAND 207-course-schedule-1-test)
+
+add_executable(210-course-schedule-2-test 210-course-schedule-2-test.cc)
+target_link_libraries(210-course-schedule-2-test gtest_main 210-course-schedule-2)
+add_test(NAME 210-course-schedule-2-test COMMAND 210-course-schedule-2-test)
+
+add_executable(684-redundant-connection-test 684-redundant-connection-test.cc)
+target_link_libraries(684-redundant-connection-test gtest_main 684-redundant-connection)
+add_test(NAME 684-redundant-connection-test COMMAND 684-redundant-connection-test)
