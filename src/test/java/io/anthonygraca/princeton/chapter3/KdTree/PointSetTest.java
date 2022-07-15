@@ -28,6 +28,7 @@ public class PointSetTest {
     set.insert(null);
   }
 
+  @Test
   public void emptySetDoesNotContainAnything() {
     PointSET set = new PointSET();
     Point2D some_point = new Point2D(1,2);
@@ -40,6 +41,7 @@ public class PointSetTest {
     assertFalse(set.contains(null));
   }
 
+  @Test
   public void nearestReturnsNullWhenSetIsEmpty() {
     PointSET set = new PointSET();
     Point2D some_point = new Point2D(1,2);

@@ -2,6 +2,7 @@
 #define ALGORITHMS_GRAPH_DIRECTED_SHORTEST_PATH_EDGE_H_
 
 #include <limits>
+#include <numeric>
 
 namespace algorithms {
 class DirectedEdge {
@@ -14,7 +15,8 @@ public:
     return weight_ > that.weight();
   }
   bool operator==(const DirectedEdge& that) const {
-    return (a_ == that.from()) && (b_ == that.to()) && (weight_ == that.weight());
+    return (a_ == that.from()) && (b_ == that.to()) &&
+        (std::fabs(weight_ - that.weight()) < std::numeric_limits<double>::epsilon());
   }
 private:
   int a_{-1};

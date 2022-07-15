@@ -60,11 +60,11 @@ files.
 | HeapSort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/heapsort/heap-sort.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/heapsort/heap-sort-test.cpp) | 
 | Binary Heaps | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/sorting/binary-heap/binary-heap.h) |  | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/sorting/binary-heap/binary-heap-test.cpp) |
 ### Chapter 3. Searching
-| Topic | C++ |
-|-------|-----|
-| Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/binary-search-tree/binary-search-tree-test.cpp) |
+| Topic | C++ | Tests |
+|-------|-----|-------|
+| Binary Search Trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/binary-search-tree/binary-search-tree.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/searching/binary-search-tree/binary-search-tree-test.cpp) |
 | Red-Black Trees | [x](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/searching/red-black-tree/red-black-tree.h) |
-| k-d trees | |
+| k-d trees | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter3/KdTree/KdTree.java) |[:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/java/io/anthonygraca/princeton/chapter3/KdTree/KdTreeTest.java) |
 | Separate Chaining Hash Tables | |
 | Linear Probing Hash Tables | |
 ### Chapter 4. Graphs
@@ -108,6 +108,7 @@ Networking: Ford-Fulkerson
 [1.2 Deque](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/deque/Deque.java) & [Randomized Queue](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter1/randomized_queue/RandomizedQueue.java) \
 [1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java) \
 [1.4 Slider Puzzle](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/EightPuzzle/) \
+[1.5 KdTree](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter3/KdTree/) \
 [2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/) 
 ## Resources Used
 ### Java

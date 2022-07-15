@@ -68,4 +68,6 @@ public class PointSET {
     }
     return list;
   }
+
+  public void draw() {}
 }

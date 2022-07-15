@@ -11,8 +11,54 @@ set(source-directory
 include_directories(${source-directory})
 
 set(CMAKE_CXX_STANDARD 20)
-add_compile_options(-fsanitize=address)
-add_link_options(-fsanitize=address)
+if(0)
+add_compile_options(
+    -Wfatal-errors
+    -Werror
+    -Walloca
+    -Wcast-qual
+    -Wconversion
+    -Wformat=2
+    -Wformat-security
+    -Wnull-dereference
+    -Wstack-protector
+    -Wvla
+    -Warray-bounds
+    -Warray-bounds-pointer-arithmetic
+    -Wassign-enum
+    -Wbad-function-cast
+    -Wconditional-uninitialized
+    -Wconversion
+    -Wfloat-equal
+    -Wformat-type-confusion
+    -Widiomatic-parentheses
+    -Wimplicit-fallthrough
+    -Wloop-analysis
+    -Wpointer-arith
+    -Wshift-sign-overflow
+    -Wshorten-64-to-32
+    -Wtautological-constant-in-range-compare
+    -Wunreachable-code-aggressive -Wthread-safety
+    -Wthread-safety-beta
+    -U_FORTIFY_SOURCE
+    -D_FORTIFY_SOURCE=2
+    -fstack-protector-strong
+    -fPIE
+    -fsanitize=address
+    -fno-omit-frame-pointer
+    -fsanitize=undefined
+    -fsanitize=float-divide-by-zero
+    -fsanitize=float-cast-overflow
+    -fsanitize=integer
+)
+add_link_options(-fsanitize=address
+    -fno-omit-frame-pointer
+    -fsanitize=undefined
+    -fsanitize=float-divide-by-zero
+    -fsanitize=float-cast-overflow
+    -fsanitize=integer
+)
+endif()
 
 add_subdirectory(src)
 

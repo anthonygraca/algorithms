@@ -2,6 +2,7 @@
 #define ALGORITHMS_PRINCETON_UNDIRECTED_GRAPH_MINIMUM_SPANNING_TREE_EDGE_H_
 
 #include <limits>
+#include <numeric>
 #include <stdexcept>
 
 namespace algorithms {
@@ -20,7 +21,8 @@ namespace algorithms {
       return this->getWeight() > that.getWeight();
     }
     bool operator==(const Edge& that) const {
-      return this->getWeight() == that.getWeight();
+      return std::fabs(this->getWeight() - that.getWeight())
+          < std::numeric_limits<double>::epsilon();
     }
     bool operator<(const Edge& that) const {
       return !(*this > that) && !(*this == that);
