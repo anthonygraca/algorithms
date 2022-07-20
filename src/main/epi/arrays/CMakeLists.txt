@@ -1,1 +1,1 @@
-add_library(arbitrary-precision-integer arbitrary-precision-integer.h)
+add_library(arbitrary-precision-integer OBJECT arbitrary-precision-integer.h)
