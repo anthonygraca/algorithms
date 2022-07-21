@@ -1,3 +1,6 @@
+# Arrays & Hashing
+add_library(217-contains-duplicate OBJECT 217-contains-duplicate.h)
+# Graphs
 add_library(200-number-of-islands OBJECT 200-number-of-islands.h)
 
 add_library(133-clone-graph OBJECT 133-clone-graph.h)
@@ -18,3 +21,4 @@ add_library(207-course-schedule-1 OBJECT 207-course-schedule-1.h)
 add_library(210-course-schedule-2 OBJECT 210-course-schedule-2.h)
 
 add_library(684-redundant-connection OBJECT 684-redundant-connection.h)
+

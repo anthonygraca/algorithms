@@ -1,3 +1,8 @@
+# Arrays & Hashing
+add_executable(217-contains-duplicate-test 217-contains-duplicate-test.cc)
+target_link_libraries(217-contains-duplicate-test gtest_main 217-contains-duplicate)
+add_test(NAME 217-contains-duplicate-test COMMAND 217-contains-duplicate-test)
+
 # Graphs
 add_executable(200-number-of-islands-test 200-number-of-islands-test.cc)
 target_link_libraries(200-number-of-islands-test gtest_main 200-number-of-islands)
