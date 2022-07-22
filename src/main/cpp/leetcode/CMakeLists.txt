@@ -1,5 +1,8 @@
 # Arrays & Hashing
 add_library(217-contains-duplicate OBJECT 217-contains-duplicate.h)
+
+add_library(242-valid-anagram OBJECT 242-valid-anagram.h)
+
 # Graphs
 add_library(200-number-of-islands OBJECT 200-number-of-islands.h)
 
