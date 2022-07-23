@@ -11,6 +11,10 @@ add_executable(1-two-sum-test 1-two-sum-test.cc)
 target_link_libraries(1-two-sum-test gtest_main 1-two-sum)
 add_test(NAME 1-two-sum-test COMMAND 1-two-sum-test)
 
+add_executable(49-group-anagrams-test 49-group-anagrams-test.cc)
+target_link_libraries(49-group-anagrams-test gtest_main 49-group-anagrams)
+add_test(NAME 49-group-anagrams-test COMMAND 49-group-anagrams-test)
+
 # Graphs
 add_executable(200-number-of-islands-test 200-number-of-islands-test.cc)
 target_link_libraries(200-number-of-islands-test gtest_main 200-number-of-islands)

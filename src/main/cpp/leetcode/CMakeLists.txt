@@ -5,6 +5,8 @@ add_library(242-valid-anagram OBJECT 242-valid-anagram.h)
 
 add_library(1-two-sum OBJECT 1-two-sum.h)
 
+add_library(49-group-anagrams OBJECT 49-group-anagrams.h)
+
 # Graphs
 add_library(200-number-of-islands OBJECT 200-number-of-islands.h)
 
