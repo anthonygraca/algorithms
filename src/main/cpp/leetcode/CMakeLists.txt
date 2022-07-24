@@ -7,6 +7,8 @@ add_library(1-two-sum OBJECT 1-two-sum.h)
 
 add_library(49-group-anagrams OBJECT 49-group-anagrams.h)
 
+add_library(347-top-k-frequent-elements OBJECT 347-top-k-frequent-elements.h)
+
 # Graphs
 add_library(200-number-of-islands OBJECT 200-number-of-islands.h)
 

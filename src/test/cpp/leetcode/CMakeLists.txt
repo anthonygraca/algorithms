@@ -15,6 +15,15 @@ add_executable(49-group-anagrams-test 49-group-anagrams-test.cc)
 target_link_libraries(49-group-anagrams-test gtest_main 49-group-anagrams)
 add_test(NAME 49-group-anagrams-test COMMAND 49-group-anagrams-test)
 
+add_executable(347-top-k-frequent-elements-test 347-top-k-frequent-elements-test.cc)
+target_link_libraries(347-top-k-frequent-elements-test
+    gtest_main
+    347-top-k-frequent-elements
+)
+add_test(NAME 347-top-k-frequent-elements-test
+    COMMAND 347-top-k-frequent-elements-test
+)
+
 # Graphs
 add_executable(200-number-of-islands-test 200-number-of-islands-test.cc)
 target_link_libraries(200-number-of-islands-test gtest_main 200-number-of-islands)
