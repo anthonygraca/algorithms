@@ -9,6 +9,9 @@ import org.junit.Test;
 import edu.princeton.cs.algs4.Picture;
 
 public class SeamCarverTest {
+  final String sample_file =
+      "src/test/java/io/anthonygraca/princeton/chapter4/SeamCarver/3x4.png";
+
   @Test(expected=IllegalArgumentException.class)
   public void CatchNullInputInConstructor() {
     SeamCarver sc = new SeamCarver(null);
@@ -127,6 +130,45 @@ public class SeamCarverTest {
     seam[1] = 1002;
     sc.removeHorizontalSeam(seam);
   }
+
+  @Test
+  public void ValidateEnergyOfOrigin() {
+    Picture p = new Picture(sample_file);
+    SeamCarver sc = new SeamCarver(p);
+    final double expected = 1000.0;
+    final double output = sc.energy(0,0);
+    assertEquals(expected, output, 0.01);
+  }
+
+  @Test
+  public void ValidateEnergyOfOppositeOrigin() {
+    Picture p = new Picture(sample_file);
+    SeamCarver sc = new SeamCarver(p);
+    final double expected = 1000.0;
+    final double output = sc.energy(p.width()-1, p.height()-1);
+    assertEquals(expected, output, 0.01);
+  }
+
+  @Test
+  public void ValidateEnergyOfNontrivialPoint() {
+    Picture p = new Picture(sample_file);
+    SeamCarver sc = new SeamCarver(p);
+    final double expected = Math.sqrt(52225);
+    final double output = sc.energy(1, 1);
+    assertEquals(expected, output, 0.01);
+  }
+
+  @Test
+  public void ValidateEnergyOfSecondNontrivialPoint() {
+    Picture p = new Picture(sample_file);
+    SeamCarver sc = new SeamCarver(p);
+    final double expected = Math.sqrt(52024);
+    final double output = sc.energy(1, 2);
+    assertEquals(expected, output, 0.01);
+  }
+
+
+
 
 
 
