@@ -284,9 +284,47 @@ public class SeamCarverTest {
     assertEquals(expected[4][5], output[4][5], 0.01);
   }
 
+  @Test
+  public void RemoveHorizontalSeam() {
+    Picture p = new Picture(prefix + "6x5.png");
+    SeamCarver sc = new SeamCarver(p);
+    int[] seam = sc.findHorizontalSeam();
+    sc.removeHorizontalSeam(seam);
+    assertEquals(6, sc.width());
+    assertEquals(4, sc.height());
+    int[] expected = {1,2,1,2,1,0};
+    for (int i = 0; i < expected.length; i++) {
+      assertEquals(expected[i], seam[i]);
+    }
+    Picture result = sc.picture();
+    assertEquals(p.get(0,0), result.get(0,0));
+    assertEquals(p.get(0,2), result.get(0,1));
+    assertEquals(p.get(0,3), result.get(0,2));
+    assertEquals(p.get(0,4), result.get(0,3));
+    assertEquals(p.get(1,0), result.get(1,0));
+    assertEquals(p.get(1,1), result.get(1,1));
+    assertEquals(p.get(1,3), result.get(1,2));
+    assertEquals(p.get(1,4), result.get(1,3));
+    assertEquals(p.get(2,0), result.get(2,0));
+    assertEquals(p.get(2,2), result.get(2,1));
+    assertEquals(p.get(2,3), result.get(2,2));
+    assertEquals(p.get(2,4), result.get(2,3));
+    assertEquals(p.get(3,0), result.get(3,0));
+    assertEquals(p.get(3,1), result.get(3,1));
+    assertEquals(p.get(3,3), result.get(3,2));
+    assertEquals(p.get(3,4), result.get(3,3));
+    assertEquals(p.get(4,0), result.get(4,0));
+    assertEquals(p.get(4,2), result.get(4,1));
+    assertEquals(p.get(4,3), result.get(4,2));
+    assertEquals(p.get(4,4), result.get(4,3));
+    assertEquals(p.get(5,1), result.get(5,0));
+    assertEquals(p.get(5,2), result.get(5,1));
+    assertEquals(p.get(5,3), result.get(5,2));
+    assertEquals(p.get(5,4), result.get(5,3));
+  }
 
 
-  // height and width changes when seam is removed
-  // remove seams should do something
+  // what happens to the last row/col of the resulting picture
+  // subsequent removes and seams are off
 
 }

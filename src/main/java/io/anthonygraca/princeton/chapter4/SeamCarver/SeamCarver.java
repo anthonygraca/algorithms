@@ -3,7 +3,7 @@ package io.anthonygraca.princeton.chapter4.SeamCarver;
 import edu.princeton.cs.algs4.Picture;
 
 public class SeamCarver {
-  private final Picture picture_;
+  private Picture picture_;
   private int width_;
   private int height_;
   public SeamCarver(Picture picture) {
@@ -20,11 +20,11 @@ public class SeamCarver {
   }
 
   public int width() {
-    return picture_.width();
+    return width_;
   }
   
   public int height() {
-    return picture_.height();
+    return height_;
   }
 
   public double energy(int x, int y) {
@@ -72,6 +72,13 @@ public class SeamCarver {
     if (!is_valid) {
       throw new IllegalArgumentException("resolution out of bounds");
     }
+    for (int i = 0; i < width_; i++) {
+      int index = seam[i];
+      for (int j = index; j < height_-1; j++) {
+        picture_.set(i, j, picture_.get(i, j+1));
+      }
+    }
+    height_--;
   }
   
   public void removeVerticalSeam(int[] seam) {
@@ -79,6 +86,13 @@ public class SeamCarver {
     if (!is_valid) {
       throw new IllegalArgumentException("resolution out of bounds");
     }
+    for (int i = 0; i < height_; i++) {
+      int index = seam[i];
+      for (int j = index; j < width_-1; j++) {
+        picture_.set(j, i, picture_.get(j+1, i));
+      }
+    }
+    width_--;
   }
 
   private boolean isValidSeam(int[] seam, int length, int range) {
