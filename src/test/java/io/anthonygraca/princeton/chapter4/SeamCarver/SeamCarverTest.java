@@ -323,8 +323,13 @@ public class SeamCarverTest {
     assertEquals(p.get(5,4), result.get(5,3));
   }
 
-
-  // what happens to the last row/col of the resulting picture
-  // subsequent removes and seams are off
-
+  @Test
+  public void RemoveAnotherVerticalSeam() {
+    Picture p = new Picture(prefix + "6x5.png");
+    SeamCarver sc = new SeamCarver(p);
+    int seam[] = { 3, 4, 3, 2, 1 };
+    sc.removeVerticalSeam(seam);
+    assertEquals(5, sc.width());
+    assertEquals(5, sc.height());
+  }
 }

@@ -113,6 +113,7 @@ public class SeamCarver {
       if (entry < 0 || entry >= range || Math.abs(previous_entry - entry) > 1) {
         return false;
       }
+      previous_entry = entry;
     }
     return true;
   }
@@ -120,11 +121,10 @@ public class SeamCarver {
   public int[] findVerticalSeam() {
     double[][] accumulated_energy = accumulateEnergyToBottom();
     // find minimum energy
-    int height = picture_.height();
-    double min = 1000.0 * height;
+    double min = 1000.0 * height_;
     int index = 0;
     for (int i = 0; i < width_; i++) {
-      double current = accumulated_energy[height-1][i];
+      double current = accumulated_energy[height_-1][i];
       if (min > current) {
         min = current;
         index = i;
@@ -202,19 +202,17 @@ public class SeamCarver {
   }
 
   public double[][] accumulateEnergyToBottom() {
-    int height = picture_.height();
-    int width = picture_.width();
-    double[][] accumulated_energy = new double[height][width];
+    double[][] accumulated_energy = new double[height_][width_];
     // populate edges of image
-    for (int i = 0; i < width; i++) {
+    for (int i = 0; i < width_; i++) {
       accumulated_energy[0][i] = 1000.0;
     }
-    for (int i = 0; i < height; i++) {
+    for (int i = 0; i < height_; i++) {
       accumulated_energy[i][0] = 1000.0;
-      accumulated_energy[i][width-1] = 1000.0;
+      accumulated_energy[i][width_-1] = 1000.0;
     }
-    for (int i = 1; i < height; i++) {
-      for (int j = 0; j < width; j++) {
+    for (int i = 1; i < height_; i++) {
+      for (int j = 0; j < width_; j++) {
         double left = Double.MAX_VALUE;
         double middle = Double.MAX_VALUE;
         double right = Double.MAX_VALUE;
@@ -229,17 +227,15 @@ public class SeamCarver {
   }
 
   private int[] findPathFromBottom(double[][] grid, int w) {
-    int width = grid[0].length;
-    int height = grid.length;
-    int[] path = new int[height];
-    for (int i = height-1; i > 0; i--) {
+    int[] path = new int[height_];
+    for (int i = height_-1; i > 0; i--) {
       path[i] = w;
       double middle = Double.MAX_VALUE;
       double left = Double.MAX_VALUE;
       double right = Double.MAX_VALUE;
       middle = grid[i-1][w];
       if (w > 0) left = grid[i-1][w-1];
-      if (w < width-1) right = grid[i-1][w+1];
+      if (w < width_-1) right = grid[i-1][w+1];
       double min = Math.min(Math.min(left, middle), right);
       if (min == left) {
         w = w-1;
