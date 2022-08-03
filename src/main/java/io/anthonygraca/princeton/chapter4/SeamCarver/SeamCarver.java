@@ -3,7 +3,7 @@ package io.anthonygraca.princeton.chapter4.SeamCarver;
 import edu.princeton.cs.algs4.Picture;
 
 public class SeamCarver {
-  private Picture picture_;
+  private final Picture picture_;
   private int width_;
   private int height_;
   public SeamCarver(Picture picture) {
@@ -16,6 +16,15 @@ public class SeamCarver {
   }
 
   public Picture picture() {
+    if ((picture_.width() != width_) || (picture_.height() != height_)) {
+      Picture new_p = new Picture(width_, height_);
+      for (int i = 0; i < width_; i++) {
+        for (int j = 0; j < height_; j++) {
+          new_p.set(i, j, picture_.get(i, j));
+        }
+      }
+      return new_p;
+    }
     return picture_;
   }
 
