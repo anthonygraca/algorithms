@@ -9,12 +9,20 @@ add_library(49-group-anagrams OBJECT 49-group-anagrams.h)
 
 add_library(347-top-k-frequent-elements OBJECT 347-top-k-frequent-elements.h)
 
-add_library(238-product-of-array-except-self OBJECT 238-product-of-array-except-self.h)
+add_library(238-product-of-array-except-self
+    OBJECT 238-product-of-array-except-self.h
+)
 
 add_library(36-valid-sudoku OBJECT 36-valid-sudoku.h)
 
+#encode-and-decode-strings
+
+add_library(128-longest-consecutive-sequence
+    OBJECT 128-longest-consecutive-sequence.h
+)
+
 # Two Pointers
-add_library(125-valid-palindrome OBJECT 125-valid-palindrome.h)			
+add_library(125-valid-palindrome OBJECT 125-valid-palindrome.h)
 
 # Graphs
 add_library(200-number-of-islands OBJECT 200-number-of-islands.h)

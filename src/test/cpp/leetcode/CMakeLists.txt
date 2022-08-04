@@ -46,6 +46,17 @@ add_test(NAME 36-valid-sudoku-test
     COMMAND 36-valid-sudoku-test
 )
 
+add_executable(128-longest-consecutive-sequence-test
+    128-longest-consecutive-sequence-test.cc
+)
+target_link_libraries(128-longest-consecutive-sequence-test
+    gtest_main
+    128-longest-consecutive-sequence
+)
+add_test(NAME 128-longest-consecutive-sequence-test
+    COMMAND 128-longest-consecutive-sequence-test
+)
+
 # Two Pointers
 add_executable(125-valid-palindrome-test
     125-valid-palindrome-test.cc
