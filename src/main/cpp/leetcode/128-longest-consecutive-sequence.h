@@ -12,7 +12,7 @@ namespace leetcode {
 class Solution {
  public:
   
-  int LongestConsecutiveSequence(std::vector<int>& nums) {
+  int LongestConsecutiveSequence(const std::vector<int>& nums) {
     std::unordered_set<int> vertices;
     for (auto num : nums) {
       vertices.insert(num);
@@ -29,8 +29,6 @@ class Solution {
     }
     return length;
   }
- private:
-  std::vector<int> vertices;
   
 };
 
