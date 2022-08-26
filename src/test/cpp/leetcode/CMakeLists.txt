@@ -24,6 +24,51 @@ add_test(NAME 347-top-k-frequent-elements-test
     COMMAND 347-top-k-frequent-elements-test
 )
 
+add_executable(238-product-of-array-except-self-test
+    238-product-of-array-except-self-test.cc
+)
+target_link_libraries(238-product-of-array-except-self-test
+    gtest_main
+    238-product-of-array-except-self
+)
+add_test(NAME 238-product-of-array-except-self-test
+    COMMAND 238-product-of-array-except-self-test
+)
+
+add_executable(36-valid-sudoku-test
+    36-valid-sudoku-test.cc
+)
+target_link_libraries(36-valid-sudoku-test
+    gtest_main
+    36-valid-sudoku
+)
+add_test(NAME 36-valid-sudoku-test
+    COMMAND 36-valid-sudoku-test
+)
+
+add_executable(128-longest-consecutive-sequence-test
+    128-longest-consecutive-sequence-test.cc
+)
+target_link_libraries(128-longest-consecutive-sequence-test
+    gtest_main
+    128-longest-consecutive-sequence
+)
+add_test(NAME 128-longest-consecutive-sequence-test
+    COMMAND 128-longest-consecutive-sequence-test
+)
+
+# Two Pointers
+add_executable(125-valid-palindrome-test
+    125-valid-palindrome-test.cc
+)
+target_link_libraries(125-valid-palindrome-test
+    gtest_main
+    125-valid-palindrome
+)
+add_test(NAME 125-valid-palindrome-test
+    COMMAND 125-valid-palindrome-test
+)
+
 # Graphs
 add_executable(200-number-of-islands-test 200-number-of-islands-test.cc)
 target_link_libraries(200-number-of-islands-test gtest_main 200-number-of-islands)
