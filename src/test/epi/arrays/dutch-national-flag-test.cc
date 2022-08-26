@@ -1,4 +1,4 @@
-#include "src/main/cc/data-structures-and-algorithms/arrays/dutch-national-flag.h"
+#include "src/main/epi/arrays/dutch-national-flag.h"
 
 #include "gtest/gtest.h"
 
