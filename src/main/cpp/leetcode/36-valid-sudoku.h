@@ -15,13 +15,13 @@
 namespace leetcode {
 class Solution {
  public:
-  bool IsValidSudoku(std::vector<std::vector<char>>& board) {
+  bool IsValidSudoku(std::vector<std::vector<char> >& board) {
     
-    std::vector<std::unordered_set<char>> rows(
+    std::vector<std::unordered_set<char> > rows(
         board.size(), std::unordered_set<char>());
-    std::vector<std::unordered_set<char>> cols(
+    std::vector<std::unordered_set<char> > cols(
         board.size(), std::unordered_set<char>());
-    std::vector<std::unordered_set<char>> grid(
+    std::vector<std::unordered_set<char> > grid(
         board.size(), std::unordered_set<char>());
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
@@ -35,7 +35,7 @@ class Solution {
             6 7 8
            */
           int loc = (i/3 * 3) + j/3;
-          bool dup_grid = grid[loc].find(digit) != cols[loc].end();
+          bool dup_grid = grid[loc].find(digit) != grid[loc].end();
           if (dup_row || dup_col || dup_grid) {
             return false;
           }
