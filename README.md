@@ -113,12 +113,17 @@ files.
 [1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java) \
 [1.4 Slider Puzzle](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/EightPuzzle/) \
 [1.5 KdTree](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter3/KdTree/) \
-[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/)
-[2.2 Seam Carving](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/SeamCarver/) 
+[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/) \
+[2.2 Seam Carving](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/SeamCarver/) \
+[2.3 Baseball Elimination](https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php) \
+[2.4 Boggle](https://coursera.cs.princeton.edu/algs4/assignments/boggle/specification.php) \
+[2.5 Burrows-Wheeler](https://coursera.cs.princeton.edu/algs4/assignments/burrows/specification.php)
+
 ## Resources Used
 ### Java
 [Sedgewick - Algorithms, Fourth Edition](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) \
 [Algorithms, Part 1 on Coursera](https://www.coursera.org/learn/algorithms-part1/home/info) \
 [Algorithms, Part 2 on Coursera](https://www.coursera.org/learn/algorithms-part2/home/info)
 ### C++
-[Stroustrup - The C++ Programming Language, Fourth Edition](https://www.amazon.com/C-Programming-Language-4th/dp/0321563840)
+[Stroustrup - The C++ Programming Language, Fourth Edition](https://www.amazon.com/C-Programming-Language-4th/dp/0321563840) \
+[Aziz, Adnan, et al. - Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
