@@ -30,7 +30,9 @@ code in this project. Code is compiled with a C++17 compiler.
 Do the "cmake dance". 
 1. `cmake -S. -Bbuild` to create a separate build folder to isolate generate cmake build
 files. 
-2. `cmake --build build --parallel && ctest --test-dir build --parallel` to compile source and run tests.
+2. `cmake --build build --parallel && ctest --test-dir build --parallel` to compile source and run tests.  
+##### Or My Personal One-Liner
+` cmake -S~/workspace/algorithms -GNinja -B~/workspace/algorithms/build && cmake --build ~/workspace/algorithms/build --parallel 8 && ctest --test_dir ~/workspace/algorithms/build --parallel 8 `
 
 ### Python Code with VirtualEnv
 1. Install [pyenv](https://github.com/pyenv/pyenv#installation) 
@@ -74,7 +76,7 @@ files.
 | Depth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/depth-first-search.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/depth-first-search-test.cpp) |
 | Connected Components | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/connected-components.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/connected-components-test.cpp) |
 | Breadth-First Search | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/undirected/breadth-first-paths.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/undirected/breadth-first-paths-test.cpp) |
-| Directed Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/digraph.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/digraph-test.cpp) |
+| Directed Graph Data Structure | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/digraph.h) | [:heavy_check_mark:](https://gitnhub.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/digraph-test.cpp) |
 | Cycle Detection | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/cycle.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/cycle-test.cpp) |
 | Topological Sort | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/topological-sort.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/topological-sort-test.cpp) |
 | Kosaraju−Sharir | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/main/cpp/graph/directed/kosaraju-sharir.h) | [:heavy_check_mark:](https://github.com/anthonygraca/algorithms/blob/main/src/test/cpp/graph/directed/kosaraju-sharir-test.cpp) |
@@ -101,7 +103,9 @@ files.
 | LZW Compression | | |
 | Burrows−Wheeler Transform | | |
 ### Chapter 6. Context
-Networking: Ford-Fulkerson
+| Topic | C++ | Tests |
+|-------|-----|-------|
+| Networking: Ford-Fulkerson | | | |
 
 ## Coursera Assignments
 [1.1 Percolation](https://github.com/anthonygraca/algorithms/tree/main/src/main/java/io/anthonygraca/princeton/chapter1/percolation) \
@@ -109,7 +113,8 @@ Networking: Ford-Fulkerson
 [1.3 Collinear Points](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/CollinearPoints/FastCollinearPoints.java) \
 [1.4 Slider Puzzle](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter2/EightPuzzle/) \
 [1.5 KdTree](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter3/KdTree/) \
-[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/) 
+[2.1 WordNet](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/WordNet/)
+[2.2 Seam Carving](https://github.com/anthonygraca/algorithms/blob/main/src/main/java/io/anthonygraca/princeton/chapter4/SeamCarver/) 
 ## Resources Used
 ### Java
 [Sedgewick - Algorithms, Fourth Edition](https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X) \
