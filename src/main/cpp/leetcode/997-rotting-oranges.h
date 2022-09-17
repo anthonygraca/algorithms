@@ -7,8 +7,9 @@
 namespace leetcode {
 class Solution {
 public:
-  int orangesRotting(std::vector<std::vector<int>>& grid) {
-    int n = grid.size(); int m = grid[0].size();
+  int orangesRotting(std::vector<std::vector<int> >& grid) {
+    int n = grid.size();
+    int m = (n > 0 ? grid[0].size() : 0);
     
     for(int i = 0; i < n; i++) {
       for (int j = 0; j < m; j++) {
@@ -29,7 +30,7 @@ public:
       }
     }
 
-    return minutes == -1 ? 0 : minutes;
+    return minutes_ == -1 ? 0 : minutes_;
   }
   void bfs(std::vector<std::vector<int>>& grid) {
     while (not q.empty()) {
@@ -51,7 +52,7 @@ public:
         grid[i][j+1] = 2;
       }
       if (last.first == i && last.second == j) {
-        minutes++;
+        minutes_++;
         last = q.back();
       }
 
@@ -59,8 +60,8 @@ public:
   }
 private:
   std::pair<int, int> last;
-  std::queue<std::pair<int, int>> q;
-  int minutes{-1};
+  std::queue<std::pair<int, int> > q;
+  int minutes_ = -1;
 };
 } // namespace leetcode
 #endif
