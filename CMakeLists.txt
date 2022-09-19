@@ -68,6 +68,7 @@ option(TEST "Build all tests." ON)
 include(FetchContent)
 FetchContent_Declare(
   googletest
+  DOWNLOAD_EXTRACT_TIMESTAMP True
   URL https://github.com/google/googletest/archive/e649993a402d96afe25fbf3413749adf0f2947f6.zip
 )
 FetchContent_MakeAvailable(googletest)
