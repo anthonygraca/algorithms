@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter2.KdTree;
+package io.anthonygraca.princeton.chapter3.KdTree;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

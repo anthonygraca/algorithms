@@ -52,6 +52,7 @@ public class WordNet {
 	getSysnetFromEntry(sc.nextLine());
 	m_count++;
       }
+      sc.close();
     }
     catch (FileNotFoundException e) {
       System.out.println("file can't be processed");
@@ -64,6 +65,7 @@ public class WordNet {
       while (sc.hasNextLine()) {
 	getHypernymsFromEntry(sc.nextLine());
       }
+      sc.close();
     } catch (FileNotFoundException e) {
       System.out.println("file can't be processed");
     }

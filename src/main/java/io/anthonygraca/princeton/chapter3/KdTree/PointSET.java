@@ -1,4 +1,4 @@
-package io.anthonygraca.princeton.chapter2.KdTree;
+package io.anthonygraca.princeton.chapter3.KdTree;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
