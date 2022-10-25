@@ -1,6 +1,7 @@
 #ifndef ALGORITHMS_GRAPH_DIRECTED_SHORTEST_PATH_EDGE_H_
 #define ALGORITHMS_GRAPH_DIRECTED_SHORTEST_PATH_EDGE_H_
 
+#include <cmath>
 #include <limits>
 #include <numeric>
 

@@ -1,6 +1,7 @@
 #ifndef ALGORITHMS_PRINCETON_UNDIRECTED_GRAPH_MINIMUM_SPANNING_TREE_EDGE_H_
 #define ALGORITHMS_PRINCETON_UNDIRECTED_GRAPH_MINIMUM_SPANNING_TREE_EDGE_H_
 
+#include <cmath>
 #include <limits>
 #include <numeric>
 #include <stdexcept>

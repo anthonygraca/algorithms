@@ -1,6 +1,7 @@
 #ifndef ALGORITHMS_PRINCETON_SEARCHING_RED_BLACK_TREE_H_
 #define ALGORITHMS_PRINCETON_SEARCHING_RED_BLACK_TREE_H_
 
+#include <stdexcept>
 #include <string>
 
 namespace algorithms {
